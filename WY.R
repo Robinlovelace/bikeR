@@ -44,8 +44,8 @@ ggplot(aes(time, ..density..,), data = acWY@data) + geom_histogram() + geom_dens
 ggsave("figures/cyclist-timings.png")
 
 library(ggmap)
-ggplot() +  geom_point(aes(y = Latitude, x = Longitude, color=Accident_Severity), 
-                       data = acB@data)
+ggplot() +  geom_point(aes(y = Latitude, x = Longitude, color=Road_class), 
+                       data = acWY@data)
 
 ggmap(get_map("Leeds", zoom=16)) +
   geom_point(aes(x = acB$Latitude, y = acB$Longitude))
