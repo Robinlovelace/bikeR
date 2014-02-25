@@ -18,6 +18,7 @@ in rough descending order of importance and ascending order of complexity:
 - ...
 
 # Method
+
 Whilst the application of this research is targetted firmly towards sustainable transport
 planning and evaluation, the methods fit within the field of applied geography and spatial 
 analysis, making the paper inter-disciplinary. As with most applied problems, 
@@ -30,6 +31,14 @@ thus taken from the field of *spatial point pattern analysis*.
 
 This field has applications in many fields, notably ecology and spatial epidemiology, 
 which involves "comparing the spatial distribution of the cases [of disease] to the 
-locations of a set of controls taken at random from the population (Bivand et al. 2013, p. 173)."
-The analogy to cycling is clear: ...
+locations of a set of controls taken at random from the population" (Bivand et al. 2013, p. 173)."
+The analogy to cycling is clear: is the spatial distribution of cycling accidents 
+(equivalent to cases)
+related to certain features on the road network (e.g. roundabouts, junctions),
+or is the distribution randomly allocated to the road network?
+
+A range of statistical techniques falling under the umbrella term *geostatistics*
+
+can be used to investigate such problems and test the hypotheses set out in the 
+introduction 
 
