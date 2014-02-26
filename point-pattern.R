@@ -5,16 +5,18 @@
 ## Start off getting using to spatstat
 library(spatstat)
 library(rgdal)
+library(maptools)
 # see notes from here also http://www.csiro.au/resources/pf16h
 
 set.seed(120109)
 r <- seq(0, sqrt(2)/6, by = 0.005)
 acB1 <- elide(acB, scale = TRUE)
 # acB1 <- acB1[1:50,] # for tiny subset
-acB1 <- SpatialPoints(acB1) # Calculate the G function for the points
+acB1 <- SpatialPoints(acB) # Calculate the G function for the points
 envacB <- envelope(as(acB1, "ppp"), fun = Gest)
 #   , r = r, nrank = 2, nsim = 5) 
-plot(envacB)
+plot(envacB, xlab = "Euclidean distance to nearest neighbour (m)", main="")
+summary(envacB)
 
 acBr <- elide(rsample, scale = T)
 envacBr <- envelope(as(acBr, "ppp"), fun = Gest)
