@@ -24,6 +24,21 @@ head(counties@data)
 YW <- counties[ counties$NAME == "West Yorkshire", ]
 plot(YW)
 
+# convert Time text to chron format
+library(chron)
+ac$time <- as.character(ac$Time)
+ac$time <- paste0(ac$time,":00")
+ac$time <- chron(times = ac$time)
+hist(ac$time)
+
+# same for dates
+head(ac$Date)
+ac$date <- as.character(ac$Date)
+ac$date <- as.Date(ac$date, format="%d/%m/%Y")
+summary(ac$date)
+plot(ac$date[1:1000])
+qplot(ac$date, geom="histogram", binwidth = 30) # ...
+
 summary(ac$Location_Easting_OSGR)
 ac <- ac[-which(is.na(ac$Location_Easting_OSGR)), ]
 ac <- SpatialPoints(coords=matrix(c(ac$Location_Easting_OSGR, ac$Location_Northing_OSGR), ncol=2))

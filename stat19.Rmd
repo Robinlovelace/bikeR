@@ -17,6 +17,10 @@ in rough descending order of importance and ascending order of complexity:
 - How has the spatial and temporal distribution of accidents involving cyclists changed over time?
 - ...
 
+# The data
+
+Major updates to the structure of STATS19 data were made in 1992, when the 
+
 # Method
 
 Whilst the application of this research is targetted firmly towards sustainable transport
