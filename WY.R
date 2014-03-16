@@ -48,7 +48,7 @@ summary(chron(times = acWY$time))
 acWY$time <- chron(times = acWY$time) 
 ggplot(aes(time, ..density..,), data = acWY@data) + geom_histogram() + geom_density() + 
   facet_grid(~ cyclist) + scale_x_chron(format="%H")
-ggsave("figures/cyclist-timings.png", width = 5, height = 5, units = "in", dpi = 100)
+# ggsave("figures/cyclist-timings.png", width = 5, height = 5, units = "in", dpi = 100)
 
 # spatial plotting
 library(ggmap)
@@ -62,7 +62,17 @@ theme_set(theme_bw(16))
 qmap("Leeds", zoom=16, color = "bw") +
 geom_point(aes(x = Longitude, y = Latitude, color=Accident_Severity), 
              data = acWY@data)
-ggsave("figures/city-centre.png.png", width = 400)
+# ggsave("figures/city-centre.png", width = 400)
+
+# lsoas of leeds
+wy <- readOGR("data/", "wy")
+wy <- as(wy, "SpatialPolygons")
+lsoas <- readOGR("/media/SAMSUNG/geodata/2011/", "England_oa_2011_gen_clipped")
+lsoas <- as(lsoas, "SpatialPolygons")
+lsoasWy <- lsoas[wy,]
+plot(lsoasWy)
+plot(wy, add=T)
+rm lsoas 
 
 geocode("Leeds")
 
