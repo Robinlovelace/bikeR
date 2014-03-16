@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>An analysis of STATS19 data</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>An analysis of STATS19 data</h1>
+
+<h1>Research questions</h1>
+
+<p>These questions are inspired by the diverse literature on risk and cycling and guided by 
+knowledge about the STATS19 dataset in terms of the types of research question it can 
+and cannot answer. There are many interesting research questions about risk and cycling that
+STATS19 cannot help answer (e.g. how do drivers&#39; perceptions of cyclists affect the probability
+of collision? and what influence does experience have on the cyclist crashes?) because 
+the variables about which it provides information are quite focussed. However, 
+there are many research questions that <em>can</em> be investigated by STATS19 data that
+are important and remain under-researched using quantitative methods. 
+A selection of some of the most relevant hypotheses to policy makers 
+that can be tackled by analysis of STATS19 data are presented below, 
+in rough descending order of importance and ascending order of complexity:</p>
+
+<ul>
+<li>Is seasonal variability of traffic accidents different for cyclists than for other road users?</li>
+<li>How has the spatial and temporal distribution of accidents involving cyclists changed over time?</li>
+<li>Is there evidence that certain geographic and infrastructure features are especially linked to high rates of cyclist accidents? </li>
+</ul>
+
+<h1>Literature review: previous work on the spatial distribution of cycle accidents</h1>
+
+<h1>Method</h1>
+
+<p>Whilst the application of this research is targetted firmly towards sustainable transport
+planning and evaluation, the methods fit within the field of applied geography and spatial 
+analysis, making the paper inter-disciplinary. As with most applied problems, 
+the method here is firmly routed in the input data, which is spatio-temporal data
+with a range of associated nominal and ordinal characteristics linked to the circumstances
+of the incident and the entities involved. Thus the main tools for analysis, beyond 
+standard tools for statistical analysis of the non spatial data (in the case of 
+comparing accidents involving cyclists with those not involving cyclists&hellip;), are 
+thus taken from the field of <em>spatial point pattern analysis</em>. </p>
+
+<p>This field has applications in many fields, notably ecology and spatial epidemiology, 
+which involves &ldquo;comparing the spatial distribution of the cases [of disease] to the 
+locations of a set of controls taken at random from the population (Bivand et al. 2013, p. 173).&rdquo;
+The analogy to cycling is clear: STATS19 data are reported simply points on the map 
+with attributes. In order to answer the research questions outlined above, we must
+compare this spatial distribution with that expected from the null hypothesis: that 
+accidents involving cyclists are randomly distributed over the road network. </p>
+
+<p>!!! Image here of point pattern.</p>
+
+<p>UK map!!</p>
+
+<h1>Results</h1>
+
+<h2>Basic statistics cycle accidents in the UK</h2>
+
+<p>Over the entire study period, the proportion of accidents involving bicycles rose from xx % in </p>
+
+<h2>The timing of bicycle accidents</h2>
+
+<p>The temporal distribution of bicycle accidents is highly correlated with that of 
+road accidents overall (correlation)</p>
+
+<p>Season</p>
+
+<p>In terms of time of day, bicycle accidents have a &#39;peakier&#39; distribution 
+that all road traffic accidents, with the accident density during the afternoon
+rush hour almost 50% higher for cyclists than non cyclists (fig. x).</p>
+
+<p><img src="data:image/png;base64,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" alt="timing of cyclist accidents"/></p>
+
+<h2>Spatial statistics</h2>
+
+<h2>Point-line analysis</h2>
+
+<h2>Aspatial characteristics of cycle accidents (vs other roads accs)</h2>
+
+<h2>Spatial relationships</h2>
+
+<h1>Discussion and conclusions</h1>
+
+<h1>References</h1>
+
+<p>Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC region: The role of bicycle parking, cyclist showers, and free car parking at work. Transportation Research Part D: Transport and Environment, 17(7), 525–531.</p>
+
+<p>Parkin, J., Wardman, M., &amp; Page, M. (2008). Estimation of the determinants of bicycle mode share for the journey to work using census data. Transportation, 35(1), 93–109. doi:10.1007/s11116-007-9137-5</p>
+
+<p>Vandenbulcke, G., Thomas, I., de Geus, B., Degraeuwe, B., Torfs, R., Meeusen, R., &amp; Int Panis, L. (2009). Mapping bicycle use and the risk of accidents for commuters who cycle to work in Belgium. Transport Policy, 16(2), 77–87. doi:10.1016/j.tranpol.2009.03.004</p>
+
+</body>
+
+</html>
+

@@ -6,7 +6,9 @@ load("WYall.RData")
 
 bikes <- vtWY$Acc_Index[ vtWY$Vehicle_Type == 1]
 acB <- acWY[ acWY$Accident_Index %in% bikes, ]
+vtB <- vtWY[ vtWY$Acc_Index %in% bikes, ]
 caB <- caWY[ caWY$Acc_Index %in% bikes, ]
+
 
 plot(acWY)
 plot(acB, col="red", add=T)
@@ -26,7 +28,11 @@ acWY$Road_class <- factor( acWY$X1st_Road_Class, levels = 1:6,
 head(acWY$Road_class)
 qplot(Road_class, data=acWY@data) 
 p <- ggplot(aes(Road_class), data = acWY@data) + geom_bar()
-p + facet_grid(~ cyclist, scales="free")
+p + facet_grid(cyclist ~., scales="free")
+
+### Now display this data as a table
+library(dplyr)
+??dplyr
 
 ### Timing of accident
 summary(acWY$Time)
@@ -35,6 +41,7 @@ acWY$time <- as.character(acWY$Time)
 summary(acWY$time)
 head(acWY$time)
 acWY$time <- paste0(acWY$time,":00")
+
 # acWY$time <- as.POSIXct(acWY$time, format = "%H:%M") # works but...
 library(chron)
 summary(chron(times = acWY$time))
@@ -43,6 +50,7 @@ ggplot(aes(time, ..density..,), data = acWY@data) + geom_histogram() + geom_dens
   facet_grid(~ cyclist) + scale_x_chron(format="%H")
 ggsave("figures/cyclist-timings.png", width = 5, height = 5, units = "in", dpi = 100)
 
+# spatial plotting
 library(ggmap)
 ggplot() +  geom_point(aes(y = Latitude, x = Longitude, color=Road_class), 
                        data = acWY@data)

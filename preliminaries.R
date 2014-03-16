@@ -31,6 +31,9 @@ proj4string(ac) <- proj4string(YW)
 acWY <- ac[YW,]
 plot(acWY)
 acWY$Date[sample(1:nrow(acWY), size=50)]
+
+## Extract dates from data
+acWY
 object.size(acWY)/1000000
 object.size(ac)/1000000
 vtWY <- vt[ vt$Acc_Index %in% acWY$Accident_Index, ]
