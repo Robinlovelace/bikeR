@@ -1,0 +1,44 @@
+# Adding factors
+```{r}
+load("../geodata/WYall.RData")
+
+# Compare bike crashes with others + generalise results
+
+bikes <- vtWY$Acc_Index[ vtWY$Vehicle_Type == 1]
+acB <- acWY[ acWY$Accident_Index %in% bikes, ]
+vtB <- vtWY[ vtWY$Acc_Index %in% bikes, ]
+caB <- caWY[ caWY$Acc_Index %in% bikes, ]
+
+
+plot(acWY)
+plot(acB, col="red", add=T)
+
+library(XLConnect)
+library(rJava)
+wb <- loadWorkbook("../Road-Accident-Safety-Data-Guide-1979-2004.xls" )
+wb <- readWorksheet(wb, sheet = getSheets(wb))
+names(wb)  <- sub(" ", ".", names(wb))
+names(wb)  <- sub(" ", ".", names(wb))
+names(wb)  <- sub("1", ".", names(wb))
+names(wb)
+
+
+# Let's see which data need to become factors (1st for cyclists in WY, then everywhere):
+# summary(ac)
+acB$Accident_Sf <- factor(acB$Accident_Severity, labels = wb$Accident.Severity$label)
+plot(acB$Accident_Sf)
+summary(acB$Accident_Sf)
+
+# Police force
+summary(acB$Police_Force)
+acB$Police_Ff <- factor(acB$Police_Force, labels = wb$Police.Force$label[1]) # Not tested on full dataset
+summary(acB$Police_Ff)
+plot(acB$Police_Ff)
+
+head(wb$.st.Road.Class)
+summary(acB$X1st_Road_Class)
+acB$X1st_Road_Cf <- factor(acB$X1st_Road_Class, labels = wb$.st.Road.Class$label)
+summary(acB$X1st_Road_Cf)
+plot(acB$X1st_Road_Cf)
+
+```
