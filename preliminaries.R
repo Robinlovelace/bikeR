@@ -1,7 +1,10 @@
 # Load and explore
-ac <- read.csv("Accidents0512.csv")
-vt <- read.csv("Vehicles0512.csv")
-ca <- read.csv("Casualty0512.csv")
+ac <- read.csv("stats19data/Accidents0512.csv")
+vt <- read.csv("stats19data/Vehicles0512.csv")
+ca <- read.csv("stats19data/Casualty0512.csv") # casualties
+
+# First task: add factors
+# source("Rcode/addFactors.R") 
 
 # Preliminary analysis
 length(unique(vt$Acc_Index))
