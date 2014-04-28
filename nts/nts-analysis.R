@@ -108,3 +108,55 @@ qplot(data = df2050, x = Year, y = prop.cycle, color = model) + ylab("Percentage
 ggsave("~/Dropbox/DutchBikes/figures/ntm-out.png")
 
 
+# the logistic growth model
+k = 27
+B = 1.7
+r = 0.15
+time = 0:35
+lgrowth <- (B * k * exp(r * time)) / (k + B * (exp( r * time) - 1) ) 
+plot(lgrowth)
+lgrowth <- data.frame(Year = time + 2015, prop.cycle = lgrowth, model = "Logistic")
+
+# redo colors, plot
+myColors <- c(brewer.pal(4,"Set1"), "black")
+names(myColors) <- c("Current rate", "Needed rate", "10 yr doubling", "DfT's NTM", "Logistic")
+colScale <- scale_colour_manual(name = "Model",values = myColors)
+
+df2050 <- rbind(df2050, lgrowth)
+ggplot() + geom_point(data = df2050, aes(x = Year, y = prop.cycle, color = model)) + ylab("Percentage of trips by bicycle") +
+  theme_bw() + colScale
+ggsave("~/Dropbox/DutchBikes/figures/logistic.png")
+
+## histogram of travel distance
+nt <- ntstrips[ntstrips$jdungross < 500, ]
+nt <- nt[-which(grepl("Other|Non|Tax|Mot|Lond|LT", nt$j36a)), ]
+summary(nt$j36a)
+nt$j36a <- factor(nt$j36a)
+nt$x <- nt$jdungross / 10
+# qplot(nt$jdungross, geom='blank') + geom_histogram() +  
+#   stat_function(fun = dnorm)
+# 
+# p0 = qplot(data = nt, x = x, geom = 'blank') +   
+#   geom_line(aes(y = ..density.., colour = 'Gaussian'), stat = 'density', adjust = 5, kernel = "gaussian") +  
+#   geom_line(aes(y = ..density.., colour = 'Biweight'), stat = 'density', adjust = 5, kernel = "b") +
+#   geom_histogram(aes(y = ..density..), alpha = 0.4) +                        
+#   scale_colour_manual(name = 'Density', values = c('red', 'blue'))  + 
+# #   opts(legend.position = c(0.85, 0.85)) +
+#   facet_wrap(. ~ nt$j36a)
+# print(p0)
+# 
+# ggplot(data=nt, aes(x = x)) + geom_histogram() +
+#   geom_line(aes(y = ..density..)) + facet_wrap()
+ggplot(nt, aes(x=x)) + geom_histogram() + theme_bw() + xlab("Distance (miles)")
+ggsave("~/Dropbox/DutchBikes/figures/hist-raw.png")
+ggplot(nt, aes(x=x)) + geom_histogram(aes(y = ..density..)) + geom_density(adjust = 10) + theme_bw() + xlab("Distance (miles)")
+ggsave("~/Dropbox/DutchBikes/figures/hist-raw-kern.png")
+
+ggplot(nt, aes(x=x, fill=j36a)) + geom_histogram() + theme_bw() + xlab("Distance (miles)")
+ggsave("~/Dropbox/DutchBikes/figures/hist-color.png")
+ggplot(nt, aes(x=x, fill=j36a)) + geom_density(alpha=.3, adjust = 10) +coord_cartesian(ylim=c(0, 0.4)) + theme_bw() + xlab("Distance (miles)")
+ggsave("~/Dropbox/DutchBikes/figures/hist-overlay.png")
+
+summary(nt$j36a)
+barplot(summary(nt$j36a))
+
