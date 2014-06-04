@@ -64,19 +64,15 @@ geom_point(aes(x = Longitude, y = Latitude, color=Accident_Severity),
              data = acWY@data)
 # ggsave("figures/city-centre.png", width = 400)
 
-# lsoas of leeds
-wy <- readOGR("data/", "wy")
-wy <- as(wy, "SpatialPolygons")
-lsoas <- readOGR("/media/SAMSUNG/geodata/2011/", "England_oa_2011_gen_clipped")
-lsoas <- as(lsoas, "SpatialPolygons")
-lsoasWy <- lsoas[wy,]
-plot(lsoasWy)
-plot(wy, add=T)
-rm lsoas 
+# # lsoas of leeds
+# wy <- readOGR("data/", "wy")
+# wy <- as(wy, "SpatialPolygons")
+# lsoas <- readOGR("/media/SAMSUNG/geodata/2011/", "England_oa_2011_gen_clipped")
+# lsoas <- as(lsoas, "SpatialPolygons")
+# lsoasWy <- lsoas[wy,]
+# plot(lsoasWy)
+# plot(wy, add=T)
 
-geocode("Leeds")
-
-ggplot()
 
 
 

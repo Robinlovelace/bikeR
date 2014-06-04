@@ -1,14 +1,38 @@
 # An analysis of STATS19 data
 
+## Abstract
+
+There has been much recent interest in the factors influencing cycle safety.
+Within this broad topic, international differences in accident
+and mortality rates, protective equipment and bicycle training have
+received particular attention. Within this reseach body there
+is a growing interest in environmental factors, but few studies have
+focussed on geographical factors at the local level.
+This paper addresses this research gap by analysing a geo-referenced
+dataset of bicycle accidents, taken from the UK's STATS19 dataset
+(2005 - 2013). To enable detailed analysis at the local level,
+Yorkshire and the Humber was selected as the study area, which has
+a low rate of cycling overall, but high rates of cycling in the cities
+of York and Hull.
+Descriptive statistics and statistical tests are used to identify
+the characteristic features of bicycle incidents and how they
+differ, on average, from other road traffic accidents.
+Spatial statistics are used to characterise the
+distribution of injuries to cyclists, allowing inferences about
+the relative risks associated with various geographically distributed
+features such as roundabouts, junctions, one-way streets, speed limits and cycle paths.
+Temporal analysis identifies how these geographical risk factors intersect
+with time of day, week and season. Overall we provide evidence to suggest
+local-level geographical factors do play an important role in cycle safety
+and suggestions of how such data could be used to increase cycle safety nationwide.
+
 # Research questions
-These questions are inspired by the diverse literature on risk and cycling and guided by 
-knowledge about the STATS19 dataset in terms of the types of research question it can 
-and cannot answer. There are many interesting research questions about risk and cycling that
+The research is based on the diverse literature on risk and cycling and guided by 
+knowledge about the information contained within the STATS19 dataset.
+There are many interesting research questions about risk and cycling that
 STATS19 cannot help answer (e.g. how do drivers' perceptions of cyclists affect the probability
-of collision? and what influence does experience have on the cyclist crashes?) because 
-the variables about which it provides information are quite focussed. However, 
-there are many research questions that *can* be investigated by STATS19 data that
-are important and remain under-researched using quantitative methods. 
+of collision? and what influence does experience have on the cyclist crashes?).
+The variables about which STATS19 provides insight are quite.
 A selection of some of the most relevant hypotheses to policy makers 
 that can be tackled by analysis of STATS19 data are presented below, 
 in rough descending order of importance and ascending order of complexity:
@@ -21,13 +45,35 @@ in rough descending order of importance and ascending order of complexity:
 
 # The data
 
-Major updates to the structure of STATS19 data were made in 1992, when the 
+The dataset for this study is the National STATS19 data on road traffic incidents.
+The data reports all incidents that took place between the 1st January 2005 until the 31st
+December 2012, providing 8 years of uninterrupted data.
+The structure of the raw dataset is itself quite complicated, divided into three main
+files: 
+
+- Accidents0512.csv, a 178 Mb file containing 1.3 million rows of data on the key attributes of each
+incident, including time and data, location (Easting and Northing is 
+provided in OSGB1936 coordinates to the nearest 1 m,
+but rounded to the nearest 10 m in most cases), road type and other contextual variables
+such as weather.
+- Casualty0512.csv, a 74 Mb file containing 1.8 million rows on the attributes of casualties from
+the incidents. These include reference to the vehicle, accident and socio-demographic
+information about those injured.
+- Vehicles0512.csv, a 142 Mb file containing 2.5 million rows of
+data about the registered vehicles involved
+in the incidents. Variables include vehicle type and other vehicle attributes demographic
+details of the driver.
+
+<!--Major updates to the structure of STATS19 data were made in 1992, when the-->
+The variables of particular use for this study are summarised in Table xx below.
+Henceforth, variables from these key variables will be referred to in the short form
+allocated to them.
 
 # Method
 
 Whilst the application of this research is targetted firmly towards sustainable transport
 planning and evaluation, the methods fit within the field of applied geography and spatial 
-analysis, making the paper inter-disciplinary. As with most applied problems, 
+analysis. As with most applied problems, 
 the method here is firmly routed in the input data, which is spatio-temporal data
 with a range of associated nominal and ordinal characteristics linked to the circumstances
 of the incident and the entities involved. Thus the main tools for analysis, beyond 
@@ -76,22 +122,47 @@ of points.
 
 # Results
 
-## Basic statistics cycle accidents in the UK
+## Basic statistics cycle accidents in South Yorkshire
 
-Over the entire study period, the proportion of accidents involving bicycles rose from xx % in 
+Over the entire study period, the proportion of accidents involving cyclists was 8.1%,
+below the national average of 10.4%.
+These figure mask great variability in time and space.
+
+The most startling temporal trend in the data
+was the near-continuous increase in the proportion of
+incidents involving cyclists in West Yorkshire (Figure x).
+Between 2005 and 2012, the proportion of reports involving
+cyclists increased, from 6% to just over 10% of all incidents.
+This trend mirrors the
+national data and may be accounted for by increased uptake of cycling compared
+with stagnating or declining distance travelled by other modes.
+
+There was clear seasonal pattern in the data, with a
+predominance of bicycle incidents during the
+summer months, presumably due to the increased uptake of cycling in
+warm and sunny weather (ref).
+Dividing the year into 4 quarters, it was found that the summer months
+(from April until September) were associated with a relatively high proportion
+of incidents involving cyclists (10.1% on average),
+compared with the colder half of the year (6.4%).
+
+
+![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-1.png) 
+
 
 ## The timing of bicycle accidents
 
 The temporal distribution of bicycle accidents is highly correlated with that of 
-road accidents overall (correlation)
-
-# Season
-
-In terms of time of day, bicycle accidents have a 'peakier' distribution 
+road accidents overall (correlation).
+However, bicycle accidents have a much 'peakier' distribution 
 that all road traffic accidents, with the accident density during the afternoon
 rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 ![timing of cyclist accidents](figures/cyclist-timings.png)
+
+# Season
+
+
 
 
 ## Spatial statistics

@@ -1,7 +1,7 @@
 # Load and explore
-ac <- read.csv("stats19data/Accidents0512.csv")
-vt <- read.csv("stats19data/Vehicles0512.csv")
-ca <- read.csv("stats19data/Casualty0512.csv") # casualties
+ac <- read.csv("Accidents0512.csv")
+vt <- read.csv("Vehicles0512.csv")
+ca <- read.csv("Casualty0512.csv") # casualties
 
 # First task: add factors
 # source("Rcode/addFactors.R") 
@@ -18,6 +18,11 @@ cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
 cyVt <- vt[ vt$Acc_Index %in% cyCodes, ]
 head(cyVt)
 plot(cyAc$Location_Easting_OSGR, cyAc$Location_Northing_OSGR)
+names(cyAc)
+cyAc.mini <- cyAc[c(2,3,6,7,10)]
+object.size(cyAc.mini) / 1000000
+head(cyAc.mini)
+save(cyAc.mini, file="/media//SAMSUNG/repos/osm-cycle/cy-uptake/updata/cyAc.mini.STATS19.RData")
 
 # Subset to Leeds area, then save and play
 library(rgdal)
@@ -44,9 +49,10 @@ qplot(ac$date, geom="histogram", binwidth = 30) # ...
 
 summary(ac$Location_Easting_OSGR)
 ac <- ac[-which(is.na(ac$Location_Easting_OSGR)), ]
-ac <- SpatialPoints(coords=matrix(c(ac$Location_Easting_OSGR, ac$Location_Northing_OSGR), ncol=2))
+ac <- SpatialPointsDataFrame(coords=matrix(c(ac$Location_Easting_OSGR, ac$Location_Northing_OSGR), ncol=2), data=ac)
 proj4string(ac) <- proj4string(YW)
 acWY <- ac[YW,]
+head(acWY@data)
 plot(acWY)
 acWY$Date[sample(1:nrow(acWY), size=50)]
 
