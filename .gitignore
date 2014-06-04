@@ -1,8 +1,10 @@
 .Rproj.user
 .Rhistory
-.RData
+*RData*
 *.csv
 exclude/
 *.html
+*.docx
+*.pdf
 stats19data/
 setuptools-3.4.1.zip
