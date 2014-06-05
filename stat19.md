@@ -1,4 +1,4 @@
-# An analysis of STATS19 data
+# Social and geographical factors linked with bicycle incidents: a case study of West Yorkshire
 
 ## Abstract
 
@@ -10,13 +10,13 @@ is a growing interest in environmental factors, but few studies have
 focussed on geographical factors at the local level.
 This paper addresses this research gap by analysing a geo-referenced
 dataset of bicycle accidents, taken from the UK's STATS19 dataset
-(2005 - 2013). To enable detailed analysis at the local level,
-Yorkshire and the Humber was selected as the study area, which has
-a low rate of cycling overall, but high rates of cycling in the cities
-of York and Hull.
+(2005 - 2012). We investigate incidents involving cyclists
+within the case study area of West Yorkshire, an area that
+has a historically low cycling rate but very high ambitions
+following investment to promote cycling in the area.
 Descriptive statistics and statistical tests are used to identify
 the characteristic features of bicycle incidents and how they
-differ, on average, from other road traffic accidents.
+differ, on average, from other types of crashes.
 Spatial statistics are used to characterise the
 distribution of injuries to cyclists, allowing inferences about
 the relative risks associated with various geographically distributed
@@ -24,9 +24,44 @@ features such as roundabouts, junctions, one-way streets, speed limits and cycle
 Temporal analysis identifies how these geographical risk factors intersect
 with time of day, week and season. Overall we provide evidence to suggest
 local-level geographical factors do play an important role in cycle safety
-and suggestions of how such data could be used to increase cycle safety nationwide.
+and provide suggestions of how to increase cycle safety and uptake nationwide.
 
-# Research questions
+# Introduction
+
+West Yorkshire is not an area associated with cycling.
+Although the cities of York and Hull have traditionally high rates of
+cycling, Leeds and Bradford have historically low levels of active travel 
+and heavily car orientated urban plans.
+In recent years there have been efforts to ammend this situation,
+and even calls for Leeds (traditionally known as the 'Motorway city')
+to become a 'cycling city'. This aspiration received a boost with the
+publication of 2011 census data showing that Leeds has seen cycling
+grow substantially (by 0.5 percentage points), from 1.4% to 1.9% in 2011.
+To put this growth in the national context,
+Leeds ranks 34th out of all 324 Enlgish Local Authorities
+in terms of cycling and 13th when London is excluded.
+In terms of Northern cities, Leeds has seen the fourth
+greatest shift to cycling, trailing only Newcastle, Manchester and Sheffield.
+Unfortunately, cycling has declined in the other Local Authorities within
+West Yorkshire, leading to a highly uneven spatial distribution of
+cycling across the county (figure 1).
+
+West Yorkshire is a metropolitan county containing almost 1 million inhabitants
+() in an area of xx km2. It thus has a relatively high population density of xx people
+per km2, unevenly distributed between the 5 Local Authorities of
+Leeds, Bradford, Wakefield, Calderdale and Kirklees that make up the area.
+The vast majority of the population is urban, although West Yorksire
+also contains tracts of countryside in the form of the Yorkshire Dales to the North
+and the
+majority of Calderdale and Kirklees to the West (figure 1).
+
+![Overview of the study area](figure/unnamed-chunk-1.png) 
+
+
+- Tour de France
+- Targets for 10% of trips to be by bike following City Connect (WYCA)
+
+## Research questions
 The research is based on the diverse literature on risk and cycling and guided by 
 knowledge about the information contained within the STATS19 dataset.
 There are many interesting research questions about risk and cycling that
@@ -40,14 +75,18 @@ in rough descending order of importance and ascending order of complexity:
 - Is seasonal variability of traffic accidents different for cyclists than for other road users?
 - How has the spatial and temporal distribution of accidents involving cyclists changed over time?
 - Is there evidence that certain geographic and infrastructure features are especially linked to high rates of cyclist accidents? 
+- Is there any evidence to support the 'strength in numbers' hypothesis, that it will be
+relatively safer to cycle in areas with a large number of commuters?
 
-# Literature review: previous work on the spatial distribution of cycle accidents
+
+
+## Literature review: the spatial distribution of cycle accidents
 
 # The data
 
 The dataset for this study is the National STATS19 data on road traffic incidents.
 The data reports all incidents that took place between the 1st January 2005 until the 31st
-December 2012, providing 8 years of uninterrupted data.
+December 2012, providing 8 years of uninterrupted records.
 The structure of the raw dataset is itself quite complicated, divided into three main
 files: 
 
@@ -65,9 +104,13 @@ in the incidents. Variables include vehicle type and other vehicle attributes de
 details of the driver.
 
 <!--Major updates to the structure of STATS19 data were made in 1992, when the-->
+
 The variables of particular use for this study are summarised in Table xx below.
 Henceforth, variables from these key variables will be referred to in the short form
 allocated to them.
+
+In terms of geographic data, the bulk of the analysis was conducted only on
+accidents that occured within the case study zone of West Yorkshire (fig. x).
 
 # Method
 
@@ -147,7 +190,7 @@ of incidents involving cyclists (10.1% on average),
 compared with the colder half of the year (6.4%).
 
 
-![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-1.png) 
+![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-2.png) 
 
 
 ## The timing of bicycle accidents
@@ -185,3 +228,14 @@ Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC regi
 Parkin, J., Wardman, M., & Page, M. (2008). Estimation of the determinants of bicycle mode share for the journey to work using census data. Transportation, 35(1), 93–109. doi:10.1007/s11116-007-9137-5
 
 Vandenbulcke, G., Thomas, I., de Geus, B., Degraeuwe, B., Torfs, R., Meeusen, R., & Int Panis, L. (2009). Mapping bicycle use and the risk of accidents for commuters who cycle to work in Belgium. Transport Policy, 16(2), 77–87. doi:10.1016/j.tranpol.2009.03.004
+
+## comments
+
+```r
+# data for lsoas from here https://www.nomisweb.co.uk/census/2011/qs701ew
+# From abstract 'City Connect', a dedicated cycle path between Leeds and
+# Bradford is at the forefront of this investment, and is associated with
+# quantitative targets on both bicycle uptake and safety.
+```
+
+

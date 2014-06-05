@@ -64,6 +64,19 @@ geom_point(aes(x = Longitude, y = Latitude, color=Accident_Severity),
              data = acWY@data)
 # ggsave("figures/city-centre.png", width = 400)
 
+## msoa-level ploting
+x <- c("rgdal", "ggplot2", "rgeos", "dplyr")
+lapply(x, require, character.only=T)
+msoas <- readOGR("geodata/", "WY-msoa")
+head(msoas@data)
+msoa.data <- read.csv("geodata/msoasBike.csv") # 2011 ttw
+head(msoa.data[1:3])
+names(msoa.data)
+summary(msoas@data$CODE %in% msoa.data$CODE)
+msoas@data <- merge(msoas@data, msoa.data, by="CODE", all.x=T)
+head(msoas@data)
+writeOGR(msoas, "geodata/", "msoasBike", "ESRI Shapefile")
+
 # # lsoas of leeds
 # wy <- readOGR("data/", "wy")
 # wy <- as(wy, "SpatialPolygons")
