@@ -1,4 +1,21 @@
+# The shifting social geographical distribution of road safety for cyclists: a case study of West Yorkshire
+
+```{r, echo=FALSE}
 # Social and geographical factors linked with bicycle incidents: a case study of West Yorkshire
+# TODO RL: find correlation between growth in rate of accidents and rate of cycle to work
+# TODO RL: estimate exposures from Census and NTS data
+# TODO IK: writing; add references yet to be included
+```
+
+References to include:
+
+- ([Schepers, 2012](http://injuryprevention.bmj.com/content/18/4/240.abstract))
+- (Elvik et al., 2009)
+- ([Short and Caulfield, 2014](http://www.sciencedirect.com/science/article/pii/S0967070X14000699))
+- ([Wegman et al., 2012](http://www.sciencedirect.com/science/article/pii/S0001457510003416))
+- ([Parkin et al., 2007](http://www.sciencedirect.com/science/article/pii/S0001457506001473))
+
+
 
 ## Abstract
 
@@ -65,27 +82,69 @@ img <- readPNG("figures/wy-overview.png")
 
 - Tour de France
 - Targets for 10% of trips to be by bike following City Connect (WYCA)
+- Definition of a crash as something reported in the STAT19 dataset. What is this specifically?
 
-## Research questions
-The research is based on the diverse literature on risk and cycling and guided by 
-knowledge about the information contained within the STATS19 dataset.
-There are many interesting research questions about risk and cycling that
-STATS19 cannot help answer (e.g. how do drivers' perceptions of cyclists affect the probability
-of collision? and what influence does experience have on the cyclist crashes?).
-The variables about which STATS19 provides insight are quite.
-A selection of some of the most relevant hypotheses to policy makers 
-that can be tackled by analysis of STATS19 data are presented below, 
-in rough descending order of importance and ascending order of complexity:
+In terms of geographical research into cycling, there has been much work on the
+factors associated with the prevelance of bicycle use (e.g.
+[Buehler](http://www.mautc.psu.edu/docs/VT-2009-05.pdf)). Much less has been written
+on the determinants of crashes involving cyclists and cyclist's fear of using the road.
+These are important oversights because safety concerns have been found to be
+the predominant cycling deterrent
+([Fishman et al., 2012](http://linkinghub.elsevier.com/retrieve/pii/S1369847812000733);
+ref Ann Jopson on this...). Thus it is fear of poor
+health via accidents which, perversly, prevents cyclists
+from enjoying the health benefits of cycling: health benefits
+are consistently found to outweigh the costs of cycling,
+especially for elderly people who benefit disproportionately from cycling
+(ref...)
 
-- Is seasonal variability of traffic accidents different for cyclists than for other road users?
-- How has the spatial and temporal distribution of accidents involving cyclists changed over time?
-- Is there evidence that certain geographic and infrastructure features are especially linked to high rates of cyclist accidents? 
-- Is there any evidence to support the 'strength in numbers' hypothesis, that it will be
-relatively safer to cycle in areas with a large number of commuters?
+## Hypotheses
+
+The hypotheses tested in this project were based on the
+literature on cyclist safety and fall into three broad
+categories: who, where and when.
+
+A conceptual framework for developing hypotheses and
+inteventions around road safety was provided by 
+Schepers et al. ([2014](http://www.sciencedirect.com/science/article/pii/S0001457513001309))...
+
+### Who is most at risk from cycle incidents?
+
+- Young adults (below 30) and the elderly (over 65) will be more likely to crash
+([Martinez-Ruiz et al., 2014](http://www.sciencedirect.com/science/article/pii/S0001457513004089).
+We expected this trend to be stronger in more challenging cycling environments, on large roads.
+
+### Where are crashes most likely to happen?
+
+- We expected unusual and challenging features of
+urban infrastructure to be associated with higher than average rate of
+cycling than the rest of the road network. Following
+([Vandenbulcke et al., 2014](http://www.sciencedirect.com/science/article/pii/S0001457513002686),
+we specifically expected clusters of incidents
+surrounding on-road tram tracks, bridges without cycling facilities,
+complex intersections and areas with a high traffic volume.
+Also based on this work, we expected cycle infrastructure to reduce risk.
+- 
+
+### When are bicycle crashes most likely
+
+- We expect absolute levels of cycle incidents to have remained steady
+over time, in line with statistics on the number bicycle commuters
+in West Yorkshire overall.
+- However, areas with the highest rates of cycling were expected to have
+the lowest incident rate per
+unit exposure. This is based on 'strength in numbers', hypothesis that it will be
+relatively safer to cycle in areas with a large number of commuters. This hypothesis
+has received empirical support from the geographical literature on the subject
+([Vandenbulcke et al., 2009](http://linkinghub.elsevier.com/retrieve/pii/S0967070X09000407)).
+- Seasonal variability of traffic accidents for cyclists was expected
+be different than for other road users, due
+to the disproportionate impact of poor road conditions and visibility (ref).
+- The diurnal distribution of incidents was expected to
+be different for cyclists than for other road users ([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)). Explanation? ...
 
 
-
-## Literature review: the spatial distribution of cycle accidents
+<!--## Literature review: the spatial distribution of cycle accidents-->
 
 # The data
 
@@ -119,54 +178,27 @@ accidents that occured within the case study zone of West Yorkshire (fig. x).
 
 # Method
 
-Whilst the application of this research is targetted firmly towards sustainable transport
-planning and evaluation, the methods fit within the field of applied geography and spatial 
-analysis. As with most applied problems, 
-the method here is firmly routed in the input data, which is spatio-temporal data
-with a range of associated nominal and ordinal characteristics linked to the circumstances
-of the incident and the entities involved. Thus the main tools for analysis, beyond 
-standard tools for statistical analysis of the non spatial data (in the case of 
-comparing accidents involving cyclists with those not involving cyclists...), are 
-thus taken from the field of *spatial point pattern analysis*. 
+The analysis strategy was based on consideration of the
+data and the hypotheses we were aiming to test.
 
-This field has applications in many fields, notably ecology and spatial epidemiology, 
-which involves "comparing the spatial distribution of the cases [of disease] to the 
-locations of a set of controls taken at random from the population" (Bivand et al. 2013, p. 173)."
-The analogy to cycling is clear: is the spatial distribution of cycling accidents 
-(equivalent to cases)
-related to certain features on the road network (e.g. roundabouts, junctions),
-or is the distribution randomly allocated to the road network?
+## Estimating exposure
+A major methodological challenge faced by anyone
+trying to draw conclusions from road incident data
+is that the underlying level of exposure is usually unknown.
+Therefore, researchers can rarely tell if increases
+in crashes are due to change in the riskiness of an
+activity or whether simple increases in exposure - in
+this case an increase in cycle use in particular areas -
+is to blame.
 
-A range of statistical techniques falling under the umbrella term *geostatistics*
-\citep{diggle2007model}
-can be used to investigate such problems and test hypotheses, such as those set out in the 
-introduction. The geostatistical methods used in this paper are all implemented in the free
-and open source statistical programming environment R, to allow the findings to be verified 
-and reproducible by others. The provision of code used for the analysis should also 
-allow others to build on the methods presented here for better understanding the 
-spatial distribution of road traffic accidents and related phenomena. As mentioned in 
-the introduction ... the STATS19 dataset has been made available to the public by the 
-UK government in the hope that it will help raise awareness of accident hotspots for the greater good. 
-In the same spirit, it is hoped that 
-the provision of reproducible code in this project will also act in the public interest, by making
-importing, analysing and interpreting the datasets more accessible.
+The method used to estimate exposure varied depending on
+the hypothesis being tested by a particular technique.
 
-The spatial statistical techniques used to analyse the data (further described and implemented in 
-Section ...) are as follows:
+```{r, echo=F}
 
-- The *G Function* is a description of the average distances between points and their nearest 
-neighbours. It is a cumulative function of distance, displaying the proportion of points that
-have a nearest neighbour within *r* (short for radius) units of distance from itself. 
-It is a relatively simple and commonly used
-technique for point pattern analysis and is defined mathematically follows (Bivand et al. 2013):
-$$ G(r) = \frac{ \# \{d_i : d_i \leq r, \forall i \} }{n} $$
-*G(r)* is the value for any particular distance, *#* means 'count', 
-$d_i$ refers to the minimum distanc to the nearest neighbour for each point, $i$ and 
-$\forall$ means 'for all points'. By dividing by the total number of points, the 
-G function always starts at 0 (unless there are overlapping points) and ends at 1 as $r$
-increases from the minimum to the maximum distances between points. As we shall see in 
-the results section, the resulting graphic can provide much insight into the spatial clustering 
-of points.
+```
+
+
 
 # Results
 
@@ -220,7 +252,7 @@ rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 ## Spatial statistics
 
-![gfun1](figures/gfun1.png)
+<!--![gfun1](figures/gfun1.png)-->
 
 ## Point-line analysis
 
@@ -235,9 +267,25 @@ rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC region: The role of bicycle parking, cyclist showers, and free car parking at work. Transportation Research Part D: Transport and Environment, 17(7), 525–531.
 
-Parkin, J., Wardman, M., & Page, M. (2008). Estimation of the determinants of bicycle mode share for the journey to work using census data. Transportation, 35(1), 93–109. doi:10.1007/s11116-007-9137-5
+Elvik, R., Vaa, T., Erke, A., & Sorensen, M. (2009). The handbook of road safety measures. Emerald Group Publishing.
+
+Fishman, E., Washington, S., & Haworth, N. (2012). Barriers and facilitators to public bicycle scheme use: A qualitative approach. Transportation Research Part F: Traffic Psychology and Behaviour, 15(6), 686–698. doi:10.1016/j.trf.2012.08.002
+
+Martínez-Ruiz, V., Jiménez-Mejías, E., Luna-del-Castillo, J. D. D., García-Martín, M., Jiménez-Moleón, J. J., & Lardelli-Claret, P. (2014). Association of cyclists’ age and sex with risk of involvement in a crash before and after adjustment for cycling exposure. Accident; Analysis and Prevention, 62, 259–67. doi:10.1016/j.aap.2013.10.011
+
+Parkin, J., Wardman, M., & Page, M. (2007). Models of perceived cycling risk and route acceptability. Accident; Analysis and Prevention, 39(2), 364–71. doi:10.1016/j.aap.2006.08.007
+
+Schepers, P., Hagenzieker, M., Methorst, R., van Wee, B., & Wegman, F. (2014). A conceptual framework for road safety and mobility applied to cycling safety. Accident; Analysis and Prevention, 62, 331–40. doi:10.1016/j.aap.2013.03.032
+
+Short, J., & Caulfield, B. (2014). The safety challenge of increased cycling. Transport Policy, 33, 154–165. doi:10.1016/j.tranpol.2014.03.003
+
+Twisk, D. a M., & Reurings, M. (2013). An epidemiological study of the risk of cycling in the dark: the role of visual perception, conspicuity and alcohol use. Accident; Analysis and Prevention, 60, 134–40. doi:10.1016/j.aap.2013.08.015
 
 Vandenbulcke, G., Thomas, I., de Geus, B., Degraeuwe, B., Torfs, R., Meeusen, R., & Int Panis, L. (2009). Mapping bicycle use and the risk of accidents for commuters who cycle to work in Belgium. Transport Policy, 16(2), 77–87. doi:10.1016/j.tranpol.2009.03.004
+
+Vandenbulcke, G., Thomas, I., & Int Panis, L. (2014). Predicting cycling accident risk in Brussels: a spatial case-control approach. Accident; Analysis and Prevention, 62, 341–57. doi:10.1016/j.aap.2013.07.001
+
+Wegman, F., Zhang, F., & Dijkstra, A. (2012). How to make more cycling good for road safety? Accident; Analysis and Prevention, 44(1), 19–29. doi:10.1016/j.aap.2010.11.010
 
 ## comments
 ```{r}
@@ -247,4 +295,65 @@ Vandenbulcke, G., Thomas, I., de Geus, B., Degraeuwe, B., Torfs, R., Meeusen, R.
 # is at the forefront of this investment, and is associated with
 # quantitative targets on both bicycle uptake and safety.
 ```
+
+```{r, echo=FALSE}
+## Deleted but kept for future ref
+# in previous hypothesis section:
+# The research is based on the diverse literature on risk and cycling and guided by knowledge about the information contained within the STATS19 dataset. There are many interesting research questions about risk and cycling that STATS19 cannot help answer (e.g. how do drivers' perceptions of cyclists affect the probability of collision? and what influence does experience have on the cyclist crashes?). The variables about which STATS19 provides insight are quite. A selection of some of the most relevant hypotheses to policy makers that can be tackled by analysis of STATS19 data are presented below, in rough descending order of importance and ascending order of complexity:
+
+# old methods section
+# Whilst the application of this research is targetted firmly towards sustainable transport
+# planning and evaluation, the methods fit within the field of applied geography and spatial 
+# analysis. As with most applied problems, 
+# the method here is firmly routed in the input data, which is spatio-temporal data
+# with a range of associated nominal and ordinal characteristics linked to the circumstances
+# of the incident and the entities involved. Thus the main tools for analysis, beyond 
+# standard tools for statistical analysis of the non spatial data (in the case of 
+# comparing accidents involving cyclists with those not involving cyclists...), are 
+# thus taken from the field of *spatial point pattern analysis*. 
+# 
+# This field has applications in many fields, notably ecology and spatial epidemiology, 
+# which involves "comparing the spatial distribution of the cases [of disease] to the 
+# locations of a set of controls taken at random from the population" (Bivand et al. 2013, p. 173)."
+# The analogy to cycling is clear: is the spatial distribution of cycling accidents 
+# (equivalent to cases)
+# related to certain features on the road network (e.g. roundabouts, junctions),
+# or is the distribution randomly allocated to the road network?
+# 
+# A range of statistical techniques falling under the umbrella term *geostatistics*
+# \citep{diggle2007model}
+# can be used to investigate such problems and test hypotheses, such as those set out in the 
+# introduction. The geostatistical methods used in this paper are all implemented in the free
+# and open source statistical programming environment R, to allow the findings to be verified 
+# and reproducible by others. The provision of code used for the analysis should also 
+# allow others to build on the methods presented here for better understanding the 
+# spatial distribution of road traffic accidents and related phenomena. As mentioned in 
+# the introduction ... the STATS19 dataset has been made available to the public by the 
+# UK government in the hope that it will help raise awareness of accident hotspots for the greater good. 
+# In the same spirit, it is hoped that 
+# the provision of reproducible code in this project will also act in the public interest, by making
+# importing, analysing and interpreting the datasets more accessible.
+# 
+# The spatial statistical techniques used to analyse the data (further described and implemented in 
+# Section ...) are as follows:
+# 
+# - The *G Function* is a description of the average distances between points and their nearest 
+# neighbours. It is a cumulative function of distance, displaying the proportion of points that
+# have a nearest neighbour within *r* (short for radius) units of distance from itself. 
+# It is a relatively simple and commonly used
+# technique for point pattern analysis and is defined mathematically follows (Bivand et al. 2013):
+# $$ G(r) = \frac{ \# \{d_i : d_i \leq r, \forall i \} }{n} $$
+# *G(r)* is the value for any particular distance, *#* means 'count', 
+# $d_i$ refers to the minimum distanc to the nearest neighbour for each point, $i$ and 
+# $\forall$ means 'for all points'. By dividing by the total number of points, the 
+# G function always starts at 0 (unless there are overlapping points) and ends at 1 as $r$
+# increases from the minimum to the maximum distances between points. As we shall see in 
+# the results section, the resulting graphic can provide much insight into the spatial clustering 
+# of points.
+
+# Old hypotheses
+# - Is there any evidence to support the 'strength in numbers' hypothesis, that it will be
+# relatively safer to cycle in areas with a large number of commuters?
+```
+
 
