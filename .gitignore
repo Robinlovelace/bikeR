@@ -4,6 +4,7 @@
 *.csv
 exclude/
 *.html
+*gg*png
 *.docx
 *.pdf
 stats19data/
