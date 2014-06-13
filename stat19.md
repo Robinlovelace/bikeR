@@ -12,7 +12,6 @@ References to include:
 - ([Parkin et al., 2007](http://www.sciencedirect.com/science/article/pii/S0001457506001473))
 
 
-
 ## Abstract
 
 There has been much recent interest in the factors influencing cycle safety.
@@ -39,7 +38,65 @@ with time of day, week and season. Overall we provide evidence to suggest
 local-level geographical factors do play an important role in cycle safety
 and provide suggestions of how to increase cycle safety and uptake nationwide.
 
+
+
 # Introduction
+
+Fear of death or serious injury when walking and cycling is a
+major barrier to uptake (Fishman et al., 2012; Lorenc et al., 2008).
+Research strongly suggests that the health benefits of modal shift
+to cycling greatly outweigh the risks.
+Health benefit:cost ratios have been estimated to be
+7:1 in the Netherlands (de Hartog et al., 2010),
+20:1 in the UK (Hillman, 1993) and
+more than 70:1 at the city level in Barcelona (Rojas-Rueda et al., 2011).
+
+Despite overhelming evidence of health benefits
+of cycling, the average number of miles travelled per
+person per year on foot has declined from 201 in 2003 to
+181 in 2012. While the number of miles cycled per person
+appears to have increased over the same period (from 37 to 53 miles),
+cycling still accounts for only 2% of all journeys in Great Britain (DfT, 2013).
+In terms commuting (for which the best data are available),
+the proportion of people using a bicycle as their primary mode
+has remained steady at just over 3% across England (Goodman, 2013).
+This masks substantial geographical variation, however: outside
+London, bicycle commuting in England has actually
+declined, from 3.2% in 2001 to 2.9% in 2011 (Lovelace, forthcoming).
+
+In the recent Annual Report of the Chief Medical Officer,
+Dame Sally Davies emphasised the need to promote active
+travel from a health perspective:
+"encouraging more people to engage in active travel,
+such as walking and cycling, is crucial to improving the
+health of the nation and reducing the prevalence of obesity"
+(Davies, 2014, p.16). 
+
+Still, fear of cycling is not completely without basis,
+especially for young people cycling in dangerous environments.
+Compared with travelling the same distance by car,
+the risk of death from travelling one kilometre on foot
+or by bicycle is more than 17 times higher (Davies, 2014).
+The geographical distribution of
+factors linked to cycling uptake, such as perceived and actual
+safety levels has powerful policy implications,
+yet has received little academic attention (Fraser and Lock, 2011).
+
+<!--of this health cost:benefit ratio - which will also be affected by air polution levels-->
+
+Safety is increasingly seen as critical to the uptake of
+cycling:
+"In order to improve uptake, we need to improve safety.
+The relative risk associated with journeys by active travel
+methods are unacceptably high and must be reduced ...
+An  improved understanding of methods to improve road safety
+for all modes of transport and how these can be applied to
+the road system in England would be beneficial." (Davies, 2014; p16-17).
+This paper builds on this observation
+and seeks to provide evidence towards greater understanding
+of the risks of active travel.
+
+## The case study area
 
 West Yorkshire is not an area associated with cycling.
 Although the cities of York and Hull have traditionally high rates of
@@ -252,9 +309,22 @@ rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC region: The role of bicycle parking, cyclist showers, and free car parking at work. Transportation Research Part D: Transport and Environment, 17(7), 525–531.
 
-Elvik, R., Vaa, T., Erke, A., & Sorensen, M. (2009). The handbook of road safety measures. Emerald Group Publishing.
+Davies, S. (2014). Annual Report of the Chief Medical Officer, Surveillance Volume, 2012: On the State of the Public’s Health. London. Retrieved from https://www.gov.uk/government/publications/chief-medical-officer-annual-report-surveillance-volume-2012
 
+Elvik, R., Vaa, T., Erke, A., & Sorensen, M. (2009). The handbook of road safety measures. Emerald Group Publishing.
 Fishman, E., Washington, S., & Haworth, N. (2012). Barriers and facilitators to public bicycle scheme use: A qualitative approach. Transportation Research Part F: Traffic Psychology and Behaviour, 15(6), 686–698. doi:10.1016/j.trf.2012.08.002
+
+Fraser, S. D. S., & Lock, K. (2011). Cycling for transport and public health: a systematic review of the effect of the environment on cycling. European Journal of Public Health, 21(6), 738–43. doi:10.1093/eurpub/ckq145
+
+Goodman, A. (2013). Walking, Cycling and Driving to Work in the English and Welsh 2011 Census: Trends, Socio-Economic Patterning and Relevance to Travel Behaviour in General. PLoS ONE, 8(8), e71790. doi:10.1371/journal.pone.0071790
+
+Hillman, M. (1993). Cycling and the promotion of health. Policy Studies, 14(2), 49–58.
+
+Johan de Hartog, J., Boogaard, H., Nijland, H., & Hoek, G. (2010). Do the health benefits of cycling outweigh the risks? Environmental Health Perspectives, 118, 1109–1116. doi:10.1289/ehp.0901747
+
+Lorenc, T., Brunton, G., Oliver, S., Oliver, K., & Oakley, A. (2008). Attitudes to walking and cycling among children, young people and parents: a systematic review. Journal of Epidemiology and Community Health, 62, 852–857. doi:10.1136/jech.2007.070250
+
+Lovelace, R. (n.d.). How to “make cycling soar”: A geographical exploration of the factors associated with changes in bicycle commuting in England between 2001 and 2011.
 
 Martínez-Ruiz, V., Jiménez-Mejías, E., Luna-del-Castillo, J. D. D., García-Martín, M., Jiménez-Moleón, J. J., & Lardelli-Claret, P. (2014). Association of cyclists’ age and sex with risk of involvement in a crash before and after adjustment for cycling exposure. Accident; Analysis and Prevention, 62, 259–67. doi:10.1016/j.aap.2013.10.011
 
