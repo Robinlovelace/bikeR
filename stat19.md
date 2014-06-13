@@ -1,4 +1,4 @@
-# The shifting social geographical distribution of road safety for cyclists: a case study of West Yorkshire
+# The shifting demographic and geographic distribution of bicycle crashes: a case study of West Yorkshire
 
 
 
@@ -45,33 +45,52 @@ and provide suggestions of how to increase cycle safety and uptake nationwide.
 Fear of death or serious injury when walking and cycling is a
 major barrier to uptake (Fishman et al., 2012; Lorenc et al., 2008).
 Research strongly suggests that the health benefits of modal shift
-to cycling greatly outweigh the risks.
-Health benefit:cost ratios have been estimated to be
+to cycling greatly outweigh the risks, with
+health benefit:cost ratios estimated to be
 7:1 in the Netherlands (de Hartog et al., 2010),
 20:1 in the UK (Hillman, 1993) and
 more than 70:1 at the city level in Barcelona (Rojas-Rueda et al., 2011).
 
 Despite overhelming evidence of health benefits
-of cycling, the average number of miles travelled per
-person per year on foot has declined from 201 in 2003 to
-181 in 2012. While the number of miles cycled per person
-appears to have increased over the same period (from 37 to 53 miles),
-cycling still accounts for only 2% of all journeys in Great Britain (DfT, 2013).
-In terms commuting (for which the best data are available),
+of active travel, use of walking and cycling for
+everyday trips remains low in most high income nations.
+The average number of miles walked per
+person per year in Great Britain, for example, has declined from 201 in 2003 to
+181 in 2012 ([DfT, 2013](https://www.gov.uk/government/publications/national-travel-survey-2012)).
+While the number of miles cycled per person
+appears to have increased over the same period - from 37 to 53 miles (ibid.) - perhaps due
+to a boom in leisure cycling),
+bicycles still account for only 1.7% (up from 1.4% in 2007) of all journeys in
+Great Britain and 0.8% of all distance travelled 
+(ibid.,
+tables NTS0301 to NTS303).
+This is despite the fact that the fact that roughly
+2/3rd of all trips of were within cycling distance (between 0 and 5 miles)
+in 2012 (ibid, table NTS0307).
+<!--*footnote{Also, 38% of all trips
+were between 0 and 2 miles, easily accessible for cyclists of all abilities
+(DfT, table NTS0307). It is interesting to note that the proportion
+of trips made for short journeys (less than 5 miles) has declined over the past
+two decades, from 69.8% in 1995/7 to 65.8% in 2012. The time series
+data suggests this trend has stopped since the
+recession (with a minimum of 65.2% reached in 2007),
+providing some evidence of an 'eco-localisation'
+to energy and economic shocks 
+([North, 2012](http://www.sciencedirect.com/science/article/B6V68-4WFGRTK-1/2/0c6fed0baa6b8baafa205e74135b66f1))}*.-->
+In terms commuting, for which the best data are available,
 the proportion of people using a bicycle as their primary mode
 has remained steady at just over 3% across England (Goodman, 2013).
 This masks substantial geographical variation, however: outside
 London, bicycle commuting in England has actually
 declined, from 3.2% in 2001 to 2.9% in 2011 (Lovelace, forthcoming).
 
-In the recent Annual Report of the Chief Medical Officer,
+In the recent Annual Report of the UK's Chief Medical Officer,
 Dame Sally Davies emphasised the need to promote active
 travel from a health perspective:
 "encouraging more people to engage in active travel,
 such as walking and cycling, is crucial to improving the
 health of the nation and reducing the prevalence of obesity"
 (Davies, 2014, p.16). 
-
 Still, fear of cycling is not completely without basis,
 especially for young people cycling in dangerous environments.
 Compared with travelling the same distance by car,
@@ -158,8 +177,8 @@ Schepers et al. ([2014](http://www.sciencedirect.com/science/article/pii/S000145
 
 ### Who is most at risk from cycle incidents?
 
-- Young adults (below 30) and the elderly (over 65) will be more likely to crash
-([Martinez-Ruiz et al., 2014](http://www.sciencedirect.com/science/article/pii/S0001457513004089).
+- Young adults (below 30) and the elderly (over 65) will be more likely to be involved in crashes
+([Martinez-Ruiz et al., 2014](http://www.sciencedirect.com/science/article/pii/S0001457513004089)).
 We expected this trend to be stronger in more challenging cycling environments, on large roads.
 
 ### Where are crashes most likely to happen?
@@ -275,6 +294,10 @@ compared with the colder half of the year (6.4%).
 
 
 ![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-4.png) 
+
+
+## Who is most at risk?
+
 
 
 ## The timing of bicycle accidents
