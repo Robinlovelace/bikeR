@@ -299,6 +299,60 @@ compared with the colder half of the year (6.4%).
 ## Who is most at risk?
 
 
+## Where are crashes most likely to happen?
+
+The overall spatial distribution of incidents involving cyclists
+follows the road network, as do incidents with no cyclist casualties (fig. x).
+The relative density of cyclist crashes is clearly higher in urban centres,
+however, and is clearly absent from the motorway network.
+The extent to which bicycle crashes are concentrated in urban areas,
+and especially Leeds, becomes clear when Kernel Density Estimate (KDE)
+levels are used to avoid the information loss associated with 'overplotting'
+(Wickham, 2011). This is presented in fig x, which shows the extent of
+the clustering of incidents involving cyclists. Of course, this pattern
+likely reflects the increased use of bicycles in Leeds city centre in
+other places (Fig. 1). This pattern sets the scene for the
+geographically aggregated statistics presented in section xx,
+which attempt to normalise the number of bicycle incidents in
+each area by exposure.
+
+![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-5.png) 
+
+
+
+![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-6.png) 
+
+
+
+In terms of the type of roads where accidents involving cyclists
+occur, the proportions are roughly the same, except no cyclists
+were involved Motorway incidents, which is hardly surprising
+as cycling on Motorways is illegal (fig. x).
+Unexpected was that the proportion of bicycle incidents (42.3%)
+happening on (fast) A roads was greater than the proportion
+of other incidents (41.0%) happening on these roads.
+Given that the proportion of people who usually cycle on roads
+is only around 40% and that A roads constitute only a fraction
+of all roads, this suggests that cycling on A roads is a high risk
+activity (remembering that incidents off the
+road network are not reported in the STATS19 dataset). 
+Assuming that 30% of on-road cycling takes place on A-roads,
+this would imply that A roads are 37% riskier for
+cyclists in West Yorkshire than other types of road. (Local survey data on
+the types of road where people cycle by distance would be needed
+to verify the 30% figure: if cyclists heavily avoid A roads, as can be
+expected, the relative risk could be much higher in West Yorkshire.)
+Indeed, this finding is supported by national statistics showing that
+the *serious* injury rate for cyclists on A roads (2,407 per
+billion miles cycled) is double the rate for all roads (1,005)
+other road types
+([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf)).
+
+<!--Could talk about deaths here also...-->
+
+![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-7.png) 
+
+
 
 ## The timing of bicycle accidents
 
@@ -334,7 +388,10 @@ Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC regi
 
 Davies, S. (2014). Annual Report of the Chief Medical Officer, Surveillance Volume, 2012: On the State of the Public’s Health. London. Retrieved from https://www.gov.uk/government/publications/chief-medical-officer-annual-report-surveillance-volume-2012
 
+DfT. (2013). National Travel Survey 2012 (pp. 1–25). Department for Transport. Retrieved from https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/243957/nts2012-01.pdf
+
 Elvik, R., Vaa, T., Erke, A., & Sorensen, M. (2009). The handbook of road safety measures. Emerald Group Publishing.
+
 Fishman, E., Washington, S., & Haworth, N. (2012). Barriers and facilitators to public bicycle scheme use: A qualitative approach. Transportation Research Part F: Traffic Psychology and Behaviour, 15(6), 686–698. doi:10.1016/j.trf.2012.08.002
 
 Fraser, S. D. S., & Lock, K. (2011). Cycling for transport and public health: a systematic review of the effect of the environment on cycling. European Journal of Public Health, 21(6), 738–43. doi:10.1093/eurpub/ckq145
@@ -345,11 +402,15 @@ Hillman, M. (1993). Cycling and the promotion of health. Policy Studies, 14(2), 
 
 Johan de Hartog, J., Boogaard, H., Nijland, H., & Hoek, G. (2010). Do the health benefits of cycling outweigh the risks? Environmental Health Perspectives, 118, 1109–1116. doi:10.1289/ehp.0901747
 
+Keep, M. (2013). Road cycling: statistics. Retrieved from http://www.parliament.uk/briefing-papers/SN06224.pdf
+
 Lorenc, T., Brunton, G., Oliver, S., Oliver, K., & Oakley, A. (2008). Attitudes to walking and cycling among children, young people and parents: a systematic review. Journal of Epidemiology and Community Health, 62, 852–857. doi:10.1136/jech.2007.070250
 
 Lovelace, R. (n.d.). How to “make cycling soar”: A geographical exploration of the factors associated with changes in bicycle commuting in England between 2001 and 2011.
 
 Martínez-Ruiz, V., Jiménez-Mejías, E., Luna-del-Castillo, J. D. D., García-Martín, M., Jiménez-Moleón, J. J., & Lardelli-Claret, P. (2014). Association of cyclists’ age and sex with risk of involvement in a crash before and after adjustment for cycling exposure. Accident; Analysis and Prevention, 62, 259–67. doi:10.1016/j.aap.2013.10.011
+
+North, P. (2010). Eco-localisation as a progressive response to peak oil and climate change - A sympathetic critique. Geoforum, 41(4), 585–594. doi:DOI: 10.1016/j.geoforum.2009.04.013
 
 Parkin, J., Wardman, M., & Page, M. (2007). Models of perceived cycling risk and route acceptability. Accident; Analysis and Prevention, 39(2), 364–71. doi:10.1016/j.aap.2006.08.007
 
@@ -364,6 +425,8 @@ Vandenbulcke, G., Thomas, I., de Geus, B., Degraeuwe, B., Torfs, R., Meeusen, R.
 Vandenbulcke, G., Thomas, I., & Int Panis, L. (2014). Predicting cycling accident risk in Brussels: a spatial case-control approach. Accident; Analysis and Prevention, 62, 341–57. doi:10.1016/j.aap.2013.07.001
 
 Wegman, F., Zhang, F., & Dijkstra, A. (2012). How to make more cycling good for road safety? Accident; Analysis and Prevention, 44(1), 19–29. doi:10.1016/j.aap.2010.11.010
+
+Wickham, H. (2011). ggplot2. Wiley Interdisciplinary Reviews: Computational Statistics, 3(2), 180–185.
 
 ## comments
 
