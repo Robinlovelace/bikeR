@@ -208,7 +208,7 @@ has received empirical support from the geographical literature on the subject
 be different than for other road users, due
 to the disproportionate impact of poor road conditions and visibility (ref).
 - The diurnal distribution of incidents was expected to
-be different for cyclists than for other road users ([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)). Explanation? ...
+be different for cyclists than for other road users ([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)).
 
 
 <!--## Literature review: the spatial distribution of cycle accidents-->
@@ -259,10 +259,33 @@ this case an increase in cycle use in particular areas -
 is to blame.
 
 The method used to estimate exposure varied depending on
-the hypothesis being tested by a particular technique.
+the hypothesis being tested. In terms of where people cycle,
+the best small-area data available is from census data on
+mode of travel to work. Because of the finding that commute
+modal share for cycling is highly correlated with modal share for
+all trips (r = 77%) (Goodman, 2013), commuting is can be used as
+a proxy for the rate of cycling overall. To convert the number of
+people cycling to work into an estimate of total distance cycled per
+year, the following assumptions were made:
 
+- 400 one-way trips are made each year per commuter (Hall et al., 2011).
+- The average length of bicycle trips is 4.2 km (DfT, 2013, table NTS0306).
+(The average trip length of bicycle trips from 2002 to 2012 was 2.6 miles, although this average trip distance has risen dramatically over that period.)
+- Cycle commuting accounts for 1/3 of all bicycle trips (DfT, 2013, table NTS0409).
+(British citizens make on average 15.6 bicycle trips per year; 5.4 of these are for commuting.)
 
-
+These assumptions imply that every bicycle commuter in an area,
+results in roughly 5,000 km of total distance cycled,  
+1/3 of which are due to bicycle commuting.
+This first approximation will clearly change depending on variation
+in the average distance of bicycle trips in different areas, so is used
+only as a first approximation than as a best estimate.
+The refinement of this estimate based on data on distance
+bands of travel to work by mode would be possible, but
+for the purposes of this study, the simple 5000 km per cycle commuter will
+be used. Further
+work investigating the link between cycle commuting and cycling overall
+is needed (Goodman, 2013).
 
 
 
@@ -293,7 +316,7 @@ of incidents involving cyclists (10.1% on average),
 compared with the colder half of the year (6.4%).
 
 
-![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-4.png) 
+![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-3.png) 
 
 
 ## Who is most at risk?
@@ -312,9 +335,12 @@ levels are used to avoid the information loss associated with 'overplotting'
 the clustering of incidents involving cyclists. Of course, this pattern
 likely reflects the increased use of bicycles in Leeds city centre in
 other places (Fig. 1). This pattern sets the scene for the
-geographically aggregated statistics presented in section xx,
-which attempt to normalise the number of bicycle incidents in
-each area by exposure.
+geographically aggregated statistics presented below,
+which normalise the number of bicycle incidents in
+each area by estimated exposure.
+
+
+
 
 ![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-5.png) 
 
@@ -323,34 +349,43 @@ each area by exposure.
 ![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-6.png) 
 
 
+### Normalised risk
+
+
+
+
+
+
+
+
+### Road type
 
 In terms of the type of roads where accidents involving cyclists
 occur, the proportions are roughly the same, except no cyclists
 were involved Motorway incidents, which is hardly surprising
 as cycling on Motorways is illegal (fig. x).
-Unexpected was that the proportion of bicycle incidents (42.3%)
-happening on (fast) A roads was greater than the proportion
-of other incidents (41.0%) happening on these roads.
-Given that the proportion of people who usually cycle on roads
-is only around 40% and that A roads constitute only a fraction
-of all roads, this suggests that cycling on A roads is a high risk
-activity (remembering that incidents off the
-road network are not reported in the STATS19 dataset). 
+Of note was the high proportion of bicycle incidents
+happening on (fast) A roads (42.3%), greater than the proportion
+of other incidents happening on these roads (41.0%).
+Given that that A roads constitute only a fraction
+of all roads and the tendency of cyclists to avoid busy roads,
+this finding suggests that cycling on A roads in West Yorkshire is
+comparatively high risk activity: 
 Assuming that 30% of on-road cycling takes place on A-roads,
-this would imply that A roads are 37% riskier for
-cyclists in West Yorkshire than other types of road. (Local survey data on
+this would imply that cyclists are 37% more likely
+to be involved in a crash on A roads than on other types of road.
+(Local survey data on
 the types of road where people cycle by distance would be needed
 to verify the 30% figure: if cyclists heavily avoid A roads, as can be
 expected, the relative risk could be much higher in West Yorkshire.)
 Indeed, this finding is supported by national statistics showing that
 the *serious* injury rate for cyclists on A roads (2,407 per
-billion miles cycled) is double the rate for all roads (1,005)
-other road types
-([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf)).
+billion miles cycled) is more than double the rate for cycling on all road
+types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf)).
 
 <!--Could talk about deaths here also...-->
 
-![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-7.png) 
+![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-8.png) 
 
 
 
