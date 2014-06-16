@@ -1,6 +1,7 @@
 # Adding factors
 library(XLConnect)
 library(rJava)
+
 wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
 wb <- readWorksheet(wb, sheet = getSheets(wb))
 names(wb)  <- sub(" ", ".", names(wb))
