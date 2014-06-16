@@ -263,31 +263,45 @@ the hypothesis being tested. In terms of where people cycle,
 the best small-area data available is from census data on
 mode of travel to work. Because of the finding that commute
 modal share for cycling is highly correlated with modal share for
-all trips (r = 77%) (Goodman, 2013), commuting is can be used as
-a proxy for the rate of cycling overall. To convert the number of
+all trips (r = 77%) (Goodman, 2013), commuting can be used as
+a proxy for the rate of cycling overall.
+Based on this insight,
+we developed a simple formula to estimate the distance cycled
+in each geographic zone (equation xx1):
+
+$$ d_T = \frac{n \times f \times \bar{d}}{p} $$
+
+
+
+
+where $d_T$ is the total distance cycled per year in each zone,
+$n$ is the number of bicycle commuters, $f$ is the frequency
+$\bar{d}$ is the average distance of each bicycle trip (which we assume to
+be the same for commuting and non-commuting trips) and $p$ is the proportion
+of bicycle trips made for commuting purposes.
+To convert the number of
 people cycling to work into an estimate of total distance cycled per
 year, the following assumptions were made:
 
 - 400 one-way trips are made each year per commuter (Hall et al., 2011).
-- The average length of bicycle trips is 4.2 km (DfT, 2013, table NTS0306).
-(The average trip length of bicycle trips from 2002 to 2012 was 2.6 miles, although this average trip distance has risen dramatically over that period.)
+- The average length of bicycle trips is 4.5 km (DfT, 2013, table NTS0306).
+(The average trip length of bicycle trips from 2005 to 2012
+was 2.8 miles, although this average value is has been increasing lately (Keep, 2013).)
 - Cycle commuting accounts for 1/3 of all bicycle trips (DfT, 2013, table NTS0409).
-(British citizens make on average 15.6 bicycle trips per year; 5.4 of these are for commuting.)
+(British citizens make on average 15.6 bicycle trips per year, of which an average of 5.4 are for commuting.)
 
 These assumptions imply that every bicycle commuter in an area,
-results in roughly 5,000 km of total distance cycled,  
+results in 5,040 km of total distance cycled,  
 1/3 of which are due to bicycle commuting.
 This first approximation will clearly change depending on variation
 in the average distance of bicycle trips in different areas, so is used
 only as a first approximation than as a best estimate.
 The refinement of this estimate based on data on distance
 bands of travel to work by mode would be possible, but
-for the purposes of this study, the simple 5000 km per cycle commuter will
+for the purposes of this study, the rounded value of 5000 km per cycle commuter will
 be used. Further
 work investigating the link between cycle commuting and cycling overall
-is needed (Goodman, 2013).
-
-
+is needed, to better infer the latter from the former for small areas (Goodman, 2013).
 
 # Results
 
@@ -316,7 +330,7 @@ of incidents involving cyclists (10.1% on average),
 compared with the colder half of the year (6.4%).
 
 
-![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-3.png) 
+![Map illustrating the mismatches between 2011 Local Authorities and 2001 Unitary Authorities and Districts](figure/unnamed-chunk-4.png) 
 
 
 ## Who is most at risk?
@@ -342,11 +356,11 @@ each area by estimated exposure.
 
 
 
-![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-5.png) 
+![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-6.png) 
 
 
 
-![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-6.png) 
+![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-7.png) 
 
 
 ### Normalised risk
@@ -354,7 +368,18 @@ each area by estimated exposure.
 
 
 
+The total distance cycled in West Yorkshire was estimated to be
+51 million km, based on the fact that there were 12,706 cycle commuters
+recorded in the 2011 Census and equation xx1. To corroborate this estimate,
+the same method was used at the national level, resulting in an estimate of
+3.7 billion vehicle kilometres (bkm) across England (there are 742,675 cycle commuters nationwide):
+it is reassuring to note that the DfT's official estimate of total distance cycled
+nationally is of the same order - 5.0 bkm (Keep, 2013) - although the official
+estimate is of Great Britain, whose population is 12% greater than that of England.
 
+Based on these census data and geographically aggregated statistics on serious
+cyclist injuries and fatalities, the relative risk of cycling was calculated
+for West Yorkshire's 5 Local Authorities (Table x):
 
 
 
@@ -385,7 +410,7 @@ types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf
 
 <!--Could talk about deaths here also...-->
 
-![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-8.png) 
+![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-9.png) 
 
 
 

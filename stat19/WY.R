@@ -3,7 +3,7 @@
 load("WYall.RData")
 
 # Compare bike crashes with others + generalise results
-
+# These are incidents INVOLVING cyclists (not necessarily where cyclists are injured)
 bikes <- vtWY$Acc_Index[ vtWY$Vehicle_Type == 1]
 acB <- acWY[ acWY$Accident_Index %in% bikes, ]
 vtB <- vtWY[ vtWY$Acc_Index %in% bikes, ]
