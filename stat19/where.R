@@ -43,7 +43,7 @@ plot(laWY$Cycle.x, laWY$n.death)
 laWY@data[c("NAME", "n.serious", "n.death")]
 
 # estimated distance cycled
-laWY$dmkm.yr <- (laWY$Cycle.x * 4032) / # million pkm per cycle commuter 
+laWY$dmkm.yr <- (laWY$Cycle.x * 5400) / # million pkm per cycle commuter 
                 1000000
 
 # proportion of deaths/bkm
@@ -52,3 +52,11 @@ laWY$p.serious.yr <- ( (laWY$n.serious / 8) / # rate per year
 
 laWY$p.death.yr <- ( (laWY$n.death / 8) /
                        (laWY$dmkm.yr / 1000) )
+
+ncol(laWY)
+names(laWY)
+laWY@data[,60:64]
+library(knitr)
+kable(laWY@data[,c(1,17,21,60:64)], digits=1, row.names=F)
+
+
