@@ -25,7 +25,7 @@ acB$Accident_Sf <- factor(acB$Accident_Severity, labels = wbA$label)
 wserious <- acB$Accident_Sf == "Serious" 
 summary(wserious)
 wdeath <- acB$Accident_Sf == "Fatal" 
-summary(wdeath)
+wminor <- acB$Accident_Sf == "Slight"
 
 proj4string(laWY) <- proj4string(acB)
 
@@ -42,6 +42,12 @@ laWY$n.death <- latmp$Accident_Sf
 plot(laWY$Cycle.x, laWY$n.death)
 laWY@data[c("NAME", "n.serious", "n.death")]
 
+# slight
+latmp <- aggregate(acB[wminor,"Accident_Sf"], by=laWY, FUN=length)
+laWY$n.slight <- latmp$Accident_Sf
+plot(laWY$Cycle.x, laWY$n.slight)
+laWY@data[c("NAME", "n.serious", "n.death")]
+
 # estimated distance cycled
 laWY$dmkm.yr <- (laWY$Cycle.x * 5400) / # million pkm per cycle commuter 
                 1000000
@@ -53,6 +59,8 @@ laWY$p.serious.yr <- ( (laWY$n.serious / 8) / # rate per year
 laWY$p.death.yr <- ( (laWY$n.death / 8) /
                        (laWY$dmkm.yr / 1000) )
 
+laWY$p.slight.yr <- ( (laWY$n.slight / 8) /
+                       (laWY$dmkm.yr / 1000) )
 ncol(laWY)
 names(laWY)
 laWY@data[,60:64]

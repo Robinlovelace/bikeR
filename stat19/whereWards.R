@@ -1,9 +1,9 @@
 # where - ward level
 library(rgdal)
 wards <- readOGR("/media/SAMSUNG/geodata/UK2011boundaries/england-census-wards/", "england_cwa_2011_gen_clipped")
-plot(wards)
+# plot(wards)
 points(acB, col = "red")
-plot(wards)
+# plot(wards)
 
 b <- SpatialPoints(coordinates(wards)) 
 proj4string(b) <- proj4string(wards)
@@ -23,7 +23,10 @@ wards@data <- join(wards@data, wards.data)
 wserious <- acB$Accident_Sf == "Serious" 
 summary(wserious)
 wdeath <- acB$Accident_Sf == "Fatal" 
+wminor <- acB$Accident_Sf == "Slight" 
+summary(wminor)
 
+# serious crashes
 latmp <- aggregate(acB[wserious,"Accident_Sf"], by=wards, FUN=length)
 head(latmp@data)
 nrow(latmp)
@@ -36,6 +39,12 @@ wards$n.death <- latmp$Accident_Sf
 plot(wards$Bicycle, wards$n.death)
 wards@data[c("NAME", "n.serious", "n.death")]
 
+# slight crashes
+latmp <- aggregate(acB[wminor,"Accident_Sf"], by=wards, FUN=length)
+head(latmp@data)
+wards$n.slight <- latmp$Accident_Sf
+plot(wards$Bicycle, wards$n.slight)
+
 # estimated distance cycled
 wards$dmkm.yr <- (wards$Bicycle * 5400) / # million pkm per cycle commuter 
   1000000
@@ -46,6 +55,13 @@ wards$p.serious.yr <- ( (wards$n.serious / 8) / # rate per year
 
 wards$p.death.yr <- ( (wards$n.death / 8) /
                        (wards$dmkm.yr / 1000) )
+
+wards$p.slight.yr <- ( (wards$n.slight / 8) /
+                        (wards$dmkm.yr / 1000) )
+
+# correlation analysis
+cor(wards$p.serious.yr, wards$p.slight.yr, use="complete.obs")
+
 
 wards$pCycle <- wards$Bicycle / wards$All.categories..Method.of.travel.to.work
 plot(wards$pCycle, wards$p.serious.yr)
