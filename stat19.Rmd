@@ -320,7 +320,10 @@ is needed, to better infer the latter from the former for small areas (Goodman, 
 
 Over the entire study period, the proportion of accidents involving cyclists was 8.1%,
 below the national average of 10.4%.
-These figures mask great variability in time and space.
+This figure is unexpectedly high, given the relatively low
+rate of cycling in the area (the proportion of people
+cycling to work in the region, for example is less than 1/2 the national average).
+. mask great variability in time and space.
 
 The most startling temporal trend in the data
 was the near-continuous increase in the proportion of
@@ -351,6 +354,36 @@ img <- readPNG("figures/seasonalityWY.png")
 
 ## Who is most at risk?
 
+The age distribution of cyclist road casualties in West Yorkshire is
+compared with that of pedestrians and other road users in Fig. x.
+As with car drivers, the most accident prone group for cyclists
+is the 21 to 25 year old age band. Bands above 26 - 35 tail off
+more rapidly for cyclists than other road user, perhaps reflecting
+low rates of cycling amongst the elderly. A higher proportion of
+cyclist casualties are children compared than for all accidents, yet
+walking is the mode for which the highest proportion of casualties are
+in the more vulnerable age groups below 16 and above 65. Again,
+this can be explained by the fact that many children and
+elderly people simply do not cycle or drive on the roads. What is not
+clear from Fig. x is the proportion of deaths and serious injury for each mode:
+deaths constituted only 0.6% of cyclist casualties (this rises to 1.6% for
+other road users and 2% for pedestrians) and the proportion of cyclist
+casualties categorised "Serious" lies between other pedestrians (24%)
+and other road users (12%) at 19%.
+
+
+```{r fig.cap="Cyclist and non cyclist casualties from road traffic incidents, 2005 - 2012 in West Yorkshire, by age and severity. Note the variably sized age bins, which down-play the relative risks of road crashes for young people", fig.width=10, fig.height=13, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG("figures/who-age-severity.png")
+ grid.raster(img)
+```
+
+### Reason for trip
+
+The *reason for trip* of traveler most at risk...
+
+### Index of multiple deprivation of casualty/driver home
 
 ## Where are crashes most likely to happen?
 
@@ -421,11 +454,11 @@ Based on the census data and geographically aggregated statistics on serious
 cyclist injuries and fatalities, the relative risk of cycling was calculated
 for West Yorkshire's 5 Local Authorities (Table x):
 
-Table x: Summary statistics on cycle commuting, serious and fatal cyclist incidents
+Table x: Summary statistics on cycle commuting, serious and fatal incidents involving cyclists
 and inferred risk in deaths and serious injuries per billion kilometres cycled (D/bpk/yr and
 S/bpk/yr respectively).
 
-|NAME        |  N. Cycle|       % Cycle|  N. Serious|  N. Death|    mkm/yr|  D/bpk/yr|  S/bpk/yr|
+|NAME        |  N. Cycle|     % Cycle|  N. Serious|  N. Death|    mkm/yr|  D/bpk/yr|  S/bpk/yr|
 |:-----------|--------:|------------:|----------:|--------:|----------:|-----------:|-------------:|
 |Bradford    |     1715|          0.8|        136|        6|      9.2|    81|      1835|
 |Calderdale  |      903|          1.0|         81|        3|      4.9|    77|      2076|

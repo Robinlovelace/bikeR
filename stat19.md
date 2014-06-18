@@ -309,7 +309,10 @@ is needed, to better infer the latter from the former for small areas (Goodman, 
 
 Over the entire study period, the proportion of accidents involving cyclists was 8.1%,
 below the national average of 10.4%.
-These figures mask great variability in time and space.
+This figure is unexpectedly high, given the relatively low
+rate of cycling in the area (the proportion of people
+cycling to work in the region, for example is less than 1/2 the national average).
+. mask great variability in time and space.
 
 The most startling temporal trend in the data
 was the near-continuous increase in the proportion of
@@ -335,6 +338,32 @@ compared with the colder half of the year (6.4%).
 
 ## Who is most at risk?
 
+The age distribution of cyclist road casualties in West Yorkshire is
+compared with that of pedestrians and other road users in Fig. x.
+As with car drivers, the most accident prone group for cyclists
+is the 21 to 25 year old age band. Bands above 26 - 35 tail off
+more rapidly for cyclists than other road user, perhaps reflecting
+low rates of cycling amongst the elderly. A higher proportion of
+cyclist casualties are children compared than for all accidents, yet
+walking is the mode for which the highest proportion of casualties are
+in the more vulnerable age groups below 16 and above 65. Again,
+this can be explained by the fact that many children and
+elderly people simply do not cycle or drive on the roads. What is not
+clear from Fig. x is the proportion of deaths and serious injury for each mode:
+deaths constituted only 0.6% of cyclist casualties (this rises to 1.6% for
+other road users and 2% for pedestrians) and the proportion of cyclist
+casualties categorised "Serious" lies between other pedestrians (24%)
+and other road users (12%) at 19%.
+
+
+![Cyclist and non cyclist casualties from road traffic incidents, 2005 - 2012 in West Yorkshire, by age and severity. Note the variably sized age bins, which down-play the relative risks of road crashes for young people](figure/unnamed-chunk-5.png) 
+
+
+### Reason for trip
+
+The *reason for trip* of traveler most at risk...
+
+### Index of multiple deprivation of casualty/driver home
 
 ## Where are crashes most likely to happen?
 
@@ -356,11 +385,11 @@ each area by estimated exposure.
 
 
 
-![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-6.png) 
+![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-7.png) 
 
 
 
-![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-7.png) 
+![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-8.png) 
 
 
 ### Normalised risk
@@ -384,11 +413,11 @@ Based on the census data and geographically aggregated statistics on serious
 cyclist injuries and fatalities, the relative risk of cycling was calculated
 for West Yorkshire's 5 Local Authorities (Table x):
 
-Table x: Summary statistics on cycle commuting, serious and fatal cyclist incidents
+Table x: Summary statistics on cycle commuting, serious and fatal incidents involving cyclists
 and inferred risk in deaths and serious injuries per billion kilometres cycled (D/bpk/yr and
 S/bpk/yr respectively).
 
-|NAME        |  N. Cycle|       % Cycle|  N. Serious|  N. Death|    mkm/yr|  D/bpk/yr|  S/bpk/yr|
+|NAME        |  N. Cycle|     % Cycle|  N. Serious|  N. Death|    mkm/yr|  D/bpk/yr|  S/bpk/yr|
 |:-----------|--------:|------------:|----------:|--------:|----------:|-----------:|-------------:|
 |Bradford    |     1715|          0.8|        136|        6|      9.2|    81|      1835|
 |Calderdale  |      903|          1.0|         81|        3|      4.9|    77|      2076|
@@ -415,7 +444,7 @@ used to map estimated risk: with 124 wards in West Yorkshire
 and 753 serious injuries in the region over 8 years, there
 were only 6.2 serious injuries to cyclist per ward.
 
-![Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed 'cyclable' by the majority of the population](figure/unnamed-chunk-9.png) 
+![Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed 'cyclable' by the majority of the population](figure/unnamed-chunk-10.png) 
 
 
 It is interesting to note that the spatial distribution of
@@ -475,7 +504,7 @@ types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf
 
 <!--Could talk about deaths here also...-->
 
-![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-11.png) 
+![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-12.png) 
 
 
 Junctions and roundabouts seem to be disproportionally risky for
