@@ -17,6 +17,7 @@ sum(laWY$Cycle.y)
 head(acB@data)
 
 # load accident severity data (load wb object)
+library(gdata)
 wbA <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=4)
 head(wbA)
 acB$Accident_Sf <- factor(acB$Accident_Severity, labels = wbA$label)

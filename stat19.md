@@ -374,9 +374,9 @@ recorded in the 2011 Census and equation xx1. To corroborate this estimate,
 the same method was used at the national level, resulting in an estimate of
 4.0 billion vehicle kilometres (bkm) across England (there are 742,675 cycle commuters nationwide):
 it is reassuring to note that the DfT's official estimate of total distance cycled
-nationally is of the same order - 5.0 bkm (Keep, 2013). Note the official
+nationally is of the same order - 3.1 billion miles (5.0 bkm) (Keep, 2013). Note the official
 estimate is for Great Britain, whose population is 12% greater than that of England.
-In terms of estimated risk of cycling, our estimate of 621 serious injuries per bkm cycled
+In terms of risk, our estimate of 621 serious injuries per bkm cycled
 is also close to the official estimate of 623, presented as 1005 injuries per billion vehicle *miles*
 in Keep (2013).
 
@@ -478,8 +478,35 @@ types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf
 ![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-11.png) 
 
 
+Junctions and roundabouts seem to be disproportionally risky for
+cyclists in West Yorkshire, coinciding with the literature. An
+interesting trend in the data, not shown in Table x, is that the
+increased riskiness of junctions for cyclists dissapates
+as the severity the accident increases: 30% of serious cyclist injuries
+and 44% of all cyclist
+deaths happened away from junctions. This implies that although cyclists
+are proportionally more likely to be hit near junctions than other road users,
+when collisions do happen on (presumably fast) open roads, they tend to be
+severe for cyclists.
+
+Table x: The proportion of incidents involving cyclists (n = 4,101)
+and no cyclists (n = 46,555) within 10 m of different types of junction.
+
+|Junction type    |  Cyclist|  No cyclist|
+|:----------------|--------:|-----------:|
+|Not at junction  |     27.1|        39.4|
+|Roundabout       |      7.0|         5.7|
+|Mini-roundabout  |      0.7|         0.6|
+|T junction       |     46.4|        33.7|
+|Slip road        |      0.7|         1.8|
+|Crossroads       |     10.0|        11.2|
+|Multi-junction   |      1.7|         2.6|
+|Private drive    |      2.9|         1.5|
+|Other junction   |      3.6|         3.5|
 
 ## The timing of bicycle accidents
+
+### Time of day
 
 The temporal distribution of bicycle accidents is highly correlated with that of 
 road accidents overall (correlation).
@@ -489,7 +516,26 @@ rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 ![timing of cyclist accidents](figures/cyclist-timings.png)
 
-# Season
+### Light conditions
+
+We found no evidence in the data to support the hypothesis that
+cyclists are disproportionately more at risk during night time.
+The proportion of bicycle incidents that took place in daylight
+(79%) was higher than the proportion of all incidents (71%) and
+the difference grew with increased incident severity:
+81% of cyclist deaths occured during daylight, whereas only
+53% of other deaths did, implying that cyclists.
+Aversion to cycling at night may explain relatively low
+incident rates at night for cyclists overall, but other
+factors must be invoked to explain why this tendency grows
+stronger for more severe incidents. These could include
+cyclist and driver behaviour (who are perhaps more cautious in the dark),
+lower traffic volumes leading to fewer multi-vehicle incidents (which
+tend to be more severe) and the increased long-range visibility of
+cyclists who have lights. More evidence would be needed to test these
+theories.
+
+### Season
 
 
 
