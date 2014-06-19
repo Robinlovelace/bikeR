@@ -14,8 +14,10 @@ length(unique(vt$Acc_Index))
 head(vt$Vehicle_Type)
 cyCodes <- vt$Acc_Index[vt$Vehicle_Type == 1]
 
-cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
 cyVt <- vt[ vt$Acc_Index %in% cyCodes, ]
+cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
+nrow(cyVt)
+
 head(cyVt)
 plot(cyAc$Location_Easting_OSGR, cyAc$Location_Northing_OSGR)
 names(cyAc)
@@ -29,8 +31,8 @@ library(rgdal)
 counties <- readOGR(dsn="/scratch/gdata/" , layer="england_ct_2011_gen_clipped")
 plot(counties)
 head(counties@data)
-YW <- counties[ counties$NAME == "West Yorkshire", ]
-plot(YW)
+WY <- counties[ counties$NAME == "West Yorkshire", ]
+plot(WY)
 
 # convert Time text to chron format
 library(chron)
@@ -47,11 +49,15 @@ summary(ac$date)
 plot(ac$date[1:1000])
 qplot(ac$date, geom="histogram", binwidth = 30) # ...
 
+
 summary(ac$Location_Easting_OSGR)
 ac <- ac[-which(is.na(ac$Location_Easting_OSGR)), ]
 ac <- SpatialPointsDataFrame(coords=matrix(c(ac$Location_Easting_OSGR, ac$Location_Northing_OSGR), ncol=2), data=ac)
 proj4string(ac) <- proj4string(YW)
-acWY <- ac[YW,]
+
+# all zones in WY
+plot(WY)
+acWY <- ac[WY,]
 head(acWY@data)
 plot(acWY)
 acWY$Date[sample(1:nrow(acWY), size=50)]

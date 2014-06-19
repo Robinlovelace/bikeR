@@ -64,15 +64,17 @@ qplot(ac$Road_Tf) + xlab("Type of road") + ylab("Count") +
   theme(axis.text.x = element_text(angle=20, color = "black"),
         panel.background = element_rect(fill = "white"),
         panel.grid.major.y = element_line(color = "grey", linetype=3)) 
-colors()
+head(colors())
 # ggsave("~/Desktop/roadtype.png")
 
 wb$Junction.Detail
 unique(ac$Junction_Detail)
 summary(as.factor(ac$Junction_Detail))
 plot(ac$Junction_Detail)
-ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[c(1:9)] )
-levels(ac$Junction_Df)[c(1,4,7,8)] <- c("Not at junction", "T junction", "Multi-junction", "Private drive")
+# ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[c(, 1:9)] ) # fail
+ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[c(10, 1:9)] )
+# levels(ac$Junction_Df)[c(1,4,7,8)] <- c("Not at junction", "T junction", "Multi-junction", "Private drive") # fail
+summary(ac$Junction_Df)
 qplot(data=ac@data, x = Junction_Df) + bikeR_theme_1
 qplot(data = ac@data, x = Junction_Df) + facet_grid( cyclist ~., scales="free") + bikeR_theme_1
 table(ac$Junction_Df, ac$cyclist)
@@ -119,15 +121,19 @@ wb$Carriageway.Hazards # Again v. interesting - add later
 # Now for vehicle type
 nrow(vt) / nrow(ac) # average of almost 2 vehicles per incident: reasonable
 summary(as.factor(vt$Vehicle_Type))
+levels(vt$Vehicle_Type)
 wb$Vehicle.Type
 (tfact <- wb$Vehicle.Type$label[ as.character(wb$Vehicle.Type$code) %in% levels(as.factor(vt$Vehicle_Type)) ])
 tfact[c(20, 1:19)]
 vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact[c(20, 1:19)]) # flags error with WY data
-vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact)
+# vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact)
+nrow(cyVt)
 summary(vt$Vehicle_Tf)
+summary(vt$Vehicle_Tf) / nrow(vt)
 qplot(vt$Vehicle_Tf) + bikeR_theme_1
 # ggsave("~/Desktop/vtype.png")
 
+# interesting to xtab with gende
 summary(as.factor(vt$Vehicle_Manoeuvre))
 wb$Vehicle.Manoeuvre
 vt$Vehicle_Manf <- factor(vt$Vehicle_Manoeuvre, labels = wb$Vehicle.Manoeuvre$label[c(19,1:18)])
@@ -169,30 +175,34 @@ summary(as.factor(ca$Casualty_Class))
 wb$Casualty.Class # OK this is interesting: how many cyclists hit pedestrians?
 ca$Casualty_Class_f <- factor(ca$Casualty_Class, labels = wb$Casualty.Class$label)
 qplot(ca$Casualty_Class_f) + bikeR_theme_1
-ggsave("~/Desktop/casualtyclass.png")
+# ggsave("~/Desktop/casualtyclass.png")
 
 summary(as.factor(ca$Sex_of_Casualty))
 wb$Sex.of.Casualty # Does it correspond to cyclist?
 ca$Sex_Casualty <- factor(ca$Sex_of_Casualty, labels = wb$Sex.of.Casualty$label[c(3,1,2)])
 qplot(ca$Sex_Casualty) + bikeR_theme_1
-ggsave("~/Desktop/casualtysex.png")
+# ggsave("~/Desktop/casualtysex.png")
 
 summary(as.factor(ca$Age_Band_of_Casualty))
 wb$Age.Band #
 ca$Age_Band_Cf <- factor(ca$Age_Band_of_Casualty, labels = c("na", wb$Age.Band$label[c(1:11)]))
 qplot(ca$Age_Band_Cf) + bikeR_theme_1
-ggsave("~/Desktop/casualtyage.png")
+# ggsave("~/Desktop/casualtyage.png")
 
 summary(as.factor(ca$Casualty_Severity))
 wb$Casualty.Severity # OK this is interesting: how many cyclists hit pedestrians?
-ca$Severity <- factor(ca$Casualty_Severity, labels = wb$Casualty.Severity$label)
+ca$CSeverity <- factor(ca$Casualty_Severity, labels = wb$Casualty.Severity$label)
 qplot(ca$Severity) + bikeR_theme_1
-ggsave("~/Desktop/casualtysex.png")
+# ggsave("~/Desktop/casualtysex.png")
 
 summary(as.factor(ca$Casualty_Type))
 wb$Casualty.Type[,] # Same as cyclist?
 ca$Type <- factor(ca$Casualty_Type , labels = wb$Casualty.Type$label[c(1:17, 19:21)])
+summary(ca$Type)
+summary(ca$Type) / nrow(ca)
 qplot(ca$Type) + bikeR_theme_1
-ggsave("~/Desktop/casualtytype.png")
+# ggsave("~/Desktop/casualtytype.png")
+
+### additional factors
 
 

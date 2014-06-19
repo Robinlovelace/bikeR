@@ -208,7 +208,8 @@ per year nationwide.
 be different than for other road users, due
 to the disproportionate impact of poor road conditions and visibility (ref).
 - The diurnal distribution of incidents was expected to
-be different for cyclists than for other road users ([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)).
+be different for cyclists than for other road users 
+([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)).
 
 
 <!--## Literature review: the spatial distribution of cycle accidents-->
@@ -312,16 +313,18 @@ below the national average of 10.4%.
 This figure is unexpectedly high, given the relatively low
 rate of cycling in the area (the proportion of people
 cycling to work in the region, for example is less than 1/2 the national average).
-. mask great variability in time and space.
 
 The most startling temporal trend in the data
 was the near-continuous increase in the proportion of
 incidents involving cyclists in West Yorkshire (Fig. x).
 Between 2005 and 2012, the proportion of reports involving
-cyclists increased, from 6% to just over 10% of all incidents.
+cyclists increased, from 6% to just over 10% of all incidents,
+a rate of 0.5 percentage points per year.
 This trend mirrors the
 national data and may be accounted for by increased uptake of cycling compared
 with stagnating or declining distance travelled by other modes.
+However, the increase cannot be completely accounted for by
+growth in distance cycled: 
 
 There was clear seasonal pattern in the data, with a
 predominance of bicycle incidents during the
@@ -338,6 +341,8 @@ compared with the colder half of the year (6.4%).
 
 ## Who is most at risk?
 
+### Age
+
 The age distribution of cyclist road casualties in West Yorkshire is
 compared with that of pedestrians and other road users in Fig. x.
 As with car drivers, the most accident prone group for cyclists
@@ -346,8 +351,8 @@ more rapidly for cyclists than other road user, perhaps reflecting
 low rates of cycling amongst the elderly. A higher proportion of
 cyclist casualties are children compared than for all accidents, yet
 walking is the mode for which the highest proportion of casualties are
-in the more vulnerable age groups below 16 and above 65. Again,
-this can be explained by the fact that many children and
+in the more vulnerable age groups below 16 and above 65. This
+can be partly explained by the fact that many children and
 elderly people simply do not cycle or drive on the roads. What is not
 clear from Fig. x is the proportion of deaths and serious injury for each mode:
 deaths constituted only 0.6% of cyclist casualties (this rises to 1.6% for
@@ -357,6 +362,47 @@ and other road users (12%) at 19%.
 
 
 ![Cyclist and non cyclist casualties from road traffic incidents, 2005 - 2012 in West Yorkshire, by age and severity. Note the variably sized age bins, which down-play the relative risks of road crashes for young people](figure/unnamed-chunk-5.png) 
+
+
+The age distribution of cyclist casualties in West Yorkshire is anomalous
+compared with that of the UK: 45% are 25 years old and below, compared with
+38% nationally, a 6% point anomaly (accounting for rounding)
+(Fig. x). This cannot be explained by age structure alone
+(although the proportion of young citizens in the region, 33%, is 2% above the
+national average). No such anomaly was found for motorised accidents, although
+a disproportionate proportion of pedestrian casualties in West Yorkshire were
+young (57% against 51% nationally).
+This provides some evidence to suggest that West Yorkshire is an especially
+unsafe place to be a young cyclist or walker and raises the question: why?
+More data on the age distribution of
+exposure regionally would be needed to properly explore this.
+
+![Anomaly in the age distribution of cyclist casulaties in West Yorkshire, compared with the UK](figure/unnamed-chunk-6.png) 
+
+
+### Gender
+
+There were 8 times more male cyclist casualties than female cyclist casualties
+West Yorksire, a ratio found in other highly gendered modes of transport
+such as the motorbike (Table x). This finding underlines
+the gendered nature of cycling outside London (ref).
+(especially in environments that
+are hostile to cyclists such as much of West Yorkshire). These figures alone
+do not suggest that cycling in West Yorkshire is safer for women:
+6 times more men than women regularly to work according to the 2011 Census
+(10,697 males and  1,785 females reported regularly cycling to work)
+and the ratio is probably even higher for distance cycled,
+especially when sport cycling, a male dominated activity, is included.
+
+Table x: Ratio of male to female road casualties in West Yorkshire by mode.
+
+|Mode of transport                                        |  N. casualties  |  % Male|  % Female|
+|:----------------------------------------------|-----------------------------:|-----:|-------:|
+|Pedestrian                                     |                         10190|  57.3|    42.7|
+|Cyclist                                        |                          4046|  88.8|    11.2|
+|Motorcycle 125cc                               |                           581|  90.2|     9.8|
+|Car occupant                                   |                        47239|  54.0|    46.0|
+|Heavy (> 3.5 T) lorry                          |                          363|  93.9|     6.1|
 
 
 ### Reason for trip
@@ -385,11 +431,11 @@ each area by estimated exposure.
 
 
 
-![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-7.png) 
+![Overview of the spatial distribution of accidents with cyclists and no cyclists involved](figure/unnamed-chunk-8.png) 
 
 
 
-![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-8.png) 
+![Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)](figure/unnamed-chunk-9.png) 
 
 
 ### Normalised risk
@@ -444,7 +490,7 @@ used to map estimated risk: with 124 wards in West Yorkshire
 and 753 serious injuries in the region over 8 years, there
 were only 6.2 serious injuries to cyclist per ward.
 
-![Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed 'cyclable' by the majority of the population](figure/unnamed-chunk-10.png) 
+![Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed 'cyclable' by the majority of the population](figure/unnamed-chunk-11.png) 
 
 
 It is interesting to note that the spatial distribution of
@@ -504,7 +550,7 @@ types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf
 
 <!--Could talk about deaths here also...-->
 
-![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-12.png) 
+![Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class](figure/unnamed-chunk-13.png) 
 
 
 Junctions and roundabouts seem to be disproportionally risky for
@@ -544,6 +590,19 @@ that all road traffic accidents, with the accident density during the afternoon
 rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 ![timing of cyclist accidents](figures/cyclist-timings.png)
+
+Because cyclists seem disproportionately at risk during
+the rush hour (i.e. on the way to work),
+it was hypothesised that the bimodal
+distribution displayed in Fig. x evolve
+age. This does indeed seem to be the case: the timing of cycle
+crashes shifts from a unimodal distribution for the lowest age
+groups to a fully bimodal distribution for young adults.
+This time evolution is not as pronounced for other types of road traffic incidents (Fig. x).
+This pattern continues until retirement age (not shown).
+
+![Overview of the study area](figure/unnamed-chunk-14.png) 
+
 
 ### Light conditions
 
