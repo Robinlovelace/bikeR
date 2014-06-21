@@ -55,7 +55,6 @@ Indeed, a recent systematic review of 16 cycling specific
 studies concluded there was moderate evidence for a
 reduction in cardiovascular risk factors, and strong
 evidence for fitness benefits (Oja et al, 2011).
-
 Research strongly suggests that the health benefits of modal shift
 to cycling greatly outweigh the risks, with
 health benefit:cost ratios estimated to be
@@ -100,14 +99,14 @@ cycling is a major barrier to uptake
 (Fishman et al., 2012; Lorenc et al., 2008).
 This may be rational; whilst the balance between the risks
 and reward from cycling may appear at first glance to be
-straightforward, but this is not the case. Whilst all-cause
+straightforward, sometimes this is not the case. Although all-cause
 mortality estimates suggest switching from car to bicycle
 use will result in 3-14 months of additional life from the
 increase in physical activity compared with just 5-9 days
 lost from traffic accidents (de Hartog 2010), risk from
 traffic accidents was found to increase if promotion of the
 switch from car to bicycle occurred among older rather than
-younger drivers . Compared with travelling the same distance
+younger drivers. Compared with travelling the same distance
 by car, the risk of death from travelling one kilometre on
 foot or by bicycle is more than 17 times higher (Davies,
 2014). The geographical and demographic distribution of
@@ -115,12 +114,15 @@ factors linked to cycling uptake has powerful policy
 implications, yet has received little academic attention
 (Fraser and Lock, 2011). Indeed, whilst promoting cycling
 results in relatively unambiguous benefits in some context,
-such as it the case for the cycle hire scheme in Barcelona
-(Rojas-Rueda et al, 2011), in the case of London, for women,
-the harms from traffic accidents may outweigh the benefits
+such as is the case for the cycle hire scheme in Barcelona
+(Rojas-Rueda et al, 2011), in other cases the
+balance is not so clear. In the London cycle hire scheme,
+for example, the health benefits were found to be
+positive overall but to disappear for young women,
+for whom the harms from traffic accidents may outweigh the benefits
 from physical activity (Woodcock et al, 2014).
 
-Safety is increasingly seen as critical to the uptake of cycling: "In order to improve uptake, we need to improve safety. The relative risk associated with journeys by active travel methods are unacceptably high and must be reduced ... An improved understanding of methods to improve road safety for all modes of transport and how these can be applied to the road system in England would be beneficial." (Davies, 2014; p16-17). Analyses of factors associated with harm must be understood if the potential benefits of cycling are to be shared equitably. This paper builds on this observation and seeks to provide evidence towards greater understanding of the risks of active travel.
+In addition to its direct health impacts, safety is increasingly seen as critical to the uptake of cycling: "In order to improve uptake, we need to improve safety. The relative risk associated with journeys by active travel methods are unacceptably high and must be reduced ... An improved understanding of methods to improve road safety for all modes of transport and how these can be applied to the road system in England would be beneficial." (Davies, 2014; p16-17). Analyses of factors associated with harm must be understood if the potential benefits of cycling are to be shared equitably. This paper builds on this observation and seeks to provide evidence towards greater understanding of the risks of active travel.
 
 ## The case study area
 
