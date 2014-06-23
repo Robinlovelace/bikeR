@@ -55,7 +55,7 @@ levels(df$Age)
 df$Ages <- factor(df$Age, levels = levels(df$Age)[c(1,9,2,3,4,5,6,7,8,10,12,11)])
 ggplot(df) + geom_bar(aes(x = Ages, y = Difference)) + bikeR_theme_1 +
   ylab("Proportion of cycle casualties by age in West Yorkshire - UK (% points)")
-ggsave("figures/anomaly-age.png")
+# ggsave("figures/anomaly-age.png")
 
 sum(c(-0.0050559390, -0.0282616970, -0.0172657841, -0.0075497666, -0.0042948374))
 
@@ -70,7 +70,7 @@ levels(df$Age)
 df$Ages <- factor(df$Age, levels = levels(df$Age)[c(1,9,2,3,4,5,6,7,8,10,12,11)])
 ggplot(df) + geom_bar(aes(x = Ages, y = Difference)) + bikeR_theme_1 +
   ylab("Anomaly in age distribution of non-cyclist casualties in West Yorkshire (% points)")
-ggsave("figures/anomaly-age-other.png")
+# ggsave("figures/anomaly-age-other.png")
 
 (d <- (prop.table(ftable(table(caVtJ$Age_Band_Cf, caVtJ$cyclist )), margin=2)[,3] -
          prop.table(ftable(table(caVt$Age_Band_Cf, caVt$cyclist )), margin=2)[,3]) * 100)
@@ -80,7 +80,7 @@ levels(df$Age)
 df$Ages <- factor(df$Age, levels = levels(df$Age)[c(1,9,2,3,4,5,6,7,8,10,12,11)])
 ggplot(df) + geom_bar(aes(x = Ages, y = Difference)) + bikeR_theme_1 +
   ylab("Anomaly in age distribution of non-cyclist casualties in West Yorkshire (% points)")
-ggsave("figures/anomaly-age-ped.png")
+# ggsave("figures/anomaly-age-ped.png")
 
 prop.table(table(caVt$Severity, caVt$Age_Band_of_Casualty, caVt$cyclist ), margin=2)
 prop.table(table(caVt$Accident_Sf, caVt$Age_Band_of_Casualty  ), margin=2)
@@ -96,11 +96,11 @@ library(chron)
 ggplot(aes(time, ..density..,), data = caVtac[ grepl("10|11|16|21", caVtac$Age_Band_of_Casualty) &
                                                   caVtac$cyclist == "Cyclist",]) + geom_histogram() + geom_density() + 
   facet_grid(~ Age_Band_of_Casualty) + scale_x_chron(format="%H")
-ggsave("figures/cyclist-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
+# ggsave("figures/cyclist-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
 
 ggplot(aes(time, ..density..,), data = caVtac[ grepl("10|11|16|21", caVtac$Age_Band_of_Casualty) ,]) + geom_histogram() + geom_density() + 
   facet_grid(~ Age_Band_of_Casualty) + scale_x_chron(format="%H")
-ggsave("figures/all-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
+# ggsave("figures/all-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
 
 # and sex...
 
@@ -109,11 +109,11 @@ caVtac$Sex_of_Casualty <- factor(caVtac$Sex_of_Casualty, labels = c("Male", "Fem
 ggplot(aes(time, ..density..,), data = caVtac[ grepl("10|11|16|21", caVtac$Age_Band_of_Casualty) &
                                                   caVtac$cyclist == "Cyclist",]) + geom_histogram() + geom_density() + 
   facet_grid(Sex_of_Casualty ~ Age_Band_of_Casualty) + scale_x_chron(format="%H")
-ggsave("figures/cyclist-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
+# ggsave("figures/cyclist-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
 
 ggplot(aes(time, ..density..,), data = caVtac[ grepl("10|11|16|21", caVtac$Age_Band_of_Casualty) ,]) + geom_histogram() + geom_density() + 
   facet_grid(Sex_of_Casualty~ Age_Band_of_Casualty) + scale_x_chron(format="%H")
-ggsave("figures/all-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
+# ggsave("figures/all-age-time.png", width = 5, height = 5, units = "in", dpi = 100)
 
 # accident severity by gender
 

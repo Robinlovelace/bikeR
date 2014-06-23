@@ -41,16 +41,16 @@ b$Driver_IMD[ b$Driver_IMD == "Data missing or out of range"] <- NA
 b$Driver_IMD.1[ b$Driver_IMD.1 == "NA's"] <- NA
 b$Driver_IMD <- factor(b$Driver_IMD)
 b$Driver_IMD.1 <- factor(b$Driver_IMD.1)
-s1 <- summary(b$Driver_IMD.1)
+s1 <- summary(b$Driver_IMD)
 s2 <- summary(b$Driver_IMD)
 dfIMD <- data.frame(IMD = names(s1), who = rep("Driver", length(names(s1))), n = as.numeric(s1))
 dfIMD2 <- data.frame(IMD = names(s2), who = rep("Cyclist", length(names(s2))), n = as.numeric(s2))
 dfIMD3 <- rbind(dfIMD, dfIMD2) 
 qplot(data= dfIMD3, x = IMD, y = n, fill = who, geom = "bar", position="dodge") + bikeR_theme_1 +
   xlab("IMD score of home") + ylab("Number") + scale_fill_discrete(name="")
-ggsave("figures/IMD1.png")
+# ggsave("figures/IMD1.png")
 
 summary(b$Vehicle_Tf) # the real-deal: who hit the bicycle?
 b$Vehicle_Tf2 <- factor(b$Vehicle_Tf)
 qplot(b$Vehicle_Tf2) + bikeR_theme_1
-ggsave("/tmp/whodunit.png")
+# ggsave("/tmp/whodunit.png")
