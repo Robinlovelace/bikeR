@@ -1,4 +1,9 @@
-# The shifting demographic and geographic distribution of bicycle crashes: a case study of West Yorkshire
+---
+title: 'The shifting demographic and geographic distribution of bicycle crashes: a
+  case study of West Yorkshire'
+output:
+  word_document: default
+---
 
 ```{r, echo=FALSE}
 # Social and geographical factors linked with bicycle incidents: a case study of West Yorkshire
@@ -9,12 +14,9 @@
 
 References to include:
 
-- ([Schepers, 2012](http://injuryprevention.bmj.com/content/18/4/240.abstract))
 - (Elvik et al., 2009)
-- ([Short and Caulfield, 2014](http://www.sciencedirect.com/science/article/pii/S0967070X14000699))
 - ([Wegman et al., 2012](http://www.sciencedirect.com/science/article/pii/S0001457510003416))
 - ([Parkin et al., 2007](http://www.sciencedirect.com/science/article/pii/S0001457506001473))
-- ([Dozza and Julia Werneke, 2014](http://linkinghub.elsevier.com/retrieve/pii/S1369847814000394))
 
 
 ## Abstract
@@ -42,8 +44,6 @@ Temporal analysis identifies how these geographical risk factors intersect
 with time of day, week and season. Overall we provide evidence to suggest
 local-level geographical factors do play an important role in cycle safety
 and provide suggestions of how to increase cycle safety and uptake nationwide.
-
-
 
 # Introduction
 
@@ -97,9 +97,10 @@ declined, from 3.2% in 2001 to 2.9% in 2011.
 Fear of death or serious injury when walking and
 cycling is a major barrier to uptake 
 (Fishman et al., 2012; Lorenc et al., 2008).
-This may be rational; whilst the balance between the risks
+This may be rational in some cases: whilst the balance between the risks
 and reward from cycling may appear at first glance to be
-straightforward, sometimes this is not the case. Although all-cause
+straightforward overall,
+there are contexts where this is not the case. Although all-cause
 mortality estimates suggest switching from car to bicycle
 use will result in 3-14 months of additional life from the
 increase in physical activity compared with just 5-9 days
@@ -109,7 +110,26 @@ switch from car to bicycle occurred among older rather than
 younger drivers. Compared with travelling the same distance
 by car, the risk of death from travelling one kilometre on
 foot or by bicycle is more than 17 times higher (Davies,
-2014). The geographical and demographic distribution of
+2014).
+
+A recent comparison of hospital and police records of
+casualties from cycling in Ireland suggests that under-reporting
+may lead to underestimates of the true risks of cycling
+([Short and Caulfield, 2014](http://www.sciencedirect.com/science/article/pii/S0967070X14000699#)).
+This issue is especially pertinent to the present paper, which uses
+the publicly available STATS19 dataset, collated by the police.
+The authors point out that while contemporary debates have focussed on the
+need to improve cycling for health reasons, little has been said about the
+potential increase in health *risks* associated with a rising number of
+cyclist casualties (Short and Caulfield, 2014).
+Mirroring these findings, official documents suggest that only casualties classed as
+fatal and to a lesser extent fatal can be relied upon from STATS19 (as opposed to
+'slight' injuries, which are likely heavily under-reported)
+([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf)).
+For this reason we omit 'slight' injuries from the estimates of exposure-normalised
+risk in the subsequent analysis.
+
+The geographical and demographic distribution of
 factors linked to cycling uptake has powerful policy
 implications, yet has received little academic attention
 (Fraser and Lock, 2011). Indeed, whilst promoting cycling
@@ -168,12 +188,13 @@ img <- readPNG("figures/wy-overview.png")
 
 In terms of geographical research into cycling, there has been much work on the
 factors associated with the prevalance of bicycle use (e.g.
-[Buehler](http://www.mautc.psu.edu/docs/VT-2009-05.pdf)). Much less has been written
-on the determinants of crashes involving cyclists and cyclist's fear of using the road.
+[Buehler, 2012](http://www.mautc.psu.edu/docs/VT-2009-05.pdf)). Much less has been written
+on the determinants of road traffic incidents involving cyclists
+and the impacts of these casualties on cyclist's fear of using the road.
 These are important oversights because safety concerns have been found to be
 the predominant cycling deterrent
-([Fishman et al., 2012](http://linkinghub.elsevier.com/retrieve/pii/S1369847812000733);
-ref Ann Jopson on this...). Thus it is fear of poor
+([Fishman et al., 2012](http://linkinghub.elsevier.com/retrieve/pii/S1369847812000733)).
+Thus it is fear of poor
 health via accidents which, perversly, prevents cyclists
 from enjoying the health benefits of cycling: health benefits
 are consistently found to outweigh the costs of cycling,
@@ -725,20 +746,51 @@ evidence to support the idea that the more cycling there is in a particular
 area, the safer cycling will become.
 
 A major limitation of this study was the reliance on commuting data
-to estimate relative exposure in different zones. This is problematic in
+to estimate the denominator of risk:
+relative exposure in different zones. This is problematic in
 two ways. First, cycling rates amongst zone inhabitants may not
 always relate to the amount of cycling passing through a particular area
 (e.g. if a zone is particularly popular for recreational cycling). Second,
-cycling to work is not a perfect predictor of cycling for other purposes.
+cycling to work is an imperfect proxy for cycling overall (Goodman, 2013).
 It is conceivable that in some areas there is very little cycling to
-work (e.g. due to lack of nearby jobs) but many leisure trips amongst inhabitants
-and vice versa. Still, in defence of the method used, census data on travel to work
-provides information on cycling at the highest spatial resolution available. It is
-an imperfect proxy, but one that allows estimation of risk at an unusually high level
-of spatial resolution. There is clearly a trade-off between accuracy of exposure estimates
-and resolution and for some purposes the additional insight into local-level variation that
-the use of Census-derived exposure estimates provides will be worth the impact on certainty,
-provided users of the method are aware of the assumptions.
+work (e.g. due to lack of nearby jobs) but many leisure trips amongst inhabitants.
+Conversely, in areas where it is less pleasant to cycle but where many
+residents cycle to work, our methodology will overestimate cycling.
+Still, in defence of the method used, census data on travel to work
+provides the most comprehensive and highest resolution
+data on cycling available, allowing
+estimation of risk at an unusually high level
+of spatial resolution. The paper therefore highlights the importance of local
+survey data for corroborating estimates of exposure and the methodological opportunities
+for improving small-area estimates of cycling (e.g. based demographic and geographical factors
+associated with high rates of non-work cycling, not considered in the analysis).
+
+Another methodological issue raised by this research relates to the numerator of risk:
+number of cyclists casualties. The uncertainty surrounding STATS19 data for
+non-fatal casualties has already been mentioned with respect to police underreporting in 
+Ireland (Short and Caulfield, 2014), but a wider issue is whether
+riskiness is well measured by the number incidents that result in
+police reports or hospitalisations at all. For every incident reported in STATS19,
+there must be many 'close calls' where cyclists narrowly avoided harm.
+Again, there are great methodological opportunities for tackling this data
+issue. The use of new 'naturalistic' monitoring
+technologies and innovative methods of analysis has been used recently to
+estimate the factors associated with risk at the local level
+([Dozza and Werneke, 2014](http://www.sciencedirect.com/science/article/pii/S1369847814000394#)).
+We believe this methodology, and the simpler approach of simply asking
+participants were they feel most in danger
+([Chataway et al., 2014](http://www.sciencedirect.com/science/article/pii/S1369847813001502)),
+has great potential for improving our understanding of the social
+and geographical factors associated with risk. More importantly,
+new data sources, used in combination with the type of official road traffic
+incident data reported in this paper, have the potential to influence
+policy. The interventions to improve cyclist safety
+resulting from this research field should include reduced speed limits,
+off-road paths along fast roads and better enforcement of road regulations.
+These changes will not only improve the health balance cycling:
+they have the potential to benefit all of society.
+
+
 
 # References
 
@@ -864,6 +916,10 @@ Wickham, H. (2011). ggplot2. Wiley Interdisciplinary Reviews: Computational Stat
 # lower than the global estimate of 400 by Hall et al. (2011).
 
 # the proportion of people who usually cycle on roads is only around 40%
+# There is clearly a trade-off between accuracy of exposure estimates
+# and resolution and for some purposes the additional insight into local-level variation that
+# the use of Census-derived exposure estimates provides will be worth the impact on certainty,
+# provided users of the method are aware of the assumptions.
 
 ```
 
