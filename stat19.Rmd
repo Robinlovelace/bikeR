@@ -714,7 +714,11 @@ This suggests that promoting uptake may lead to a
 virtuous circle, whereby increased numbers address 
 safety directly, and subsequently indirectly through
 reduced safety concerns.
-Future studies should explore the presence of such 'positive feedback'
+On the other hand, there is evidence that measures targetting
+saftety specifically improve *perceptions* of safety
+(El-Basyounya and El-Bassiouni, 2013), thereby indirectly
+increasing uptake.
+Future studies should explore the presence of such 'positive feedbacks'
 and the importance of perceived risk of injury for cycling uptake.
 
 A limitation of this study was the reliance on census commuting data
@@ -753,21 +757,23 @@ We believe this methodology, and the simpler approach of simply asking
 participants where they feel most in danger
 ([Chataway et al., 2014](http://www.sciencedirect.com/science/article/pii/S1369847813001502)),
 has great potential for improving our understanding of the social and geographical
-factors associated with both perceived risk and risk inadequately indexed by STATS19.
+factors associated with both perceived risk
+and risk inadequately indexed by STATS19.
 
 More importantly,
 new data sources, used in combination with the type of official road traffic
 incident data reported in this paper, have the potential to influence
 policy. The interventions to improve cyclist safety
-resulting from this research should include reduced speed limits,
-off-road paths along fast roads and better enforcement of road regulations.
+resulting from this research should include
+reduced speed limits (Bunn et al., 2003),
+off-road paths along fast roads
+(Vandenbulcke et al., 2014) and better enforcement of road regulations (Wegman et al, 2012).
 These changes will not only improve the health balance of cycling:
 they can, through encouraging a wider shift to active travel
 provide benefits throughout society.
 
-
-
 # References
+
 Buehler, R. (2012). Determinants of bicycle commuting in the Washington, DC region: The role of bicycle parking, cyclist showers, and free car parking at work. Transportation Research Part D: Transport and Environment, 17(7), 525–531.
 
 Chataway, E. S., Kaplan, S., Nielsen, T. A. S., & Prato, C. G. (2014). Safety perceptions and reported behavior related to cycling in mixed traffic: A comparison between Brisbane and Copenhagen. Transportation Research Part F: Traffic Psychology and Behaviour, 23, 32–43. doi:10.1016/j.trf.2013.12.021
