@@ -17,9 +17,6 @@ output:
 # (ITA Executive Board, 2014)
 ```
 
-References to include:
-
-
 ## Abstract
 
 Factors associated with cycle safety, including international differences in injury and mortality rates, protective equipment and bicycle training, have been subject to increasing academic interest. Environmental factors associated with cycle safety have also been scrutinised, but few studies have
@@ -27,9 +24,9 @@ focussed on geographical factors at the local level.
 This paper addresses this research gap by analysing a geo-referenced
 dataset of bicycle accidents, taken from the UK's STATS19 dataset
 (2005 - 2012). We investigate incidents involving cyclists
-within the case study area of West Yorkshire, an area that
-has a historically low cycling rate but very high ambitions
-following investment to promote cycling in the area.
+within West Yorkshire. This is an interesting case study
+area as it has a historically low cycling rate but very ambitions
+cycling plans following investment from the Department of Transport.
 Descriptive statistics and statistical tests are used to identify
 the characteristic features of bicycle incidents and how they
 differ, on average, from other types of crashes.
@@ -177,9 +174,9 @@ img <- readPNG("figures/wy-overview.png")
 - Definition of a crash as something reported in the STAT19 dataset. What is this specifically?
 
 In terms of geographical research into cycling, there has been much work on the
-factors associated with the prevalance of bicycle use (e.g.
+factors associated with the prevalence of bicycle use (e.g.
 [Buehler, 2012](http://www.mautc.psu.edu/docs/VT-2009-05.pdf)), but less has been written on the determinants of road traffic incidents involving cyclists (Wegman et al, 2012). Safety concerns have been found to be the predominant cycling deterrent ([Fishman et al., 2012](http://linkinghub.elsevier.com/retrieve/pii/S1369847812000733)).
-As such, safety is increasingly seen as critical to the uptake of cycling: "In order to improve uptake, we need to improve safety. The relative risk associated with journeys by active travel methods are unacceptably high and must be reduced ... An improved understanding of methods to improve road safety for all modes of transport and how these can be applied to the road system in England would be beneficial." (Davies, 2014; p16-17). Analyses of factors associated with harm must be understood if the potential benefits of cycling are to be shared equitably. This paper builds on this observation and seeks to provide evidence towards greater understanding of the risks of active travel[This all flows well, and this final paragraph seems really strong to me.].
+As such, safety is increasingly seen as critical to the uptake of cycling: "In order to improve uptake, we need to improve safety. The relative risk associated with journeys by active travel methods are unacceptably high and must be reduced ... An improved understanding of methods to improve road safety for all modes of transport and how these can be applied to the road system in England would be beneficial." (Davies, 2014; p16-17). Analyses of factors associated with harm must be understood if the potential benefits of cycling are to be shared equitably. This paper builds on this observation and seeks to provide evidence towards greater understanding of the risks of active travel.
 
 ## Hypotheses
 
@@ -217,7 +214,8 @@ over time, in line with estimates on the growing distance cycled
 per year nationwide.
 - Seasonal variability of traffic accidents for cyclists was expected
 be different from other road users, due
-to the disproportionate impact of poor road conditions and visibility (ref).
+to the disproportionate impact of poor road conditions and visibility
+(Thornley et al, 2008).
 - The diurnal distribution of incidents was expected to
 be different for cyclists than for other road users 
 ([Twisk and Reurings, 2013](http://www.sciencedirect.com/science/article/pii/S0001457513003278)).
@@ -613,7 +611,7 @@ img <- readPNG("figures/roadClass.png")
 # ![roadClass](figures/roadClass.png)
 ```
 
-Junctions and roundabouts seem to be disproportionally risky for
+Junctions and roundabouts seem to be disproportionately risky for
 cyclists in West Yorkshire, coinciding with the existing literature
 (e.g. Reynolds et al, 2009). An
 interesting trend in the data, not shown in Table x, is that the
@@ -652,11 +650,10 @@ rush hour almost 50% higher for cyclists than non cyclists (fig. x).
 
 ![timing of cyclist accidents](figures/cyclist-timings.png)
 
-Because cyclists seem disproportionately at risk during
-the rush hour (i.e. on the way to work),
-it was hypothesised that the bimodal
-distribution displayed in Fig. x evolve
-age. This does indeed seem to be the case: the timing of cycle
+### Who is at risk when?
+
+Cyclists seem disproportionately at risk during the rush hour (i.e. on the way to work). Subsequently, we explored whether the bimodal distribution displayed in Fig. x may be patterned by age. This
+does indeed seem to be the case: the timing of cycle
 crashes shifts from a unimodal distribution for the lowest age
 groups to a fully bimodal distribution for young adults.
 This time evolution is not as pronounced for other types of road traffic incidents (Fig. x).
@@ -677,7 +674,7 @@ cyclists are disproportionately more at risk during night time.
 The proportion of bicycle incidents that took place in daylight
 (79%) was higher than the proportion of all incidents (71%) and
 the difference grew with increased incident severity:
-81% of cyclist deaths occured during daylight, whereas only
+81% of cyclist deaths occurred during daylight, whereas only
 53% of other deaths did, implying that cyclists.
 Aversion to cycling at night may explain relatively low
 incident rates at night for cyclists overall, but other
@@ -687,12 +684,9 @@ cyclist and driver behaviour (who are perhaps more cautious in the dark),
 lower traffic volumes leading to fewer multi-vehicle incidents (which
 tend to be more severe) and the increased long-range visibility of
 cyclists who have lights. More evidence would be needed to test these
-theories.
+potential causes.
 
 ### Season
-
-
-
 
 ## Spatial statistics
 
@@ -714,11 +708,16 @@ heightened risk. We have found evidence to support some of the hypotheses,
 and intend to summarise the meaning of these findings, and their policy relevance,
 below.
 
-In terms of the well-known 'strength in numbers' hypothesis, we have found
-evidence to support the idea that the more cycling there is in a particular
-area, the safer cycling will become.
+In terms of the well-known 'strength in numbers' hypothesis, our finding that the number of people cycling to work in each zone is negatively correlated to risk per bkm supports the idea that the more cycling there is in a particular 
+area, the safer cycling is.
+This suggests that promoting uptake may lead to a
+virtuous circle, whereby increased numbers address 
+safety directly, and subsequently indirectly through
+reduced safety concerns.
+Future studies should explore the presence of such 'positive feedback'
+and the importance of perceived risk of injury for cycling uptake.
 
-A major limitation of this study was the reliance on commuting data
+A limitation of this study was the reliance on census commuting data
 to estimate the denominator of risk:
 relative exposure in different zones. This is problematic in
 two ways. First, cycling rates amongst zone inhabitants may not
@@ -729,7 +728,7 @@ It is conceivable that in some areas there is very little cycling to
 work (e.g. due to lack of nearby jobs) but many leisure trips amongst inhabitants.
 Conversely, in areas where it is less pleasant to cycle but where many
 residents cycle to work, our methodology will overestimate cycling.
-Still, in defence of the method used, census data on travel to work
+Still, census data on travel to work
 provides the most comprehensive and highest resolution
 data on cycling available, allowing
 estimation of risk at an unusually high level
@@ -740,7 +739,7 @@ associated with high rates of non-work cycling, not considered in the analysis).
 
 Another methodological issue raised by this research relates to the numerator of risk:
 number of cyclists casualties. The uncertainty surrounding STATS19 data for
-non-fatal casualties has already been mentioned with respect to police underreporting in 
+non-fatal casualties has already been mentioned with respect to police under-reporting in 
 Ireland (Short and Caulfield, 2014), but a wider issue is whether
 riskiness is well measured by the number incidents that result in
 police reports or hospitalisations at all. For every incident reported in STATS19,
@@ -751,17 +750,20 @@ technologies and innovative methods of analysis has been used recently to
 estimate the factors associated with risk at the local level
 ([Dozza and Werneke, 2014](http://www.sciencedirect.com/science/article/pii/S1369847814000394#)).
 We believe this methodology, and the simpler approach of simply asking
-participants were they feel most in danger
+participants where they feel most in danger
 ([Chataway et al., 2014](http://www.sciencedirect.com/science/article/pii/S1369847813001502)),
-has great potential for improving our understanding of the social
-and geographical factors associated with risk. More importantly,
+has great potential for improving our understanding of the social and geographical
+factors associated with both perceived risk and risk inadequately indexed by STATS19.
+
+More importantly,
 new data sources, used in combination with the type of official road traffic
 incident data reported in this paper, have the potential to influence
 policy. The interventions to improve cyclist safety
-resulting from this research field should include reduced speed limits,
+resulting from this research should include reduced speed limits,
 off-road paths along fast roads and better enforcement of road regulations.
-These changes will not only improve the health balance cycling:
-they have the potential to benefit all of society.
+These changes will not only improve the health balance of cycling:
+they can, through encouraging a wider shift to active travel
+provide benefits throughout society.
 
 
 
