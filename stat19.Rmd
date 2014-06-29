@@ -677,6 +677,8 @@ used to map estimated risk: with 124 wards in West Yorkshire
 and 753 serious injuries in the region over 8 years, there
 were only 6.2 serious injuries to cyclist per ward.
 
+\newpage
+
 ```{r fig.cap="Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed 'cyclable' by the majority of the population", fig.width=6, fig.height=8, echo=FALSE}
 library(png)
 library(grid)

@@ -2,36 +2,18 @@
 library(XLConnect)
 library(rJava)
 
-wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
-wb <- readWorksheet(wb, sheet = getSheets(wb))
-
-names(wb)  <- sub(" ", ".", names(wb))
-names(wb)  <- sub(" ", ".", names(wb))
-names(wb)  <- sub("1", ".", names(wb))
-names(wb)  <- sub("- ", ".", names(wb))
-names(wb)  <- sub(" ", ".", names(wb))
-names(wb)
-
-### attempt with gdata
-# wb <- sheetNames("Road-Accident-Safety-Data-Guide-1979-2004.xls")
-# wb  <- sub(" ", ".", wb)
-# wb  <- sub(" ", ".", wb)
-# wb  <- sub("1", ".", wb)
-# wb  <- sub("- ", ".", wb)
-# wb  <- sub(" ", ".", wb)
-# wb
-# wbN <- sheetNames("Road-Accident-Safety-Data-Guide-1979-2004.xls")
+# wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
+# wb <- readWorksheet(wb, sheet = getSheets(wb))
 # 
-# wb <- as.list(wb)
-# 
-# for(i in 1:length(wb)){
-#   print(wbN[i])
-#   wb$
-#   wb <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wbN[i])
-# }
-# wbA <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wb[4])
-# wb
-
+# names(wb)  <- sub(" ", ".", names(wb))
+# names(wb)  <- sub(" ", ".", names(wb))
+# names(wb)  <- sub("1", ".", names(wb))
+# names(wb)  <- sub("- ", ".", names(wb))
+# names(wb)  <- sub(" ", ".", names(wb))
+names(wb) <- sub(".-.", ".", names(wb))
+# names(wb)
+# save(wb, file = "wb.RData")
+load("wb.RData")
 
 # Let's see which data need to become factors (1st for cyclists in WY, then everywhere):
 # summary(ac)
@@ -55,10 +37,10 @@ plot(ac$X1st_Road_Cf)
 # Road type (roundabouts etc) 
 wb$Road.Type # This is v. useful
 summary(ac$Road_Type); unique(ac$Road_Type)
-ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[]) # didnt' work...
+# ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[]) # didnt' work...
 wb$Road.Type$label[unique(ac$Road_Type)]
 wb$Road.Type$label[-unique(ac$Road_Type)]
-ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[1:6]) # didnt' work...
+ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[1:6]) # worked
 summary(ac$Road_Tf)
 qplot(ac$Road_Tf) + xlab("Type of road") + ylab("Count") + 
   theme(axis.text.x = element_text(angle=20, color = "black"),
@@ -70,11 +52,14 @@ head(colors())
 wb$Junction.Detail
 unique(ac$Junction_Detail)
 summary(as.factor(ac$Junction_Detail))
-plot(ac$Junction_Detail)
+# plot(ac$Junction_Detail) # time consuming and uninformative plot
 # ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[c(, 1:9)] ) # fail
 ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[c(10, 1:9)] )
 # levels(ac$Junction_Df)[c(1,4,7,8)] <- c("Not at junction", "T junction", "Multi-junction", "Private drive") # fail
 summary(ac$Junction_Df)
+
+source("Rcode/potting.R")
+
 qplot(data=ac@data, x = Junction_Df) + bikeR_theme_1
 qplot(data = ac@data, x = Junction_Df) + facet_grid( cyclist ~., scales="free") + bikeR_theme_1
 table(ac$Junction_Df, ac$cyclist)
@@ -91,8 +76,8 @@ kable(round(prop.table(table(acDeath$Junction_Df, acDeath$cyclist), margin=2) * 
 
 summary(ac$Speed_limit) # speed limit is fine
 
-wb$Ped.Cross..Human # human crossing - not that interesting
-wb$Ped.Cross..Physical # not hugely interesting atm
+wb$Ped.Cross.Human # human crossing - not that interesting
+wb$Ped.Cross.Physical # human crossing - not that interesting
 
 wb$Light.Conditions # light conditions - disproportionately dangerous @ night?
 summary(as.factor(ac$Light_Conditions)) # ok - no unknown factors (rm -1)
@@ -192,7 +177,7 @@ qplot(ca$Age_Band_Cf) + bikeR_theme_1
 summary(as.factor(ca$Casualty_Severity))
 wb$Casualty.Severity # OK this is interesting: how many cyclists hit pedestrians?
 ca$CSeverity <- factor(ca$Casualty_Severity, labels = wb$Casualty.Severity$label)
-qplot(ca$Severity) + bikeR_theme_1
+qplot(ca$CSeverity) + bikeR_theme_1
 # ggsave("~/Desktop/casualtysex.png")
 
 summary(as.factor(ca$Casualty_Type))
@@ -202,7 +187,32 @@ summary(ca$Type)
 summary(ca$Type) / nrow(ca)
 qplot(ca$Type) + bikeR_theme_1
 # ggsave("~/Desktop/casualtytype.png")
+# save.image("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
+load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
 
 ### additional factors
+
+
+## out-takes
+
+### attempt with gdata
+# wb <- sheetNames("Road-Accident-Safety-Data-Guide-1979-2004.xls")
+# wb  <- sub(" ", ".", wb)
+# wb  <- sub(" ", ".", wb)
+# wb  <- sub("1", ".", wb)
+# wb  <- sub("- ", ".", wb)
+# wb  <- sub(" ", ".", wb)
+# wb
+# wbN <- sheetNames("Road-Accident-Safety-Data-Guide-1979-2004.xls")
+# 
+# wb <- as.list(wb)
+# 
+# for(i in 1:length(wb)){
+#   print(wbN[i])
+#   wb$
+#   wb <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wbN[i])
+# }
+# wbA <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wb[4])
+# wb
 
 

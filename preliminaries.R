@@ -1,7 +1,9 @@
 # Load and explore
+setwd("/media/SAMSUNG/repos/bikeR/")
 ac <- read.csv("Accidents0512.csv")
 vt <- read.csv("Vehicles0512.csv")
 ca <- read.csv("Casualty0512.csv") # casualties
+setwd("~/repos/bikeR/")
 
 # First task: add factors
 # source("Rcode/addFactors.R") 
@@ -13,6 +15,11 @@ length(unique(vt$Acc_Index))
 
 head(vt$Vehicle_Type)
 cyCodes <- vt$Acc_Index[vt$Vehicle_Type == 1]
+# are they a cyclist?
+ac$cyclist <- "No cyclist"
+ac$cyclist[cyCodes] <- "Cyclist"
+ac$cyclist <- factor(ac$cyclist)
+summary(ac$cyclist)
 
 cyVt <- vt[ vt$Acc_Index %in% cyCodes, ]
 cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
@@ -28,12 +35,14 @@ save(cyAc.mini, file="/media//SAMSUNG/repos/osm-cycle/cy-uptake/updata/cyAc.mini
 
 # Subset to Leeds area, then save and play
 library(rgdal)
-counties <- readOGR(dsn="/scratch/gdata/" , layer="england_ct_2011_gen_clipped")
-plot(counties)
-head(counties@data)
-WY <- counties[ counties$NAME == "West Yorkshire", ]
+# counties <- readOGR(dsn="/scratch/gdata/" , layer="england_ct_2011_gen_clipped")
+# counties <- readOGR(dsn="/media/" , layer="england_ct_2011_gen_clipped")
+# plot(counties)
+# head(counties@data)
+# WY <- counties[ counties$NAME == "West Yorkshire", ]
+# WY <- wy # if already loaded under different name
 plot(WY)
-
+save(WY, file = "geodata/WYoutline.RData")
 # convert Time text to chron format
 library(chron)
 ac$time <- as.character(ac$Time)
@@ -47,13 +56,19 @@ ac$date <- as.character(ac$Date)
 ac$date <- as.Date(ac$date, format="%d/%m/%Y")
 summary(ac$date)
 plot(ac$date[1:1000])
+library(ggplot2)
 qplot(ac$date, geom="histogram", binwidth = 30) # ...
 
+bbox(WY)
+WY <- spTransform(WY, CRSobj = CRS("+init=epsg:27700"))
+bbox(WY)
 
 summary(ac$Location_Easting_OSGR)
 ac <- ac[-which(is.na(ac$Location_Easting_OSGR)), ]
 ac <- SpatialPointsDataFrame(coords=matrix(c(ac$Location_Easting_OSGR, ac$Location_Northing_OSGR), ncol=2), data=ac)
-proj4string(ac) <- proj4string(YW)
+proj4string(ac) <- proj4string(WY)
+
+### RUN addFactors here ### and then continue
 
 # all zones in WY
 plot(WY)
