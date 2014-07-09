@@ -1,0 +1,59 @@
+\def\pdffile{./stat19_files/figure-latex/unnamed-chunk-9.pdf}
+\def\stripprefix#1>{}
+\def\onelevelsanitize#1{%
+  \edef#1{\expandafter\stripprefix\meaning#1}%
+}
+\onelevelsanitize\pdffile
+\csname pdfmapfile\endcsname{}
+\def\page #1 [#2 #3 #4 #5]{%
+  \count0=#1\relax
+  \setbox0=\hbox{%
+    \pdfximage page #1{\pdffile}%
+    \pdfrefximage\pdflastximage
+  }%
+  \pdfhorigin=-#2bp\relax
+  \pdfvorigin=#3bp\relax
+  \pdfpagewidth=#4bp\relax
+  \advance\pdfpagewidth by -#2bp\relax
+  \pdfpageheight=#5bp\relax
+  \advance\pdfpageheight by -#3bp\relax
+  \ht0=\pdfpageheight
+  \shipout\box0\relax
+}
+\def\pageclip #1 [#2 #3 #4 #5][#6 #7 #8 #9]{%
+  \count0=#1\relax
+  \dimen0=#4bp\relax \advance\dimen0 by -#2bp\relax
+  \edef\imagewidth{\the\dimen0}%
+  \dimen0=#5bp\relax \advance\dimen0 by -#3bp\relax
+  \edef\imageheight{\the\dimen0}%
+  \pdfximage page #1{\pdffile}%
+  \setbox0=\hbox{%
+    \kern -#2bp\relax
+    \lower #3bp\hbox{\pdfrefximage\pdflastximage}%
+  }%
+  \wd0=\imagewidth\relax
+  \ht0=\imageheight\relax
+  \dp0=0pt\relax
+  \pdfhorigin=#6pt\relax
+  \pdfvorigin=#7bp\relax
+  \pdfpagewidth=\imagewidth
+  \advance\pdfpagewidth by #6bp\relax
+  \advance\pdfpagewidth by #8bp\relax
+  \pdfpageheight=\imageheight\relax
+  \advance\pdfpageheight by #7bp\relax
+  \advance\pdfpageheight by #9bp\relax
+  \pdfxform0\relax
+  \shipout\hbox{\pdfrefxform\pdflastxform}%
+}%
+\def\pageinclude#1{%
+  \pdfhorigin=0pt\relax
+  \pdfvorigin=0pt\relax
+  \pdfximage page #1{\pdffile}%
+  \setbox0=\hbox{\pdfrefximage\pdflastximage}%
+  \pdfpagewidth=\wd0\relax
+  \pdfpageheight=\ht0\relax
+  \advance\pdfpageheight by \dp0\relax
+  \shipout\hbox{%
+    \raise\dp0\box0\relax
+  }%
+}

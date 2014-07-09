@@ -235,11 +235,9 @@ greatest shift to cycling, trailing only Newcastle, Manchester and Sheffield.
 Unfortunately, cycling has declined in the other Local Authorities within
 West Yorkshire, leading to a highly uneven spatial distribution of
 cycling across the county (Fig. 1).
+Evidence from local surveys, suggests 4.4% of respondents took up to cycling in 2012.
+(WYITA, 2013). 
 
-Based on local surveys, cycling overall is reported to have grown
-by only 0.9% (from what to what???) in Leeds and remained stable in Bradford at 0.8%
-(WYITA, 2013). The same document reports that
-4.4% of respondents took up to cycling in 2012.
 
 
 ```{r fig.cap="Overview of the study area", fig.width=4, fig.height=3, echo=FALSE}
@@ -1118,7 +1116,7 @@ West Yorkshire Metro. (2013). Metro Market Research Tracker Survey. Retrieved fr
 
 Wickham, H. (2011). ggplot2. Wiley Interdisciplinary Reviews: Computational Statistics, 3(2), 180–185.
 
-Woodcock, J., Tainio, M., Cheshire, J., O\textquoterightBrien, O., & Goodman, A. (2014). Health effects of the London bicycle sharing system: health impact modelling study. BMJ, 348. doi:10.1136/bmj.g425
+Woodcock, J., Tainio, M., Cheshire, J., O'Brien, O., & Goodman, A. (2014). Health effects of the London bicycle sharing system: health impact modelling study. BMJ, 348. doi:10.1136/bmj.g425
 
 
 
