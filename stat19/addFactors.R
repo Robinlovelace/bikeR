@@ -2,14 +2,14 @@
 library(XLConnect)
 library(rJava)
 
-# wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
-# wb <- readWorksheet(wb, sheet = getSheets(wb))
+wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
+wb <- readWorksheet(wb, sheet = getSheets(wb))
 # 
-# names(wb)  <- sub(" ", ".", names(wb))
-# names(wb)  <- sub(" ", ".", names(wb))
-# names(wb)  <- sub("1", ".", names(wb))
-# names(wb)  <- sub("- ", ".", names(wb))
-# names(wb)  <- sub(" ", ".", names(wb))
+names(wb)  <- sub(" ", ".", names(wb))
+names(wb)  <- sub(" ", ".", names(wb))
+names(wb)  <- sub("1", ".", names(wb))
+names(wb)  <- sub("- ", ".", names(wb))
+names(wb)  <- sub(" ", ".", names(wb))
 names(wb) <- sub(".-.", ".", names(wb))
 # names(wb)
 # save(wb, file = "wb.RData")
@@ -137,10 +137,16 @@ vt$Sex_Driver_f <- factor(vt$Sex_of_Driver , labels = wb$Sex.of.Driver$label[c(4
 qplot(vt$Sex_Driver_f ) + bikeR_theme_1
 # ggsave("~/Desktop/sexdriver.png")
 
-summary(as.factor(vt$Age_Band_of_Driver ))
+summary(as.factor(caWY$Age_Band_of_Casualty ))
 wb$Age.Band
-vt$Age_Band <- factor(vt$Age_Band_of_Driver , labels = c("na", wb$Age.Band$label[c(11,1:10)]))
-qplot(vt$Age_Band ) + bikeR_theme_1
+caWY$Age_Band <- factor(caWY$Age_Band_of_Casualty , labels = c(wb$Age.Band$label[c(11,1:10)]))
+
+caWY$ageband <- as.character(caWY$Age_Band)
+caWY$ageband[ grepl("0 - 5|6 - 10", caWY$Age_Band)] <- "0 - 10"
+caWY$ageband[ grepl("56|75", caWY$Age_Band)] <- "56+" 
+summary(factor(caWY$ageband))
+
+qplot(caWY$Age_Band ) + bikeR_theme_1
 # ggsave("~/Desktop/sexdriver.png")
 
 summary(as.factor(vt$Driver_IMD_Decile ))
@@ -215,4 +221,8 @@ load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
 # wbA <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wb[4])
 # wb
 
+summary(as.factor(caWY$Age_Band_of_Casualty ))
+wb$Age.Band
+vt$Age.Band <- factor(vt$Age_Band_of_Driver , labels = c("na", wb$Age.Band$label[c(11,1:10)]))
+qplot(vt$Age_Band ) + bikeR_theme_1
 

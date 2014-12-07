@@ -1,5 +1,5 @@
 # Load and explore
-setwd("/media/SAMSUNG/repos/bikeR/")
+setwd("/media/robin/SAMSUNG/repos/bikeR/")
 ac <- read.csv("Accidents0512.csv")
 vt <- read.csv("Vehicles0512.csv")
 ca <- read.csv("Casualty0512.csv") # casualties
@@ -58,6 +58,9 @@ summary(ac$date)
 plot(ac$date[1:1000])
 library(ggplot2)
 qplot(ac$date, geom="histogram", binwidth = 30) # ...
+
+
+
 
 bbox(WY)
 WY <- spTransform(WY, CRSobj = CRS("+init=epsg:27700"))

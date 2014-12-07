@@ -238,7 +238,6 @@ West Yorkshire, leading to a highly uneven spatial distribution of
 cycling across the county (Fig. 1).
 The WYITA (2013) revealed a 0.8% increase in the proportion of travel to work by bicycle for Leeds between the 2001 and 2011 censuses, from 1.1% to 1.9%. No change was recorded in Bradford, remaining at 0.8%. The report also states 4.4% of respondents took up to cycling in 2012.
 
-
 ```{r fig.cap="Overview of the study area", fig.width=4, fig.height=3, echo=FALSE}
 library(png)
 library(grid)
@@ -356,6 +355,7 @@ The analysis strategy was based on consideration of the
 data and the hypotheses we were aiming to test.
 
 ## Estimating exposure
+
 A major methodological challenge faced by anyone
 trying to draw conclusions from road incident data
 is that the underlying level of exposure is usually unknown.
@@ -372,9 +372,7 @@ mode of travel to work. Because of the finding that commute
 modal share for cycling is highly correlated with modal share for
 all trips (r = 77%) (Goodman, 2013), commuting can be used as
 a proxy for the rate of cycling overall.
-Based on this insight,
-we developed a simple formula to estimate the distance cycled
-in each geographic zone (Equation 1):
+Based on this insight, we can take commuter data and develop a simple formula to estimate the distance cycled across all trips in each geographic zone, for the wider cyclist community (Equation 1):
 
 $$ d_T = \frac{n \times f \times \bar{d}}{p} $$
 
@@ -393,21 +391,29 @@ people cycling to work into an estimate of total distance cycled per
 year, the following assumptions were made:
 
 - 400 one-way trips are made each year per commuter (Hall et al., 2011).
-- The average length of bicycle trips is 4.5 km (DfT, 2013, Table NTS0306).
-(The average trip length of bicycle trips from 2005 to 2012
-was 2.8 miles - 4.5 km - although this average value is has been increasing lately (Keep, 2013).)
-- Cycle commuting accounts for 1/3 of all bicycle trips (DfT, 2013, Table NTS0409).
-(British citizens make on average 15.6 bicycle trips per year, of which an average of 5.4 are for commuting.)
+- The average length of bicycle trips is 4.5 km (DfT, 2013, Table NTS0306; see Fig. 2).
+- Cycle commuting accounts for 1/3 of all bicycle trips (DfT, 2013, Table NTS0409).^[British citizens make on average 15.6 bicycle trips per year, of which an average of 5.4 are for commuting.]
 
-These assumptions imply that every bicycle commuter in an area
-results in 5,040 km of total distance cycled,  
-1/3 of which are due to bicycle commuting.
+The average trip length of bicycle trips from 2005 to 2012
+was 2.8 miles or 4.5 km (Keep, 2013), a distance the author notes is increasing. To explore this further, we analysed the recently released National Travel Survey (2002-2012). It was found that bicycle trips did indeed show an upward trend in average distance when they were aggregated by year. Cross tabulating the results by binary mode (bicycle/non-bicycle trips) and purpose (commuting/other) showed that commuting trips are on average further than trips for other trips although the difference is smaller for bicycle trips. The average trip distance has surprisingly passed 5 km. The identical result was found when *stages* were used as the unit of analysis. The subsequent analysis should be seen the context of this national tendency towards longer-distance bicycle trips, perhaps along faster roads.
+
+```{r dis, fig.cap="Average distance travelled by mode and purpose (source: National Travel Survey, 2002:2012)", fig.width=4, fig.height=3, echo=FALSE}
+img <- readPNG("figures/Distance-commute.png")
+ grid.raster(img)
+```
+
+These assumptions imply that every bicycle commuter, as recorded in the 2011 Census, results in 5,400 km of total distance cycled for *all people, for all purposes*. 
+
+In this way we have built an equation in which we can take the number of bicycle commuters and estimate the rate of cycling for all purposes, following NTS data which shows 1/3 of bicycle trips are due to commuting.
+Note that an important distinction between *cycle commuter*, as defined by the 2011 census, and commuting by bicycle should be made here. Because the census asks only for the dominant mode of travel to work while cycling often a backup or secondary mode, we should not assume that all bicycle commuting trips are made by respondents of the 2011 census who say they cycle to work.
+
+
 This first approximation will clearly change depending on variation
 in the average distance of bicycle trips in different areas, so is used
 only as a first approximation than as a best estimate.
 The refinement of this estimate based on data on distance
 bands of travel to work by mode would be possible, but
-for the purposes of this study, the average 5400 km/yr per cycle commuter will
+for the purposes of this study, the average 5,400 km/yr per cycle commuter will
 be used for all areas. Further
 work investigating the link between cycle commuting and cycling overall
 is needed, to better infer the latter from the former for small areas (Goodman, 2013).
@@ -521,6 +527,8 @@ for West Yorkshire and nationally are presented in Tables 1 and 2.
 # 0.02558365 / 0.01251783
 ```
 
+\clearpage
+
 Table 1: Odds ratios for different age bands in in West Yorkshire.
 Note, the proportion of trips by bicycle by age groups are for
 Yorkshire and the Humber as no estimates for West Yorkshire are available.
@@ -532,7 +540,6 @@ Yorkshire and the Humber as no estimates for West Yorkshire are available.
 |21 - 45 |  6.7|    21.2| 6.46|
 |56 +    |  2.8|    6.0| 4.34|
 
-\clearpage
 
 Table 2: Odds ratios for different age bands in Great Britain.
 
@@ -601,7 +608,7 @@ however, and is clearly absent from the motorway network.
 The extent to which bicycle crashes are concentrated in urban areas,
 and especially Leeds, becomes clear when Kernel Density Estimate (KDE)
 levels are used to avoid the information loss associated with 'overplotting'
-(Wickham, 2011). This is presented in Fig. 6, which shows the extent of
+(Wickham, 2011). This is presented in Fig. 7, which shows the extent of
 the clustering of incidents involving cyclists. Of course, this pattern
 likely reflects the high rate of cycling and around Leeds city centre
 (see Fig. 1). This pattern sets the scene for the
@@ -654,7 +661,7 @@ the same method was used at the national level, resulting in an estimate of
 it is reassuring to note that the DfT's official estimate of total distance cycled
 nationally is of the same order - 3.1 billion miles (5.0 bkm) 
 (Keep, 2013).^[Note the official
-estimate is for Great Britain, whose population is 12% greater than that of England.] 
+estimate is for Great Britain, whose population is 12% greater than that of England. This implies the result for England, assuming equal rates of cycling across the countries, would be 2.7 billion miles or 4.4 bkm.] 
 In terms of risk, our estimate of 621 serious injuries per bkm cycled per year (S/bkm/yr)
 is also close to the official estimate of 623 S/bkm/yr, presented as 1005
 injuries per billion vehicle *miles*
@@ -663,6 +670,8 @@ in Keep (2013).
 Based on the census data and geographically aggregated statistics on serious
 cyclist injuries and fatalities, the relative risk of cycling was calculated
 for West Yorkshire's 5 Local Authorities (Table 4).
+
+\clearpage
 
 Table 4: Summary statistics on cycle commuting, serious and fatal
 incidents involving cyclists
@@ -697,7 +706,7 @@ per 1000 cycle commuters) is more than 3 times
 worse than the national average in this metric.
 
 The same method was used to estimate relative risk
-at lower geographic levels (Fig. 7). Because of the
+at lower geographic levels (Fig. 8). Because of the
 relative sparseness of the point data, it was found that
 there were many `NA` values for small zones. Census wards
 (with a mean population of just over 25,000) were therefore
@@ -752,7 +761,7 @@ ward and Local Authority levels respectively)
 
 ### Road type
 
-The relative proportions of road traffic accidents are roughly the same across A, B and U (Unclassified) roads between those that involve cyclists and those that do not (Fig. 8). The exception to this is the number of incidents occurring on the motorway, which is to be expected as cycling on motorways is not permitted (Fig. 8).
+The relative proportions of road traffic accidents are roughly the same across A, B and U (Unclassified) roads between those that involve cyclists and those that do not (Fig. 9). The exception to this is the number of incidents occurring on the motorway, which is to be expected as cycling on motorways is not permitted (Fig. 9).
 Of note was the high proportion of bicycle incidents
 happening on (fast) A roads (42.3%), greater than the proportion
 of other incidents happening on these roads (41.0%).
@@ -877,15 +886,17 @@ img <- readPNG("figures/bimodal-timing.png")
 # ![Proportion of accidents involving cyclists over time](figures/seasonalityWY.png)
 ```
 
+Another very interesting age-related finding that is greatly exacerbated in West Yorkshire compared with the rest of the UK is that the proportion of cyclist casualties in the middle aged group of 46--55 is growing much faster than any other group (see the graphical abstract). At the national level the proportion of cyclist road casualties in this age group has increased slightly faster than cyclists overall, a 2.5 fold increase relative to 2005 compared with a doubling for the closest groups. In West Yorkshire the proportion of all road traffic casualties who are cyclists in this age group as increase more than 4 fold!
+
+In the absence of localised cycling data (e.g. from the Strava fitness app or cycling club ride reports) we can only hypothesise as to this local anomaly. The strength of local cycling clubs has arguably strengthened the phenomenon of 'mamils' (middle-aged men in lycra) (Aldred, 2013) in the local area. Starting from a very low baseline allows this group to grow fastestest and, we speculate, part of this growth can be attributed to the excitement surrounding the Tour de France, which appeals to an older audience. While further research is needed to fully explain the growth in middle aged bicycle casualties, the results point to a much stronger wider point: that localised analyses of national road traffic casualty statistics can uncover unexpected findings. We conclude by discussing the policy and academic implications of the research.
 
 # Discussion and conclusions
 
 This paper explores the social and spatial characteristics of cyclist casualties in West Yorkshire. Our findings are particularly relevant for future policies as the region historically has a low cycling rate, and has recently committed to investing in local cycling infrastructure and promotion. We designed a set of hypotheses around three broad research questions: who is most at risk, where are the crashes most likely to happen and when are bicycle crashes most likely? Our findings for each will be discussed here in turn within the wider context of the relevant literature.
 
+**Who is most at risk**
 
-**1. Who is most at risk**
-
-Our findings supported the hypothesis that young cyclists are at greater risk from road traffic than adults. West Yorkshire appears to be especially risky for young cyclists, both compared with other forms of transport in the area and compared with the age distribution of risk nationwide. This agrees with the conclusions of Martinez-Ruiz et al., (2014), who found people under age 30 were more at risk when cycling compared to older age brackets. This should be a cause for concern given the behaviour of young people today will have effects long into the future and the disproportionate impact on disability adjusted life years (DALYs) of young casualties (Woodcock et al., 2014). We did not find any evidence that cycling is riskier for older people than the population at large, reinforcing our suggestion that other environmental or social factors are making cycling particularly risky for children.
+Our findings supported the hypothesis that young cyclists are at greater risk from road traffic than adults. West Yorkshire appears to be especially risky for young cyclists, both compared with other forms of transport in the area and compared with the age distribution of risk nationwide. This agrees with the conclusions of Martinez-Ruiz et al. (2014), who found people under age 30 were more at risk when cycling compared to older age brackets. This should be a cause for concern given the behaviour of young people today will have effects long into the future and the disproportionate impact on disability adjusted life years (DALYs) of young casualties (Woodcock et al., 2014). We did not find any evidence that cycling is riskier for older people than the population at large, reinforcing our suggestion that other environmental or social factors are making cycling particularly risky for children.
 
 Our second hypothesis within this question was that risk to vulnerable groups would be higher on larger, faster roads. Although we found evidence that faster A roads were more dangerous overall for cyclists (in-line with national-level analyses), we did not find evidence of vulnerable groups being *disproportionately* at risk in these environments.
 
@@ -909,14 +920,13 @@ Overall we have found evidence that agrees with some of our proposed hypotheses 
 ## Methodological limitations and further research
 ```
 
-
 This study was reliant on census commuting data to estimate the *denominator* of risk: relative exposure in different zones. This is problematic in two ways. First, cycling rates amongst zone inhabitants may not always relate to the amount of cycling passing through a particular area (e.g. if a zone is particularly popular for recreational cycling). Second, cycling to work is an imperfect proxy for cycling overall (Goodman, 2013). It is conceivable that in some areas there is very little cycling to work (e.g. due to lack of nearby jobs) but many leisure trips amongst inhabitants. Conversely, in areas where it is less pleasant to cycle but where many residents cycle to work, our methodology will overestimate cycling. Still, census data on travel to work provides the most comprehensive and highest resolution data on cycling available, allowing estimation of risk at an unusually high level of spatial resolution. The paper therefore highlights the importance of local survey data for corroborating estimates of exposure and the methodological opportunities for improving small-area estimates of cycling (e.g. based demographic and geographical factors associated with high rates of non-work cycling, not considered in the analysis).
 
-Another methodological issue raised by this research relates to the *numerator* of risk: number of cyclists casualties. The uncertainty surrounding police records for non-fatal casualties has already been mentioned with respect to police under-reporting in Ireland (Short and Caulfield, 2014). A wider issue is whether riskiness is well measured by the number incidents that result in police reports or hospitalisations at all. For every incident reported in STATS19, there may be many 'close calls' in which cyclists narrowly avoid harm. Indeed, Kroon (1990) found in the Netherlands that the rate of reporting by the police is much higher when a bicycle crashes with a motor vehicle as opposed to no vehicles involved. Even though hospital episode statistics collate more cycle accident records than police data, again it is argued they systematically fail to note how an incident occurred (instead focused on collecting age, gender and injury data) (Benington, 2012).
+Another methodological issue raised by this research relates to the *numerator* of risk: number of cyclists casualties. The uncertainty surrounding police records for non-fatal casualties has already been mentioned with respect to police under-reporting in Ireland (Short and Caulfield, 2014). A wider issue is whether riskiness is well measured by the number incidents that result in police reports or hospitalisations at all. For every incident reported in STATS19, there may be many 'close calls' in which cyclists narrowly avoid harm. Indeed, Kroon (cited in Schepers, 2013) found in the Netherlands that the rate of reporting by the police is much higher when a bicycle crashes with a motor vehicle as opposed to when no other vehicles are involved. Although hospital episode statistics collate more cycle accident records than police data, again it is argued they systematically fail to note how an incident occurred (instead focused on collecting age, gender and injury data) (Benington, 2012).
 
 There are great methodological opportunities for tackling this issue. The use of new 'naturalistic' monitoring technologies and innovative methods of analysis has been used recently to estimate the factors associated with risk at the local level (Dozza and Werneke, 2014). We believe this methodology, and the simpler approach of simply asking participants where they feel most in danger (Chataway et al., 2014), has great potential for improving our understanding of the social and geographical factors associated with both perceived risk and risk inadequately indexed by STATS19.^['The
 Near Miss Project' is an example of new approaches to identifying
-where bicycle incidents almost happened and has
+where bicycle incidents have almost happened and has
 already recorded more than 1,000 incidents. See http://nearmiss.bike/ for more information.]
 In this sense qualitative research may offer much by way of answering several questions that have arisen during our data analysis.
 
@@ -929,6 +939,8 @@ More importantly, new data sources, used in combination with the type of officia
 Overall, the most important contribution of this paper is the finding that risks to cyclists are context-specific and geographically variable at the local level. Given that health benefits of cycling are generally not geographically dependent - with the notable exception of air pollution (de Hartog et al., 2010) - it is risk of injury, the major health cost of cycling uptake, that will determine the geographical distribution of health benefit: cost ratios in most contexts. It is conceivable, for example, that there are locations in which the costs outweigh the benefits for especially vulnerable groups (e.g. teenagers with little cycling experience or training). Identification of these areas, using the methods presented in this paper and with additional insight from local surveys, will help prioritise funding to tackle such ‘danger hotspots'. It is imperative that the same type of analysis conducted in this paper be replicated in other areas where ambitious targets and large funding grants for increased cycling have been allocated, and ensure that the wide-ranging health benefits of cycling can be enjoyed everywhere.
 
 # References
+
+Aldred, R. (2013). Incompetent or too competent? Negotiating everyday cycling identities in a motor dominated society. Mobilities, 8(2), 252–271.
 
 Benington, R. (2012).An introduction to non-collision cycling incidents. Retrieved from: http://www.avon.nhs.uk/phnet/Avonsafe/Cycling%20Injuries/September%202012%20-%20FINAL1112.pdf  
 
@@ -976,8 +988,6 @@ Kim, J.-K., Kim, S., Ulfarsson, G. F., & Porrello, L. A. (2007). Bicyclist injur
 
 Krizek, K. J., & Roland, R. W. (2005). What is at the end of the road? Understanding discontinuities of on-street bicycle lanes in urban settings. Transportation Research Part D: Transport and Environment, 10(1), 55–68.
 
-Kroon, P. (1990). Bicycle accidents in Gothenburg 1983-84. Ortopedisk kirurgi. Doctoral thesis. 
-
 Langley, J. D., Dow, N., Stephenson, S., & Kypri, K. (2003). Missing cyclists. Injury Prevention, 9(4), 376–379.
 
 Lorenc, T., Brunton, G., Oliver, S., Oliver, K., & Oakley, A. (2008). Attitudes to walking and cycling among children, young people and parents: a systematic review. Journal of Epidemiology and Community Health, 62, 852–857. doi:10.1136/jech.2007.070250
@@ -992,11 +1002,13 @@ Oja, P., Titze, S., Bauman, a, de Geus, B., Krenn, P., Reger-Nash, B., & Kohlber
 
 Pooley, C. G., Horton, D., Scheldeman, G., Mullen, C., Jones, T., Tight, M., … Chisholm, A. (2013). Policies for promoting walking and cycling in England: A view from the street. Transport Policy, 27, 66–72.
 
-Pooley, C., Tight, M., Jones, T., Horton, D., Scheldeman, G., Jopson, A., … Constantine, S. (2011). Understanding walking and cycling: Summary of key findings and recommendations. Lancaster University.
+Pooley, C., Tight, M., Jones, T., Horton, D., Scheldeman, G., Jopson, A., Constantine, S. (2011). Understanding walking and cycling: Summary of key findings and recommendations. Lancaster University.
 
 Reynolds, C. C. O., Harris, M. A., Teschke, K., Cripton, P. a, & Winters, M. (2009). The impact of transportation infrastructure on bicycling injuries and crashes: a review of the literature. Environmental Health : A Global Access Science Source, 8, 47. doi:10.1186/1476-069X-8-47
 
 Rodgers, G. B. (1995). Bicyclist deaths and fatality risk patterns. Accident Analysis & Prevention, 27(2), 215–223.
+
+Schepers, P. (2013). A safer road environment for cyclists. Thesis submitted to Delft University, Department of Civil Engineering and Geosciences.
 
 Schepers, P., Hagenzieker, M., Methorst, R., van Wee, B., & Wegman, F. (2014). A conceptual framework for road safety and mobility applied to cycling safety. Accident; Analysis and Prevention, 62, 331–40. doi:10.1016/j.aap.2013.03.032
 
