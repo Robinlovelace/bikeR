@@ -1,5 +1,6 @@
 library(dplyr)
 library(lubridate)
+library(ggplot2)
 # load data with preliminaries.R, until time generated
 
 names(ac)
@@ -17,6 +18,7 @@ ca <- inner_join(ca, ac)
 ca$yr_month <- as.character(floor_date(ca$date, unit = "year"))
 class(ca$yr_month)
 
+load("wb.RData")
 ca$Age_Band <- factor(ca$Age_Band_of_Casualty , labels = c("na", wb$Age.Band$label[c(1:11)]))
 # ca$Age_Band <- factor(ca$Age_Band_of_Casualty , labels = c("na", wb$Age.Band$label[c(11, 1:10)])) # wrong
 qplot(ca$Age_Band_of_Casualty)
@@ -69,7 +71,6 @@ bmuk$Year <- as.numeric(bmuk$Year)
 qplot(Year, Percent, data = bmuk, colour = Age, geom = "line") +
   scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of accidents") + theme_bw() 
 
-
 bmuk$Location <- "UK"
 bm$Location <- "West Yorkshire"
 
@@ -79,4 +80,4 @@ qplot(Year, Percent, data = bmall, colour = Age, geom = "line") +
   scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of accidents (relative)") + theme_bw() +
   facet_grid( ~ Location)
 
-ggsave("figures/age-band-time-uk.png")
+# ggsave("figures/age-band-time-uk.png")
