@@ -9,3 +9,4 @@ exclude/
 *.pdf
 stats19data/
 setuptools-3.4.1.zip
+*.tex
