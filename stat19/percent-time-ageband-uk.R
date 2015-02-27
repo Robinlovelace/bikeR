@@ -69,7 +69,7 @@ bmuk$Year <- gsub("-01-01", "", bmuk$Year)
 bmuk$Year <- as.numeric(bmuk$Year)
 
 qplot(Year, Percent, data = bmuk, colour = Age, geom = "line") +
-  scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of accidents") + theme_bw() 
+  scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of incidents") + theme_bw() 
 
 bmuk$Location <- "UK"
 bm$Location <- "West Yorkshire"
@@ -77,7 +77,8 @@ bm$Location <- "West Yorkshire"
 bmall <- rbind(bm, bmuk)
 
 qplot(Year, Percent, data = bmall, colour = Age, geom = "line") +
-  scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of accidents (relative)") + theme_bw() +
+  scale_color_brewer(type = "qual", guide = guide_legend("Age of\ncyclist\ncasualty")) + ylab("Proportion of incidents (relative)") + theme_bw() +
   facet_grid( ~ Location)
 
+file.copy("figures/age-band-time-uk.png", "figures/age-band-time-uk-orig.png")
 # ggsave("figures/age-band-time-uk.png")
