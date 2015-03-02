@@ -1,12 +1,18 @@
 ---
-title: 'Who, where, when: the demographic and geographic distribution of bicycle crashes in West Yorkshire'
-author: Robin Lovelace, Hannah Roberts, Ian Kellar
+title: 'Who, where, when: the demographic and geographic distribution of bicycle crashes
+  in West Yorkshire'
+author: "Robin Lovelace, Hannah Roberts, Ian Kellar"
 output:
+  word_document: default
   pdf_document:
-    fig_caption: yes
-    fig_height: 3
-    fig_width: 4
-    keep_tex: yes
+    fig_caption:
+    - yes
+    fig_height:
+    - 3
+    fig_width:
+    - 4
+    keep_tex:
+    - yes
 ---
 
 ```{r, echo=FALSE}
@@ -836,7 +842,7 @@ and no cyclists (n = 46,555) within 10 m of different types of junction.
 
 ### Time of day
 
-The temporal distribution of cyclist casualties is highly correlated with that of road traffic incidents overall. However, crashes involving cyclists have a much ‘peakier' distribution than that all other road traffic incidents, with the incident density during the afternoon rush hour almost 50% higher for cyclists than non-cyclists (Fig. 11).
+The distribution of cyclist casualties across the day is similar to that of road traffic incidents overall. However, crashes involving cyclists have a much ‘peakier' distribution than that all other road traffic incidents, with the incident density during the afternoon rush hour almost 50% higher for cyclists than non-cyclists (Fig. 11).
 
 ```{r timing, fig.cap="Time of day distribution of cyclist road traffic casualties relative non-cyclists.", fig.width=4, fig.height=3, echo=FALSE}
 library(png)
@@ -1246,6 +1252,6 @@ Woodcock, J., Tainio, M., Cheshire, J., O'Brien, O., & Goodman, A. (2014). Healt
 ```
 
 ```{r, eval=FALSE}
-system("latexdiff stat19.tex stat19-submitted.tex > dif.tex")
+system("latexdiff stat19-submitted.tex stat19.tex > dif.tex")
 ```
 
