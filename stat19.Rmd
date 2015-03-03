@@ -3,7 +3,6 @@ title: 'Who, where, when: the demographic and geographic distribution of bicycle
   in West Yorkshire'
 author: "Robin Lovelace, Hannah Roberts, Ian Kellar"
 output:
-  word_document: default
   pdf_document:
     fig_caption:
     - yes
@@ -13,6 +12,8 @@ output:
     - 4
     keep_tex:
     - yes
+  word_document:
+  - default
 ---
 
 ```{r, echo=FALSE}
@@ -119,7 +120,7 @@ there are factors which alter this balance.
 It has been estimated that switching from car to bicycle
 use will result in 3-14 months of additional life from the
 increase in physical activity compared with just 5-9 days
-lost from traffic incidents in the Netherlands (de Hartog et al., 2010).
+lost from traffic collisions in the Netherlands (de Hartog et al., 2010).
 However, the societal benefits depended on who switches mode:
 because of their increased propensity to crash cars, young
 people taking up cycling was found to be particularly beneficial.
@@ -145,7 +146,7 @@ Official documents suggest that only casualties classed as
 fatal and to a lesser extent serious can be relied upon from STATS19 (as opposed to
 'slight' injuries, which are likely to be greatly under-reported)
 ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf)).
-This is an issue as it means the nature of the data is selective, insofar as incidents are more likely to be recorded the more severe they are (Langley et al., 2003). Furthermore, as there is no legal obligation to report incidents to the police, many occur without the involved parties reporting an incident. Moreover, if there is no injury, the incident is not deemed 'reportable' (DfT, 2013). 
+This is an issue as it means the nature of the data is selective, insofar as incidents are more likely to be recorded the more severe they are (Langley et al., 2003). Furthermore there is no legal obligation for those injured to report the collision to the police. Moreover, if there is no injury, the incident is not deemed 'reportable' (DfT, 2013). 
 For these reasons we focus on serious and fatal injuries
 in the exposure-normalised
 risk estimates for comparison with national figures. 'Slight' incidents
@@ -290,7 +291,7 @@ categories: who, where and when.
 **2. Where are crashes most likely to happen?**
 
 2.1. Areas with the highest rates of cycling were expected to have
-the lowest incident rate per
+the lowest injury rate per
 unit exposure. This is based on the 'strength in numbers' hypothesis that it will be
 relatively safer to cycle in areas with a large number of commuters. This hypothesis
 has received empirical support from the geographical literature on the subject
@@ -300,13 +301,13 @@ has received empirical support from the geographical literature on the subject
 urban infrastructure to be associated with higher than average rate of
 cycling than the rest of the road network. Following
 ([Vandenbulcke et al., 2014](http://www.sciencedirect.com/science/article/pii/S0001457513002686)),
-we specifically expected clusters of incidents
+we specifically expected clusters of collisions
 near junctions and roundabouts.
 Also based on this work, we expected cycle infrastructure to reduce risk.
 
 **3. When are bicycle crashes most likely?**
 
-3.1. We expected absolute levels of cycle incidents to have increased
+3.1. We expected absolute levels of cycling injuries to have increased
 over time, in line with estimates on the growing distance cycled
 per year nationwide.
 
@@ -444,7 +445,7 @@ is difficult to verify.
 # warm and sunny weather (ref).
 ```
 
-There was a clear seasonal pattern in the data, with a predominance of bicycle incidents during the summer months. Dividing the year into 4 quarters, it was found that the summer months (from April until September) were associated with a relatively high proportion of incidents involving cyclists (10.1% on average), compared with the colder half of the year (6.4%). This can be explained by reduced cycling during cold, wet and dark conditions, while other modes of transport are relatively unaffected by adverse weather.
+There was a clear seasonal pattern in the data, with a predominance of cycling injuries during the summer months. Dividing the year into 4 quarters, it was found that the summer months (from April until September) were associated with a relatively high proportion of incidents involving cyclists (10.1% on average), compared with the colder half of the year (6.4%). This can be explained by reduced cycling during cold, wet and dark conditions, while other modes of transport are relatively unaffected by adverse weather.
 
 
 ```{r fig.cap="Increases in the proportion of incidents that involve cyclists in West Yorkshire, from Q1 2005 to Q4 2012 by season", fig.width=4, fig.height=3, echo=FALSE}
@@ -628,7 +629,7 @@ the clustering of incidents involving cyclists. Of course, this pattern
 likely reflects the high rate of cycling and around Leeds city centre
 (see Fig. 1). This pattern sets the scene for the
 geographically aggregated statistics presented below,
-which normalise the number of bicycle incidents in
+which normalise the number of incidents involving cyclists in
 each area by estimated exposure.
 
 \newpage
@@ -778,7 +779,7 @@ ward and Local Authority levels respectively)
 ### Road type
 
 The relative proportions of road traffic incidents are roughly the same across A, B and U (Unclassified) roads between those that involve cyclists and those that do not (Fig. 10). The exception to this is the number of incidents occurring on the motorway, which is to be expected as cycling on motorways is not permitted.
-Of note was the high proportion of bicycle incidents
+Of note was the high proportion of cycling injuries
 happening on (fast) A roads (42.3%), greater than the proportion
 of other incidents happening on these roads (41.0%).
 Given that that A roads constitute only a fraction
@@ -812,7 +813,7 @@ cyclists in West Yorkshire, coinciding with the existing literature
 (e.g. Reynolds et al., 2009). An
 interesting trend in the data, not shown in Table 5, is that the
 increased riskiness of junctions for cyclists dissipates
-as the severity the incident increases: 30% of serious cyclist injuries
+as the severity the injury increases: 30% of serious cyclist injuries
 and 44% of all cyclist
 deaths happened away from junctions. This implies that although cyclists
 are proportionally more likely to be hit near junctions than other road users,
@@ -842,7 +843,7 @@ and no cyclists (n = 46,555) within 10 m of different types of junction.
 
 ### Time of day
 
-The distribution of cyclist casualties across the day is similar to that of road traffic incidents overall. However, crashes involving cyclists have a much ‘peakier' distribution than that all other road traffic incidents, with the incident density during the afternoon rush hour almost 50% higher for cyclists than non-cyclists (Fig. 11).
+The distribution of cyclist casualties across the day is similar to that of road traffic incidents overall. However, crashes involving cyclists have a much 'peakier' distribution than that all other road traffic incidents, with the incident density during the afternoon rush hour almost 50% higher for cyclists than non-cyclists (Fig. 11).
 
 ```{r timing, fig.cap="Time of day distribution of cyclist road traffic casualties relative non-cyclists.", fig.width=4, fig.height=3, echo=FALSE}
 library(png)
@@ -857,15 +858,15 @@ img <- readPNG("figures/cyclist-timings.png")
 
 We found no evidence in the data to support the hypothesis that
 cyclists are disproportionately more at risk during night time.
-The proportion of bicycle incidents that took place in daylight
+The proportion of bicycle crashes that took place in daylight
 (79%) was higher than the proportion of all incidents (71%) and
-the difference grew with increased incident severity:
+the difference grew with increased injury severity:
 81% of cyclist deaths occurred during daylight, whereas only
 53% of other deaths did, implying that cyclists'
 aversion to cycling at night may explain relatively low
 incident rates at night for cyclists overall. Other
 factors must be used to explain why this tendency grows
-stronger for more severe incidents. These could include
+stronger for more severe injuries. These could include
 cyclist and driver behaviour (who are perhaps more cautious in the dark),
 lower traffic volumes leading to fewer multi-vehicle incidents (which
 tend to be more severe) and the increased long-range visibility of
@@ -924,14 +925,14 @@ Our finding that the number of people cycling to work in each zone is negatively
 
 Secondly, we found evidence to support the hypothesis that cyclists were disproportionately at risk on high traffic roads, junctions and roundabouts than other road users. This is in line with several studies that demonstrate junctions and roundabouts are the main hazard for cyclists on cycle lanes (see Krizek and Roland, 2005; Watchel and Lewison, 1994). In their analysis of STATS19 data from 1990-1999, Stone and Broughton (2003) similarly found over 70% of incidents occurred at or within 20m of a junction. When these incidents were disaggregated by severity, however, this effect dropped for more serious injuries. 
 
-Cyclists were found to be disproportionately at risk on the largest roads (A roads), compared with other modes of travel, highlighting cyclists' vulnerability to high traffic speeds and volumes. This trend was not found for B or Unclassified roads, suggesting that safe cycling infrastructure could have a substantial role in reducing risk along heavily used roads. This finding is supported by national statistics showing that the serious injury rate for cyclists on A roads (2,407 per billion miles cycled) is more than double the rate for cycling on all other road types (1,005) (Keep, 2013). We have also seen the propensity for increased risk on faster roads at a more local scale in London, where over half of all bicycle incidents (52.2%) from 2005-2007 occurred on A roads (Singleton and Lewis, 2011).
+Cyclists were found to be disproportionately at risk on the largest roads (A roads), compared with other modes of travel, highlighting cyclists' vulnerability to high traffic speeds and volumes. This trend was not found for B or Unclassified roads, suggesting that safe cycling infrastructure could have a substantial role in reducing risk along heavily used roads. This finding is supported by national statistics showing that the serious injury rate for cyclists on A roads (2,407 per billion miles cycled) is more than double the rate for cycling on all other road types (1,005) (Keep, 2013). We have also seen the propensity for increased risk on faster roads at a more local scale in London, where over half of all bicycle crashes (52.2%) from 2005-2007 occurred on A roads (Singleton and Lewis, 2011).
 It is worth nothing, however, that research has shown crash circumstances are unevenly distributed also by the road type, so that collisions with motor vehicles are found to be over-represented on major roads with parked cars, whereas collisions more often involve infrastructure on multi-use paths and bike paths (Teschke, 2014). Therefore appropriate safe cycling infrastructure may vary by road type.
 
 **When are bicycle crashes most likely?**
 
 The proportion of incidents involving cyclists has indeed increased over time, which supports the hypothesis we put forward. But, because the increase happened faster than growth in the proportion of all distance travelled by bicycle nationwide, this additionally implies cycling in West Yorkshire has become more dangerous over time. This follows the same nationwide pattern reported by the Department for Transport (DfT), who, in their Road Casualties Annual Report, stated the number of killed or seriously injured casualties had been rising steadily since 2004, insofar as in 2012 the number was 32% higher than the 2005-2009 average. This was accompanied by an estimated 12% increase in cycle traffic (DfT, 2012b).
 
-In terms of the distribution over time, the diurnal distribution of bicycle incidents was found to be different from the national average, with a more 'peaky' and bimodal distribution than for other non-cyclist incidents. This implies that cyclists are disproportionately affected by the heavy traffic conditions of the 'rush hour'. This can be associated with more motorised vehicles on the road allowing for increased risk of a collision, and has been evidenced in literature (e.g. Kim et al., 2007). In terms of the effect of light conditions, we found no evidence to support the hypothesis that cyclists are disproportionately more at risk during night time. Interestingly this goes against much research which finds an increased risk of cycling in the dark, which decreases visibility and therefore slows reaction times (Rodgers, 1995). Further research is needed to more fully understand this, which may be related simply to fewer cycle trips taking place at night or behavioural factors of drivers and cyclists, obedience of road signs, wearing of bright-coloured clothes and the display of lights.
+In terms of the distribution over time, bicycle crashes were found to be different from the national average, with a 'peaky' bimodal distribution. This implies that cyclists are disproportionately affected by the heavy traffic conditions of the 'rush hour'. This can be associated with more motorised vehicles on the road allowing for increased risk of a collision, and has been evidenced in literature (e.g. Kim et al., 2007). In terms of the effect of light conditions, we found no evidence to support the hypothesis that cyclists are disproportionately more at risk during night time. Interestingly this goes against much research which finds an increased risk of cycling in the dark, which decreases visibility and therefore slows reaction times (Rodgers, 1995). Further research is needed to more fully understand this, which may be related simply to fewer cycle trips taking place at night or behavioural factors of drivers and cyclists, obedience of road signs, wearing of bright-coloured clothes and the display of lights.
 
 Overall we have found evidence that agrees with some of our proposed hypotheses whilst others received limited support. There is great potential for further research to validate our speculative interpretations and bring about firm conclusions. In addition, there were methodological issues encountered which may have influenced our results.
 
@@ -945,7 +946,7 @@ Another methodological issue raised by this research relates to the *numerator* 
 
 Methodological opportunities are highlighted by the research. The use of new 'naturalistic' monitoring technologies and innovative methods of analysis has been used recently to estimate the factors associated with risk at the local level (Dozza and Werneke, 2014). We believe this methodology, and the simpler approach of asking participants where they feel most in danger (Chataway et al., 2014), has great potential for improving understanding of the social and geographical factors associated with both perceived risk and risk inadequately indexed by STATS19.^['The
 Near Miss Project' is an example of new approaches to identifying
-where bicycle incidents have almost happened and has
+where bicycle crashes have almost happened and has
 already recorded more than 1,000 incidents. See http://nearmiss.bike/ for more information.]
 Additionally, Van der Horst (2014) has found behavioural observation through video capture was a successful technique for data collection on cyclist risk, as it allowed repeated review and judgment of different aspects of the situation. Stevenson (2014) also uses cameras attached to participants' bikes, allowing for naturalistic data from an objective point of view.
 In this sense qualitative research may offer much by way of answering several questions that have arisen during our data analysis.
