@@ -1,15 +1,14 @@
 ---
-title: 'Who, where, when: the demographic and geographic distribution of bicycle crashes
-  in West Yorkshire'
-author: "Robin Lovelace, Hannah Roberts, Ian Kellar"
+title: 'Who, where, when: the demographic and geographic distribution of bicycle crashes in West Yorkshire'
+author: "Robin Lovelace*, Hannah Roberts^, Ian Kellar^"
 output:
   pdf_document:
     fig_caption:
     - yes
     fig_height:
-    - 3
+    - 5
     fig_width:
-    - 4
+    - 6
     keep_tex:
     - yes
   word_document:
@@ -42,6 +41,26 @@ output:
 # the characteristic features of incidents involving cyclists and how they
 # differ, on average, from other types of crashes.
 ```
+
+\begin{tiny}
+*Consumer Data Research Centre,
+University of Leeds,
+School of Geography,
+Leeds, LS2 9JT.
+0113 343 0883.
+r.lovelace@leeds.ac.uk. 
+
+
+\^{}Institute for Psychological Sciences,
+University of Leeds,
+School of Psychology
+Leeds, LS2 9JT.
+\end{tiny}
+
+```{r, echo=FALSE}
+ 
+```
+
 
 ## Abstract
 
@@ -245,7 +264,7 @@ West Yorkshire, leading to a highly uneven spatial distribution of
 cycling across the county (Fig. 1).
 The WYITA (2013) revealed a 0.8% increase in the proportion of travel to work by bicycle for Leeds between the 2001 and 2011 censuses, from 1.1% to 1.9%. No change was recorded in Bradford, remaining at 0.8%. The report also states 4.4% of respondents took up to cycling in 2012.
 
-```{r fig.cap="Overview of the study area", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Overview of the study area", fig.width=6, fig.height=5, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/wy-overview.png")
@@ -400,9 +419,9 @@ year, the following assumptions were made:
 - Cycle commuting accounts for 1/3 of all bicycle trips (DfT, 2013, Table NTS0409).^[British citizens make on average 15.6 bicycle trips per year, of which an average of 5.4 are for commuting.]
 
 The average trip length of bicycle trips from 2005 to 2012
-was 2.8 miles or 4.5 km (Keep, 2013), a distance the author notes is increasing. To explore this further, we analysed the recently released National Travel Survey (2002-2012). It was found that bicycle trips did indeed show an upward trend in average distance when they were aggregated by year. Cross tabulating the results by binary mode (bicycle/non-bicycle trips) and purpose (commuting/other) showed that commuting trips are on average further than trips for other purposes although the difference is smaller for bicycle trips. The average trip distance has surprisingly passed 5 km. The identical result was found when *stages* were used as the unit of analysis. The subsequent analysis should be seen within the context of this national tendency towards longer-distance bicycle trips, perhaps along faster roads.
+was 2.8 miles or 4.5 km (Keep, 2013), a distance the author notes is increasing. To explore this further, we analysed the recently released National Travel Survey (2002-2012). It was found that bicycle trips did indeed show an upward trend in average distance when they were aggregated by year. Cross tabulating the results by binary mode (bicycle/non-bicycle trips) and purpose (commuting/other) showed that commuting trips are on average further than trips for other purposes although the difference is smaller for bicycle trips. The average trip distance has surprisingly passed 5 km for cyclists. The identical result was found when *stages* were used as the unit of analysis. The subsequent analysis should be seen within the context of this national tendency towards longer-distance bicycle trips, perhaps along faster roads (Fig. 2).
 
-```{r dis, fig.cap="Average distance travelled by mode and purpose (source: National Travel Survey, 2002:2012)", fig.width=4, fig.height=3, echo=FALSE}
+```{r dis, fig.cap="Average distance travelled by mode and purpose (source: National Travel Survey, 2002:2012)", fig.height=7, fig.height=4, echo=FALSE}
 img <- readPNG("figures/Distance-commute.png")
  grid.raster(img)
 ```
@@ -448,7 +467,7 @@ is difficult to verify.
 There was a clear seasonal pattern in the data, with a predominance of cycling injuries during the summer months. Dividing the year into 4 quarters, it was found that the summer months (from April until September) were associated with a relatively high proportion of incidents involving cyclists (10.1% on average), compared with the colder half of the year (6.4%). This can be explained by reduced cycling during cold, wet and dark conditions, while other modes of transport are relatively unaffected by adverse weather.
 
 
-```{r fig.cap="Increases in the proportion of incidents that involve cyclists in West Yorkshire, from Q1 2005 to Q4 2012 by season", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Increases in the proportion of incidents that involve cyclists in West Yorkshire, from Q1 2005 to Q4 2012 by season", fig.width=3.5, fig.height=3, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/seasonalityWY.png")
@@ -492,7 +511,7 @@ This provides some evidence to suggest that West Yorkshire is an especially
 unsafe place to be a young cyclist or pedestrian, raising the question: why?
 
 
-```{r fig.cap="Cyclist and non-cyclist casualties from road traffic incidents, 2005 - 2012 in West Yorkshire, by age and severity. Note the variably sized age bins, which down-play the relative risks of road crashes for young people", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Cyclist and non-cyclist casualties from road traffic incidents, 2005 - 2012 in West Yorkshire, by age and severity. Note the variably sized age bins, which down-play the relative risks of road crashes for young people", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/who-age-severity.png")
@@ -500,7 +519,7 @@ img <- readPNG("figures/who-age-severity.png")
 ```
 
 
-```{r fig.cap="Anomaly in the age distribution of cyclist casualties in West Yorkshire, compared with the UK", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Anomaly in the age distribution of cyclist casualties in West Yorkshire, compared with the UK", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/anomaly-age.png")
@@ -575,7 +594,7 @@ An unexpected age-related finding was that the proportion of cyclist casualties 
 ```
 
 
-```{r mamils, fig.cap="Growth in cyclist casualties as proportion of all road traffic casualties by age band in the UK and West Yorkshire, relative to 2005 values.", fig.width=4, fig.height=3, echo=FALSE}
+```{r mamils, fig.cap="Growth in cyclist casualties as proportion of all road traffic casualties by age band in the UK and West Yorkshire, relative to 2005 values.", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/age-band-time-uk.png")
@@ -638,7 +657,7 @@ each area by estimated exposure.
 # based on equation x!!! - link to equaiton above
 ```
 
-```{r fig.cap="Overview of the spatial distribution of road traffic incidents with cyclists and no cyclists involved", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Overview of the spatial distribution of road traffic incidents with cyclists and no cyclists involved", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/overview2.png")
@@ -646,7 +665,7 @@ img <- readPNG("figures/overview2.png")
 ```
 
 
-```{r fig.cap="Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Kernel Density Estimates for incidents involving cyclists (left) and no cyclists (right)", fig.height=7, fig.height=3, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/kdePlot.png")
@@ -730,7 +749,7 @@ used to map estimated risk: with 124 wards in West Yorkshire
 and 753 serious injuries in the region over 8 years, there
 were only 6.2 serious injuries to cyclist per ward.
 
-```{r fig.cap="Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed cyclable by the majority of the population", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Risk of cycling per billion kilometres across West Yorkshire. The circles represent 5 km bands from the city centres which are deemed cyclable by the majority of the population", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/seriousWY.png")
@@ -800,7 +819,7 @@ types (1,005) ([Keep, 2013](http://www.parliament.uk/briefing-papers/SN06224.pdf
 
 <!--Could talk about deaths here also...-->
 
-```{r fig.cap="Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class", fig.width=4, fig.height=3, echo=FALSE}
+```{r fig.cap="Number of road incidents in West Yorkshire with cyclists (top) and no cyclists (bottom) involved by road class", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/roadClass.png")
@@ -845,7 +864,7 @@ and no cyclists (n = 46,555) within 10 m of different types of junction.
 
 The distribution of cyclist casualties across the day is similar to that of road traffic incidents overall. However, crashes involving cyclists have a much 'peakier' distribution than that all other road traffic incidents, with the incident density during the afternoon rush hour almost 50% higher for cyclists than non-cyclists (Fig. 11).
 
-```{r timing, fig.cap="Time of day distribution of cyclist road traffic casualties relative non-cyclists.", fig.width=4, fig.height=3, echo=FALSE}
+```{r timing, fig.cap="Time of day distribution of cyclist road traffic casualties relative non-cyclists.", fig.height=7, fig.height=4, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/cyclist-timings.png")
@@ -901,7 +920,7 @@ This time evolution is not as pronounced for other types of
 road traffic incidents (Fig. 12).
 This pattern continues until retirement age (not shown).
 
-```{r fig.cap="Time of incident for cyclist and non-cyclist casualties by age band", fig.width=4.4, fig.height=3.5, echo=FALSE}
+```{r fig.cap="Time of incident for cyclist and non-cyclist casualties by age band", fig.height=7.4, fig.height=4.5, echo=FALSE}
 library(png)
 library(grid)
 img <- readPNG("figures/bimodal-timing.png")
@@ -970,12 +989,33 @@ The resulting insights have the potential to influence policy. The interventions
 
 The most important empirical contribution of this paper is the finding that risks to cyclists are context-specific and geographically variable. The work indicates that different types of cyclists have different risk profiles in different places, implying cycle safety policy should be more targeted to local needs. Given that health benefits of cycling are generally not geographically dependent - with the notable exception of air pollution (de Hartog et al., 2010) - it is risk of injury, the major health cost of cycling uptake, that will determine the geographical distribution of health benefit: cost ratios in most contexts. It is conceivable, for example, that there are locations in which the costs outweigh the benefits for especially vulnerable groups (e.g. teenagers with little cycling experience or training).
 
-Identification of such 'danger hotspots', using the methods presented in this paper alongside localised data collection and emerging 'big' datasets, will help prioritise funding and inform transport policy. Localised analysis of STATS19 data can provide a fast and inexpensive insight for local authorities tasked with improving cycling provision and the desirability of cycling, for example to comply with new regulation.^[The
+Identification of such 'danger hotspots', using the methods presented in this paper alongside localised data collection and emerging 'big' datasets, will help prioritise funding and inform transport policies in other area.^[The
+methods of this research are reproducible, allowing others to re-use the code used
+to analyse STATS19 and other datasets for their own purposes. We encourage the re-use
+of the R code stored at [github.com/Robinlovelace/bikeR](https://github.com/Robinlovelace/bikeR) for
+further work in other areas, with due acknowledgement to this paper.]
+Localised analysis of STATS19 data can provide a fast and inexpensive insight for local authorities tasked with improving cycling provision and the desirability of cycling, for example to comply with new regulation.^[The
 the recently passed Active Travel (Wales) Act provides
 an example of new regulation on cycling. This legally
 binding legislation was passed by the National Assembly for Wales
 and requires "highway authorities to have regard in the construction and improvement of highways to the
 desirability of enhancing provision for cycling and walking". Source: http://www.senedd.assembly.wales/mgIssueHistoryHome.aspx?IId=5750.] Further work in this area is especially needed in areas where ambitious targets and large funding grants for increased cycling have been allocated. This will ensure that the wide-ranging health benefits of cycling can be enjoyed everywhere in safety.
+
+# Acknowledgements
+
+We would like to thank the UK's Economic and Social Research Council (ESRC)
+for funding this work through the TALISMAN (project code ES/I025634/1, see
+[geotalisman.org/](http://cdrc.ac.uk/))
+and CDRC (project code ES/L011891/1, see
+[cdrc.ac.uk/](http://cdrc.ac.uk/)) projects. Thanks to the
+anonymous peer review process, and more importantly the reviewers.
+As a result of peer feedback this
+article was improved substantially. Thanks to road safety and cycling campaigners
+who actively engaged with this research. Special thanks to Roger Geffen of the
+Cyclist Touring Club ([CTC](http://www.ctc.org.uk/)) and Tom Fisher of [Brake](http://brake.org.uk/), for their input on earlier
+versions of this work.
+
+\clearpage
 
 # References
 
@@ -1252,7 +1292,8 @@ Woodcock, J., Tainio, M., Cheshire, J., O'Brien, O., & Goodman, A. (2014). Healt
 
 ```
 
-```{r, eval=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 system("latexdiff stat19-submitted.tex stat19.tex > dif.tex")
+system("gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=stat19-small.pdf stat19.pdf")
 ```
 
