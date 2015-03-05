@@ -71,7 +71,7 @@ dataset of road traffic incidents, taken from the UK's STATS19 dataset
 (2005 - 2012). We investigate incidents involving cyclists
 within West Yorkshire. This is an interesting case study
 area as it has an historically low cycling rate but very ambitions
-cycling plans following investment from the Department of Transport.
+cycling plans following investment from the Department for Transport.
 West Yorkshire is found to be an unusually risky area for cyclists,
 with an estimated 53 deaths and 1372 serious injuries per billion
 kilometres cycled, based on census commuting statistics. This is
