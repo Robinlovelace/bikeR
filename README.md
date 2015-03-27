@@ -34,6 +34,8 @@ To be specific, the code used to produce this map in R can be found here:
 - To encourage reproducibility, a conerstone of scientific research
 (Ince et al. 2013).
 
+
+
 <h1>References</h1>
 <p>Ince, Darrel C, Leslie Hatton, and John Graham-Cumming. 2012. “The case for open computer programs.” <em>Nature</em> 482 (7386). Nature Publishing Group: 485–8. doi:<a href="http://dx.doi.org/10.1038/nature10836">10.1038/nature10836</a>.</p>
 <p>Lovelace, Robin, and James Cheshire. 2014. “Introduction to visualising spatial data in R.” <em>National Centre for Research Methods Working Papers</em> 14 (03). London: National Centre for Research Methods; EloGeo. <a href="https://github.com/Robinlovelace/Creating-maps-in-R" class="uri">https://github.com/Robinlovelace/Creating-maps-in-R</a>.</p>
