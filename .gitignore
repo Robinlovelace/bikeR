@@ -12,3 +12,4 @@ setuptools-3.4.1.zip
 *.tex
 *.gz*
 *.log
+*.gpx
