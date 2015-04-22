@@ -24,9 +24,7 @@ to generate the paper can be found
 
 - To allow others to perform the analysis conducted by me for West Yorkshire
 for other parts of Great Britain and perhaps the world, without
-[reinventing the wheel](http://en.wikipedia.org/wiki/Reinventing_the_wheel):
-
-![](https://thechaoswhisperer.files.wordpress.com/2012/04/caveman-wheel-cartoon.jpg)
+[reinventing the wheel](http://en.wikipedia.org/wiki/Reinventing_the_wheel).
 
 - To help people learn R in general, an open source language for empowering
 oneself with the tools to extract meaning from data and make visualisations, 

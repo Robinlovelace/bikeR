@@ -4,7 +4,7 @@ library(rJava)
 
 wb <- loadWorkbook("Road-Accident-Safety-Data-Guide-1979-2004.xls" )
 wb <- readWorksheet(wb, sheet = getSheets(wb))
-# 
+#
 names(wb)  <- sub(" ", ".", names(wb))
 names(wb)  <- sub(" ", ".", names(wb))
 names(wb)  <- sub("1", ".", names(wb))
@@ -19,11 +19,17 @@ load("wb.RData")
 # summary(ac)
 ac$Accident_Sf <- factor(ac$Accident_Severity, labels = wb$Accident.Severity$label)
 plot(ac$Accident_Sf)
+
+table(ac$Accident_Sf, ac$Number_of_Vehicles)
+
 summary(ac$Accident_Sf)
 
 # Police force
 summary(ac$Police_Force)
-ac$Police_Ff <- factor(ac$Police_Force, labels = wb$Police.Force$label[1]) # Not tested on full dataset
+summary(wb$Police.Force)
+levels(factor(ac$Police_Force))
+
+ac$Police_Ff <- factor(ac$Police_Force, labels = wb$Police.Force$label) # Not tested on full dataset
 summary(ac$Police_Ff)
 plot(ac$Police_Ff)
 
@@ -34,7 +40,7 @@ ac$X1st_Road_Cf <- factor(ac$X1st_Road_Class, labels = wb$.st.Road.Class$label)
 summary(ac$X1st_Road_Cf)
 plot(ac$X1st_Road_Cf)
 
-# Road type (roundabouts etc) 
+# Road type (roundabouts etc)
 wb$Road.Type # This is v. useful
 summary(ac$Road_Type); unique(ac$Road_Type)
 # ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[]) # didnt' work...
@@ -42,10 +48,10 @@ wb$Road.Type$label[unique(ac$Road_Type)]
 wb$Road.Type$label[-unique(ac$Road_Type)]
 ac$Road_Tf <- factor(ac$Road_Type, labels = wb$Road.Type$label[1:6]) # worked
 summary(ac$Road_Tf)
-qplot(ac$Road_Tf) + xlab("Type of road") + ylab("Count") + 
+qplot(ac$Road_Tf) + xlab("Type of road") + ylab("Count") +
   theme(axis.text.x = element_text(angle=20, color = "black"),
         panel.background = element_rect(fill = "white"),
-        panel.grid.major.y = element_line(color = "grey", linetype=3)) 
+        panel.grid.major.y = element_line(color = "grey", linetype=3))
 head(colors())
 # ggsave("~/Desktop/roadtype.png")
 
@@ -58,11 +64,11 @@ ac$Junction_Df <- factor( ac$Junction_Detail, labels = wb$Junction.Detail$label[
 # levels(ac$Junction_Df)[c(1,4,7,8)] <- c("Not at junction", "T junction", "Multi-junction", "Private drive") # fail
 summary(ac$Junction_Df)
 
-source("Rcode/potting.R")
+source("stat19/plotting.R")
 
-qplot(data=ac@data, x = Junction_Df) + bikeR_theme_1
-qplot(data = ac@data, x = Junction_Df) + facet_grid( cyclist ~., scales="free") + bikeR_theme_1
-table(ac$Junction_Df, ac$cyclist)
+qplot(data=ac, x = Junction_Df) + bikeR_theme_1
+# qplot(data = ac, x = Junction_Df) + facet_grid( cyclist ~., scales="free") + bikeR_theme_1
+table(ac$Junction_Df, ac$Urban_or_Rural_Area)
 colSums(table(ac$Junction_Df, ac$cyclist))
 round(prop.table(table(ac$Junction_Df, ac$cyclist), margin=2) * 100, 1)
 library(knitr)
@@ -110,10 +116,11 @@ levels(vt$Vehicle_Type)
 wb$Vehicle.Type
 (tfact <- wb$Vehicle.Type$label[ as.character(wb$Vehicle.Type$code) %in% levels(as.factor(vt$Vehicle_Type)) ])
 tfact[c(20, 1:19)]
-vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact[c(20, 1:19)]) # flags error with WY data
+vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact[c(20, 1:19, 21)]) # flags error with WY data
 # vt$Vehicle_Tf <- factor(vt$Vehicle_Type, labels=tfact)
 nrow(cyVt)
 summary(vt$Vehicle_Tf)
+barplot(summary(vt$Vehicle_Tf))
 summary(vt$Vehicle_Tf) / nrow(vt)
 qplot(vt$Vehicle_Tf) + bikeR_theme_1
 # ggsave("~/Desktop/vtype.png")
@@ -129,25 +136,26 @@ summary(as.factor(vt$Journey_Purpose_of_Driver))
 wb$Journey.Purpose
 vt$Journey_Purpose <- factor(vt$Journey_Purpose_of_Driver, labels = wb$Journey.Purpose$label[c(8,1:7)])
 qplot(vt$Journey_Purpose) + bikeR_theme_1
-# ggsave("~/Desktop/vpurpose.png")
+# ggsave("figures/vpurp-2013.png")
 
 summary(as.factor(vt$Sex_of_Driver ))
 wb$Sex.of.Driver
 vt$Sex_Driver_f <- factor(vt$Sex_of_Driver , labels = wb$Sex.of.Driver$label[c(4,1:3)])
-qplot(vt$Sex_Driver_f ) + bikeR_theme_1
-# ggsave("~/Desktop/sexdriver.png")
+levels(vt$Sex_Driver_f)[1] <- levels(vt$Sex_Driver_f)[4]
+qplot(vt$Sex_Driver_f) + bikeR_theme_1
+ggsave("~/Desktop/sexdriver.png")
 
-summary(as.factor(caWY$Age_Band_of_Casualty ))
+summary(as.factor(ca$Age_Band_of_Casualty ))
 wb$Age.Band
-caWY$Age_Band <- factor(caWY$Age_Band_of_Casualty , labels = c(wb$Age.Band$label[c(11,1:10)]))
+ca$Age_Band <- factor(ca$Age_Band_of_Casualty , labels = c(wb$Age.Band$label[c(11,1:10)]))
 
-caWY$ageband <- as.character(caWY$Age_Band)
-caWY$ageband[ grepl("0 - 5|6 - 10", caWY$Age_Band)] <- "0 - 10"
-caWY$ageband[ grepl("56|75", caWY$Age_Band)] <- "56+" 
-summary(factor(caWY$ageband))
+ca$ageband <- as.character(ca$Age_Band)
+ca$ageband[ grepl("0 - 5|6 - 10", ca$Age_Band)] <- "0 - 10"
+ca$ageband[ grepl("56|75", ca$Age_Band)] <- "56+"
+summary(factor(ca$ageband))
 
-qplot(caWY$Age_Band ) + bikeR_theme_1
-# ggsave("~/Desktop/sexdriver.png")
+qplot(ca$Age_Band ) + bikeR_theme_1
+# ggsave("figures//agedriver.png")
 
 summary(as.factor(vt$Driver_IMD_Decile ))
 wb$IMD.Decile
@@ -171,8 +179,9 @@ qplot(ca$Casualty_Class_f) + bikeR_theme_1
 summary(as.factor(ca$Sex_of_Casualty))
 wb$Sex.of.Casualty # Does it correspond to cyclist?
 ca$Sex_Casualty <- factor(ca$Sex_of_Casualty, labels = wb$Sex.of.Casualty$label[c(3,1,2)])
+levels(ca$Sex_Casualty)[1] <- "Not known"
 qplot(ca$Sex_Casualty) + bikeR_theme_1
-# ggsave("~/Desktop/casualtysex.png")
+# ggsave("figures/casualtysex.png")
 
 summary(as.factor(ca$Age_Band_of_Casualty))
 wb$Age.Band #
@@ -187,14 +196,21 @@ qplot(ca$CSeverity) + bikeR_theme_1
 # ggsave("~/Desktop/casualtysex.png")
 
 summary(as.factor(ca$Casualty_Type))
+ca$Casualty_Type <- as.factor(ca$Casualty_Type)
 wb$Casualty.Type[,] # Same as cyclist?
-ca$Type <- factor(ca$Casualty_Type , labels = wb$Casualty.Type$label[c(1:17, 19:21)])
+levels(ca$Casualty_Type)
+ca_type_labs <-
+  wb$Casualty.Type$label[match(levels(ca$Casualty_Type), (wb$Casualty.Type$code))]
+
+
+# ca$Type <- factor(ca$Casualty_Type , labels = wb$Casualty.Type$label[c(1:17, 19:21)]) # old
+ca$Type <- factor(ca$Casualty_Type , labels = ca_type_labs) # new
 summary(ca$Type)
 summary(ca$Type) / nrow(ca)
 qplot(ca$Type) + bikeR_theme_1
 # ggsave("~/Desktop/casualtytype.png")
 # save.image("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
-load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
+# load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
 
 ### additional factors
 
@@ -210,9 +226,9 @@ load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
 # wb  <- sub(" ", ".", wb)
 # wb
 # wbN <- sheetNames("Road-Accident-Safety-Data-Guide-1979-2004.xls")
-# 
+#
 # wb <- as.list(wb)
-# 
+#
 # for(i in 1:length(wb)){
 #   print(wbN[i])
 #   wb$
@@ -221,8 +237,10 @@ load("/media/SAMSUNG/repos/bikeR/exclude/all_ac_processed+WY.RData")
 # wbA <- read.xls("Road-Accident-Safety-Data-Guide-1979-2004.xls", sheet=wb[4])
 # wb
 
-summary(as.factor(caWY$Age_Band_of_Casualty ))
+summary(as.factor(ca$Age_Band_of_Casualty ))
+age_cas_factor <- wb$Age.Band$label[match(wb$Age.Band$code, levels(as.factor(ca$Age_Band_of_Casualty )))]
 wb$Age.Band
-vt$Age.Band <- factor(vt$Age_Band_of_Driver , labels = c("na", wb$Age.Band$label[c(11,1:10)]))
-qplot(vt$Age_Band ) + bikeR_theme_1
+vt$Age.Band <- factor(vt$Age_Band_of_Driver , labels = c(NA, age_cas_factor))
+
+qplot(vt$Age.Band ) + bikeR_theme_1
 
