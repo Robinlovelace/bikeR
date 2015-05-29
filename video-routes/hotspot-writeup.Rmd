@@ -1,0 +1,38 @@
+---
+title: "Accident hotspots in Leeds"
+author: "Robin Lovelace"
+date: "May 29, 2015"
+output: pdf_document
+---
+
+This represents a preliminary analysis of accident hotspots
+for cyclists in Leeds.
+It is preliminary because it does not include 2014 data and because
+it does not normalise by estimated exposure. Also, it does not
+make the distinction between different types of cycling trips
+(primarily commuter trips, by time of day). This has the advantage of
+including more data points. The disadvantage is that it heavily reflects
+where cycling is greatest in Leeds, in the north of the city.
+
+All the analysis underlying this research is reproducible.
+In addition, the data underlying the results can be accessed for free online
+by following the code provided in the paper's repository: 
+https://github.com/Robinlovelace/bikeR
+
+In addition, key datasets have been placed on an interactive
+web map so they can be explored.
+
+The 
+
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
