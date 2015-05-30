@@ -2,8 +2,17 @@
 title: "Accident hotspots in Leeds"
 author: "Robin Lovelace"
 date: "May 29, 2015"
-output: pdf_document
+output: 
+  pdf_document: 
+    fig_caption: yes
 ---
+
+```{r, include=FALSE}
+pkgs <- c("grid", "png")
+lapply(pkgs, library, character.only = T)
+```
+
+## Introduction
 
 This represents a preliminary analysis of accident hotspots
 for cyclists in Leeds.
@@ -14,6 +23,17 @@ make the distinction between different types of cycling trips
 including more data points. The disadvantage is that it heavily reflects
 where cycling is greatest in Leeds, in the north of the city.
 
+However, due to the linear nature of roads, we can clearly see that
+some areas are more risky than others: it is fair to assume that cyclists
+travel along the roads before and after the hotspots identified in this analysis.
+The fact that they coincide with junctions and roundabouts, where we would
+intuitely expect crashes to be more frequent, supports the analysis (Fig. 1).
+
+```{r, echo=FALSE, fig.cap="Rasterised layer of accident hotspots with polygons representing clusters estimated using R."}
+grid.raster(readPNG("../figures/leedshot-50m.png"))
+```
+
+
 All the analysis underlying this research is reproducible.
 In addition, the data underlying the results can be accessed for free online
 by following the code provided in the paper's repository: 
@@ -22,17 +42,74 @@ https://github.com/Robinlovelace/bikeR
 In addition, key datasets have been placed on an interactive
 web map so they can be explored.
 
-The 
+## Bicycle crash hotspots
 
+The analysis is based on STATS19 data collected during 9 years,
+from the beginning of 2005 until the end of 2013. 
+Overall there were 4,738 incidents reported by STATS19 in West Yorkshire
+over this period, providing a sufficient amount of geocoded data to 
+explore accident hotspots in the area. The script to load and process the
+data can be found here: https://github.com/Robinlovelace/bikeR/blob/master/video-routes/load-stats19.R
 
-```{r}
-summary(cars)
+The 16 worst offending hotspots, in terms of concentration of crashes
+are displayed in Fig. 1 above and summarised in the table below.
+
+Table: Worst accident hotspots in West Yorkshire arranged by accident
+rate (incidents per hectare per year of hotspots with cell size of 50m).
+
+| n_crashes|  area| accident_rate|name                                             |
+|---------:|-----:|-------------:|:------------------------------------------------|
+|         6|  1871|          3.57|Savins Mill Way, LS5                             |
+|         4|  1354|          3.28|50 Headingley Lane, LS6 2BW                      |
+|         9|  3556|          2.81|2 Burley Wood Mount, LS4 2QG                     |
+|        10|  4146|          2.68|152 Otley Road, LS16 5LG                         |
+|         7|  3740|          2.08|187 Otley Road, LS6 3QG                          |
+|         9|  6084|          1.64|Bayswater Road, LS8 5NA                          |
+|        10|  7021|          1.58|356 Kirkstall Road, LS4 2HQ                      |
+|        11|  7795|          1.57|40 Queen's Road, LS6 1HU                         |
+|        13|  9309|          1.56|2 Rawdon Road, Horsforth, LS18 5DZ               |
+|        12|  8767|          1.52|6 Otley Road, LS16 6QR                           |
+|         5|  3723|          1.49|293 Roundhay Road, LS8 4HS                       |
+|         8|  6901|          1.29|University of Leeds, 197 Woodhouse Lane, LS2 9DY |
+|        83| 87225|          1.06|2 Otley Road, LS6 2DG                            |
+|        43| 46303|          1.03|40 Headingley Lane, LS6 2EB                      |
+|        NA|    87|            NA|2 Bridge Road, LS5 3BL                           |
+|        NA|  1478|            NA|105 Chapeltown Road, LS7 3SG    |
+
+## Subsetting hotspots for further investigation
+
+By observing Fig. 1 and Table 1, we identified 5 offending areas
+to visit and film. The next stage is to see if study participants would find them
+subjectively more dangerous than the surroundings. These are displayed in
+Fig. 2 and in Table 2 below:
+
+Table: 5 case study 'danger hotspots'
+
+|name                         |reason                                         |
+|:----------------------------|:----------------------------------------------|
+|Savins Mill Way, LS5         |Has the highest accident rate                  |
+|50 Headingley Lane, LS6 2BW  |High accident rate                             |
+|356 Kirkstall Road, LS4 2HQ  |Moderate accident rate, isolated at a junction |
+|2 Otley Road, LS6 2DG        |Largest area, surrounded by other hotspots     |
+|105 Chapeltown Road, LS7 3SG |In an under-represented part of town, isolated |
+
+```{r, echo=FALSE, fig.cap="5 hotspots of cycle crashes in north Leeds. See http://rpubs.com/RobinLovelace/83969 for interactive map."}
+grid.raster(readPNG("../figures/5-hots-screenshot.png"))
 ```
 
-You can also embed plots, for example:
+## Further work
 
-```{r, echo=FALSE}
-plot(cars)
+An issue with the analysis so far, as mentioned above, is that it takes no
+account of exposure, i.e. estimates of the current rate of cycling.
+
+This data can be estimated and allocated to the route network thanks
+to recent developments such as the National Propensity to Cycle Tool
+(NPCT). Normalising by this exposure would likely reveal hotspots in
+the south of the city where  there is less cycling.
+
+```{r, echo=FALSE, fig.cap="Cycling to work flows in Leeds from 2011 data, from the National Propensity to Cycle Tool (NPCT)."}
+grid.raster(readPNG("../figures/npct-leeds-screenshot.png"))
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+

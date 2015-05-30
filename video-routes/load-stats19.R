@@ -1,6 +1,6 @@
 # Aim: load, clean and subset STATS19 data
 
-pkgs <- c("rgdal", "downloader", "lubridate", "ggplot2", "dplyr")
+pkgs <- c("rgdal", "downloader", "lubridate", "ggplot2", "dplyr", "raster", "rgeos")
 lapply(pkgs, library, character.only = T)
 
 # # Download latest tables (not raw data) not road traffic casualties
@@ -29,6 +29,12 @@ lapply(pkgs, library, character.only = T)
 # source("stat19/addFactors.R") # add factors to data
 # save(ac, vt, ca, file = "stats19data/2013-alldata.RData")
 
+ls()
+load("stats19data/2013-alldata.RData")
+
+cyCodes <- vt$Acc_Index[vt$Vehicle_Type == 1]
+
+
 cyVt <- vt[ vt$Acc_Index %in% cyCodes, ]
 cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
 nrow(cyVt)
@@ -36,23 +42,24 @@ nrow(cyVt)
 head(cyVt)
 plot(cyAc$Location_Easting_OSGR, cyAc$Location_Northing_OSGR)
 names(cyAc)
-cyAc.mini <- cyAc[c(2,3,6,7,10)]
+vtosel <- c(2,3,6,7,10,12,18) # vars to select
+names(cyAc)[vtosel]
+cyAc.mini <- cyAc[vtosel]
 object.size(cyAc.mini) / 1000000
 head(cyAc.mini)
-save(cyAc.mini, file="/media//SAMSUNG/repos/osm-cycle/cy-uptake/updata/cyAc.mini.STATS19.RData")
+ac <- cyAc.mini # to select only cycle acs
 
 # Subset to Leeds area, then save and play
-# counties <- readOGR(dsn="/scratch/gdata/" , layer="england_ct_2011_gen_clipped")
-# counties <- readOGR(dsn="/media/" , layer="england_ct_2011_gen_clipped")
-# plot(counties)
-# head(counties@data)
-# WY <- counties[ counties$NAME == "West Yorkshire", ]
-# WY <- wy # if already loaded under different name
-plot(WY)
-save(WY, file = "geodata/WYoutline.RData")
-# convert Time text to chron format
-library(chron)
+
+# download("http://census.edina.ac.uk/ukborders/easy_download/prebuilt/shape/England_ct_2011_gen_clipped.zip", dest = "/media/robin/data/data-to-add/boundary/eng-ct-11.zip")
+
+load("geodata/laWY.RData")
+plot(laWY)
+WY <- gBuffer(laWY, width = 0)
+
+library(lubridate)
 ac$time <- as.character(ac$Time)
+timeold <- ac$time
 ac$time <- paste0(ac$time,":00")
 ac$time <- chron(times = ac$time)
 hist(ac$time)
@@ -65,9 +72,6 @@ summary(ac$date)
 plot(ac$date[1:1000])
 library(ggplot2)
 qplot(ac$date, geom="histogram", binwidth = 30) # ...
-
-
-
 
 bbox(WY)
 WY <- spTransform(WY, CRSobj = CRS("+init=epsg:27700"))
@@ -84,7 +88,7 @@ proj4string(ac) <- proj4string(WY)
 plot(WY)
 acWY <- ac[WY,]
 head(acWY@data)
-plot(acWY)
+plot(acWY, add = T)
 acWY$Date[sample(1:nrow(acWY), size=50)]
 
 ## Extract dates from data
@@ -93,4 +97,4 @@ object.size(acWY)/1000000
 object.size(ac)/1000000
 vtWY <- vt[ vt$Acc_Index %in% acWY$Accident_Index, ]
 caWY <- ca[ ca$Acc_Index %in% acWY$Accident_Index, ]
-save(caWY, vtWY, acWY, file="WYall.RData")
+save(caWY, vtWY, acWY, file="geodata/WYall-2005-2013.RData")
