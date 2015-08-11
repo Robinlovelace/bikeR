@@ -92,7 +92,7 @@ qplot(ac$Light_f) + bikeR_theme_1
 # ggsave("~/Desktop/lightconds.png")
 kable(round(prop.table(table(ac$Light_f, ac$cyclist), margin=2) * 100, 1))
 kable(round(prop.table(table(acSerious$Light_f, acSerious$cyclist), margin=2) * 100, 1))
-kable(round(prop.table(table(acDeath$Light_f, acDeath$cyclist), margin=2) * 100, 1))
+# kable(round(prop.table(table(acDeath$Light_f, acDeath$cyclist), margin=2) * 100, 1))
 
 wb$Weather
 summary(as.factor(ac$Weather_Conditions))
@@ -143,7 +143,7 @@ wb$Sex.of.Driver
 vt$Sex_Driver_f <- factor(vt$Sex_of_Driver , labels = wb$Sex.of.Driver$label[c(4,1:3)])
 levels(vt$Sex_Driver_f)[1] <- levels(vt$Sex_Driver_f)[4]
 qplot(vt$Sex_Driver_f) + bikeR_theme_1
-ggsave("~/Desktop/sexdriver.png")
+# ggsave("~/Desktop/sexdriver.png")
 
 summary(as.factor(ca$Age_Band_of_Casualty ))
 wb$Age.Band

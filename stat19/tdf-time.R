@@ -1,22 +1,23 @@
-# Aim: load, clean and subset STATS19 data
+# Aim: explore impact of tdf on cycle accidents in WY, compared with in other areas
 
 pkgs <- c("rgdal", "downloader", "lubridate", "ggplot2", "dplyr", "raster", "rgeos")
 lapply(pkgs, library, character.only = T)
 
 # # Download latest tables (not raw data) not road traffic casualties
-download("http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/Stats19_Data_2005-2014.zip", destfile = "stats19-2014.zip")
-unzip("stats19-2014.zip", exdir = "stats19data")
+# download("http://data.dft.gov.uk.s3.amazonaws.com/road-accidents-safety-data/Stats19_Data_2005-2014.zip", destfile = "stats19-2014.zip")
+# unzip("stats19-2014.zip", exdir = "stats19data")
 #
 # # Download latest stats19 data
 # download(url = "http://data.dft.gov.uk/road-accidents-safety-data/Stats19-Data2005-2013.zip", destfile = "Stats19-Data2005-2013.zip")
 # unzip("Stats19-Data2005-2013.zip", exdir = "stats19data")
-
-ac <- read.csv("stats19data/Accidents0514.csv")
-vt <- read.csv("stats19data/Vehicles0514.csv")
-ca <- read.csv("stats19data/Casualties0514.csv") # casualties
+#
+# ac <- read.csv("stats19data/Accidents0514.csv")
+# vt <- read.csv("stats19data/Vehicles0514.csv")
+# ca <- read.csv("stats19data/Casualties0514.csv") # casualties
 #
 # # Preliminary analysis
-# length(unique(vt$Acc_Index))
+# vt$Accident_Index <- vt$ï..Accident_Index
+# length(unique(vt$Accident_Index)) # 1.6 million vehicles
 #
 # # Extract bike crashes
 # head(vt$Vehicle_Type)
@@ -27,19 +28,20 @@ ca <- read.csv("stats19data/Casualties0514.csv") # casualties
 # ac$cyclist <- factor(ac$cyclist)
 # summary(ac$cyclist)
 # source("stat19/addFactors.R") # add factors to data
-# save(ac, vt, ca, file = "stats19data/2013-alldata.RData")
+# save(ac, vt, ca, file = "stats19data/2014-alldata.RData")
 
 ls()
-load("stats19data/2013-alldata.RData")
+load("stats19data/2014-alldata.RData")
 
-cyCodes <- vt$Acc_Index[vt$Vehicle_Type == 1]
+cyCodes <- vt$Accident_Index[vt$Vehicle_Type == 1]
 
-
-cyVt <- vt[ vt$Acc_Index %in% cyCodes, ]
+ac <- rename(ac, Accident_Index = ï..Accident_Index)
+cyVt <- vt[ vt$Accident_Index %in% cyCodes, ]
 cyAc <- ac[ ac$Accident_Index %in% cyCodes, ]
 nrow(cyVt)
 
 head(cyVt)
+head(cyAc)
 plot(cyAc$Location_Easting_OSGR, cyAc$Location_Northing_OSGR)
 names(cyAc)
 vtosel <- c(2,3,6,7,10,12,18) # vars to select
@@ -59,10 +61,15 @@ WY <- gBuffer(laWY, width = 0)
 
 library(lubridate)
 ac$time <- as.character(ac$Time)
+head(ac$time)
 timeold <- ac$time
 ac$time <- paste0(ac$time,":00")
-ac$time <- chron(times = ac$time)
+# install.packages("chron")
+# library("chron")
+ac$time <- lubridate::hour(ac$time)
 hist(ac$time)
+head(ac$time)
+ggplot() + geom_histogram(aes(x = ac$time))
 
 # same for dates
 head(ac$Date)
@@ -85,16 +92,42 @@ proj4string(ac) <- proj4string(WY)
 ### RUN addFactors here ### and then continue
 
 # all zones in WY
+sel <- as.logical(gIntersects(WY, ac, byid = T))
+summary(sel)
+plot(ac)
+points(ac[sel,], col = "red")
+ac$wy <- "UK"
+ac$wy[sel] <- "West Yorks."
+
+summary(ac@data$date)
+qplot(ac@data$date)
+
+ac$Period <- "2005 - 2013"
+ac$Period[ grepl(pattern = "2014", ac$Date)] <- "2014"
+ac$Month <- lubridate::month(ac$date)
+ac$week <- lubridate::week(ac$date)
+plot(ac$week)
+ac$Day <- paste(ac$Month, ac$mday)
+
+
+ggplot(data = ac@data) + geom_histogram(aes(week), ) + facet_grid(wy ~ Period, scales = "free")
+ggplot(data = ac@data) + geom_histogram(aes(week), ) + facet_wrap(wy ~ Period, scales = "free")
+ggplot(data = ac@data) + geom_histogram(aes(week), ) + facet_wrap(wy ~ Period, scales = "free") + geom_vline(aes(xintercept = 28))
+ggsave("figures/tdf-time-series.png")
+
+sel <- grepl(pattern = "07/2014", ac$Date)
+head(ac@data[sel,])
+
 plot(WY)
 acWY <- ac[WY,]
 head(acWY@data)
 plot(acWY, add = T)
 acWY$Date[sample(1:nrow(acWY), size=50)]
 
-## Extract dates from data
-acWY
-object.size(acWY)/1000000
-object.size(ac)/1000000
-vtWY <- vt[ vt$Acc_Index %in% acWY$Accident_Index, ]
-caWY <- ca[ ca$Acc_Index %in% acWY$Accident_Index, ]
-save(caWY, vtWY, acWY, file="geodata/WYall-2005-2013.RData")
+# ## Extract dates from data
+# acWY
+# object.size(acWY)/1000000
+# object.size(ac)/1000000
+# vtWY <- vt[ vt$Acc_Index %in% acWY$Accident_Index, ]
+# caWY <- ca[ ca$Acc_Index %in% acWY$Accident_Index, ]
+# save(caWY, vtWY, acWY, file="geodata/WYall-2005-2013.RData")
