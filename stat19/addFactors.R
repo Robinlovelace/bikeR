@@ -74,9 +74,9 @@ round(prop.table(table(ac$Junction_Df, ac$cyclist), margin=2) * 100, 1)
 library(knitr)
 kable(round(prop.table(table(ac$Junction_Df, ac$cyclist), margin=2) * 100, 1))
 acSerious <- ac[ ac$Accident_Sf == "Serious" , ]
-kable(round(prop.table(table(acSerious$Junction_Df, acSerious$cyclist), margin=2) * 100, 1))
-acDeath <- ac[ ac$Accident_Sf == "Fatal" , ]
-kable(round(prop.table(table(acDeath$Junction_Df, acDeath$cyclist), margin=2) * 100, 1))
+# kable(round(prop.table(table(acSerious$Junction_Df, acSerious$cyclist), margin=2) * 100, 1))
+# acDeath <- ac[ ac$Accident_Sf == "Fatal" , ]
+# kable(round(prop.table(table(acDeath$Junction_Df, acDeath$cyclist), margin=2) * 100, 1))
 
 # ggsave("~/Desktop/junctiondetail.png")
 
