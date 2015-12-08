@@ -1,0 +1,119 @@
+---
+title: "Vignette Title"
+author: "Vignette Author"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+
+- Never uses retina figures
+- Has a smaller default figure size
+- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+
+```{r}
+library(dplyr)
+ac <- read_stats19_ac()
+ca <- read_stats19_ca()
+ve <- read_stats19_ve()
+
+# merge all stats 19 data at the (lowest) vehicle level
+all_stats19 <- dplyr::inner_join(ve, ca)
+all_stats19 <- dplyr::inner_join(all_stats19, ac)
+# now you can analyse the UK's stats19 data in a single table!
+head(all_stats19$Casualty_Class)
+
+# Just the cyclists - how many vehicles vs records?
+acy <- all_stats19[all_stats19$Casualty_Type == "Cyclist",]
+nrow(unique(acy[,1])) / nrow(acy)
+summary(acy$Number_of_Vehicles)
+
+acp <- all_stats19[all_stats19$Casualty_Type == "Pedestrian",]
+nrow(unique(acp[,1])) / nrow(acp)
+summary(acp$Number_of_Vehicles)
+```
+
+```{r}
+# Joining to accidents first
+as19 <- right_join(ac, ca)
+as19 <- right_join(as19, ve)
+```
+
+
+## Which modes are responsible for casualties
+
+```{r}
+ca$AVR <- paste0(ca$Accident_Index, ca$Vehicle_Reference)
+ve$AVR <- paste0(ve$Accident_Index, ve$Vehicle_Reference)
+a$AVR <- paste0(a[1], a$Vehicle_Reference)
+hitter <- !a$AVR  %in% ca$AVR
+summary(hitter)
+summary(a$Vehicle_Type[hitter])
+```
+
+
+```{r}
+cav <- inner_join(ca, ac)
+cav <- inner_join(cav, ve)
+cav$Perpetrator_Casualty_Type <- as.factor(paste0(cav$Vehicle_Type, " hit a ", cav$Casualty_Type))
+cavt <- table(cav$Perpetrator_Casualty_Type)
+cavt <- cavt[order(cavt, decreasing = T)]
+cavt[1:10]
+sum(cav$Vehicle_Type == "Car" & cav$Casualty_Type == "Cyclist")
+as199 <- as19[!is.na(as19$Vehicle_Type) & !is.na(as19$Casualty_Type),]
+sum(as199$Vehicle_Type == "Car" & as199$Casualty_Type == "Cyclist")
+```
+
+
+## Who gets hit?
+
+```{r}
+names(ca)
+(cat <- table(ca$Casualty_Type)[order(table(ca$Casualty_Type), decreasing = T)])
+barplot(cat[1:3])
+
+sel <- all_stats19$Casualty_Type == "Pedestrian" & all_stats19$Vehicle_Type == "Pedal cycle"
+ss <- all_stats19[sel,]
+
+sum(sel) / nrow(all_stats19)
+sum(all_stats19$Vehicle_Type == "Car" & all_stats19$Casualty_Type == "Cyclist")
+
+```
+
+
+
+
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
