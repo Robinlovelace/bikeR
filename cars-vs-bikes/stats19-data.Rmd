@@ -17,6 +17,7 @@ Vignettes are long form documentation commonly included in packages. Because the
 
 ```{r}
 library(dplyr)
+library(stplanr)
 ac <- read_stats19_ac()
 ca <- read_stats19_ca()
 ve <- read_stats19_ve()
@@ -39,8 +40,20 @@ summary(acp$Number_of_Vehicles)
 
 ```{r}
 # Joining to accidents first
-as19 <- right_join(ac, ca)
-as19 <- right_join(as19, ve)
+ac_orig <- ac
+ac <- ac_orig[1:10000,]
+as19 <- left_join(ac, ca)
+as19 <- rename(as19, vi = Vehicle_Reference)
+as1 <- inner_join(as19, ve)
+
+as_cy <- as1[as1$Type == "Car occupant",]
+hitters <- as_cy[as_cy$Vehicle_Type != "Car",]
+th <- table(hitters$Vehicle_Type)
+th <- th[order(th, decreasing = T)]
+library(stringr)
+names(th) <- word(names(th), 1, sep = " |/")
+th[1:5]
+barplot(th[1:5])
 ```
 
 
