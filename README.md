@@ -1,13 +1,27 @@
-# bikeR - a repository for studying risk to people on bicycles, using R
+---
+title: "bikeR - a repository for studying risk to people on bicycles, using R"
+output:
+  html_document:
+    keep_md: yes
+bibliography: cyclesafety.bib
+---
+
+
+
+## Note
+
+**If you are looking to do reproducible road traffic safety research, please check out the [`stats19` package](https://itsleeds.github.io/stats19/) and accompanying paper [@lovelace_stats19:_2019].**
+
+## Introduction
 
 Welcome to bikeR, a store of code and example data underlying research
 into cycling and the associated risks.
 
 The main branch of this work so far has been an analysis of
 [STATS19](http://data.gov.uk/dataset/road-accidents-safety-data),
-resulting in the following paper, now published in the journal
+resulting in a paper published in the journal
 [Transportation Research Part F: Traffic Psychology and Behaviour](http://www.sciencedirect.com/science/article/pii/S136984781500039X)
-[@Lovelaced]:
+[@lovelace_who_2016].
 
 Of course, an open access version of the pdf is available online,
 [here](http://eprints.whiterose.ac.uk/83930/). The source code used
@@ -22,15 +36,15 @@ for other parts of Great Britain and perhaps the world, without
 
 - To help people learn R in general, an open source language for empowering
 oneself with the tools to extract meaning from data and make visualisations, 
-like this one - see [[@lovelace2014introduction]](https://github.com/Robinlovelace/Creating-maps-in-R):
+like this one - see [[@lovelace_geocomputation_2019]](https://github.com/Robinlovelace/Creating-maps-in-R):
 
 ![](https://github.com/Robinlovelace/bikeR/blob/master/figures/seriousWY.png?raw=true)
 
 To be specific, the code used to produce this map in R can be found here:
 [github.com/Robinlovelace/bikeR/blob/master/stat19/whereWards.R](https://github.com/Robinlovelace/bikeR/blob/master/stat19/whereWards.R)
 
-- To encourage reproducibility, a conerstone of scientific research
-[@Ince2012].
+- To encourage reproducibility, a conerstone of scientific research, in downloading road data [@padgham_osmdata_2017]
+
 
 # References
 
